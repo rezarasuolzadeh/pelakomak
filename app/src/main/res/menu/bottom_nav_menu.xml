@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_car"
+        android:icon="@drawable/car"
+        android:title="اتومبیل" />
+
+    <item
+        android:id="@+id/navigation_motorcycle"
+        android:icon="@drawable/motorcycle"
+        android:title="موتورسیکلت" />
+
+    <item
+        android:id="@+id/navigation_other"
+        android:icon="@drawable/other"
+        android:title="سایر" />
+
+    <item
+        android:id="@+id/navigation_freezone"
+        android:icon="@drawable/freezone"
+        android:title="مناطق آزاد" />
+
+</menu>

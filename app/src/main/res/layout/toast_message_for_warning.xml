@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_margin="5dp"
+    android:layout_gravity="center_horizontal"
+    >
+
+    <LinearLayout
+        android:id="@+id/toast_background"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layoutDirection="ltr"
+        android:background="@drawable/background_for_toast_message_warning">
+
+        <ImageView
+            android:id="@+id/toast_icon"
+            android:src="@drawable/warning"
+            android:layout_marginRight="5dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"/>
+
+        <TextView
+            android:id="@+id/inform_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:fontFamily="@font/iran_sans"
+            android:text="Your message stand here "
+            android:textColor="#000000"
+            android:textSize="12sp"
+            android:layout_gravity="center_vertical"
+            android:textStyle="normal|bold"/>
+    </LinearLayout>
+</LinearLayout>

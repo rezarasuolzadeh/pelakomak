@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_car">
+
+    <fragment
+        android:id="@+id/navigation_car"
+        android:name="ir.rezarasoulzadeh.pelakomak.fragments.car.CarFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_for_car" />
+
+    <fragment
+        android:id="@+id/navigation_motorcycle"
+        android:name="ir.rezarasoulzadeh.pelakomak.fragments.motorcycle.MotorcycleFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_for_motorcycle" />
+
+    <fragment
+        android:id="@+id/navigation_other"
+        android:name="ir.rezarasoulzadeh.pelakomak.fragments.other.OtherFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_for_other" />
+
+    <fragment
+        android:id="@+id/navigation_freezone"
+        android:name="ir.rezarasoulzadeh.pelakomak.fragments.freezone.FreezoneFragment"
+        android:label="menu"
+        tools:layout="@layout/fragment_for_freezone" />
+</navigation>
