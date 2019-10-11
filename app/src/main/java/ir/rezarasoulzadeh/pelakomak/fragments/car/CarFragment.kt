@@ -19,6 +19,7 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import ir.rezarasoulzadeh.pelakomak.R
+import ir.rezarasoulzadeh.pelakomak.database.CarNumberplateDB
 import ir.rezarasoulzadeh.pelakomak.toast.ToastMessage
 
 class CarFragment : Fragment() {
@@ -122,7 +123,8 @@ class CarFragment : Fragment() {
 
         ////////////////////////////////////////////////////////////////////////////////////////////
         // give data base response
-        dbResponse = "قزوین-قزوین، شهرستان البرز"
+        val db = CarNumberplateDB(this.context!!)
+        dbResponse = db.getOneSchedule(stateNumber.text.toString(), countyCharacter.text.toString())
         ////////////////////////////////////////////////////////////////////////////////////////////
 
         // invalid response from database or invalid characters
