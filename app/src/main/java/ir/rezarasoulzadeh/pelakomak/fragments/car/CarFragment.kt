@@ -121,10 +121,9 @@ class CarFragment : Fragment() {
         // var to save database response
         val dbResponse: String
 
-        ////////////////////////////////////////////////////////////////////////////////////////////
-        // give data base response
-        val db = CarNumberplateDB(this.context!!)
-        dbResponse = db.getOneSchedule(stateNumber.text.toString(), countyCharacter.text.toString())
+        /////////////////////////////////// GIVE DATABASE RESPONSE /////////////////////////////////
+        val carDB = CarNumberplateDB(this.context!!)
+        dbResponse = carDB.get(stateNumber.text.toString(), countyCharacter.text.toString())
         ////////////////////////////////////////////////////////////////////////////////////////////
 
         // invalid response from database or invalid characters

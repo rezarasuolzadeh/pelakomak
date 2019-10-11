@@ -8,42 +8,39 @@ import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
 
-class CarNumberplateDB(val mycontext: Context) {
+class CarNumberplateDB(private val context: Context) {
+
+    private val DATABASE_PATH = ("/data/data/" + context.applicationContext.packageName + "/databases/")
+    private var database: SQLiteDatabase? = null
 
     companion object {
-        private val DB_NAME = "iranVehicleNumberPlates.db"
-        private val TABLE_NAME = "IranNumberPlate"
-        private val NUMBER = "list_number"
-        private val CHARACTER = "list_characterCounty_char"
-        private val STATE = "list_state"
-        private val COUNTY = "list_characterCounty_county"
+        private const val DATABASE_NAME = "iranVehicleNumberPlates.db"
+        private const val TABLE_NAME = "IranNumberPlate"
+        private const val NUMBER = "list_number"
+        private const val CHARACTER = "list_characterCounty_char"
+        private const val STATE = "list_state"
+        private const val COUNTY = "list_characterCounty_county"
     }
 
-    private val DB_PATH = ("/data/data/"
-            + mycontext.applicationContext.packageName
-            + "/databases/")
-
-    var myDataBase: SQLiteDatabase? = null
-
     init {
-        val dbexist = checkdatabase()
-        if (dbexist) {
-            opendatabase()
+        val databaseIsExist = checkDatabase()
+        if (databaseIsExist) {
+            openDatabase()
         } else {
             println("Database doesn't exist")
-            createdatabase()
-            opendatabase()
+            createDatabase()
+            openDatabase()
         }
     }
 
     @Throws(IOException::class)
-    fun createdatabase() {
-        val dbexist = checkdatabase()
-        if (dbexist) {
-            //System.out.println(" Database exists.");
+    fun createDatabase() {
+        val databaseIsExist = checkDatabase()
+        if (databaseIsExist) {
+            // database is exist :)
         } else {
             try {
-                copydatabase()
+                copyDatabase()
             } catch (e: IOException) {
                 throw Error("Error copying database")
             }
@@ -51,64 +48,65 @@ class CarNumberplateDB(val mycontext: Context) {
         }
     }
 
-    private fun checkdatabase(): Boolean {
-        var checkdb = false
+    private fun checkDatabase(): Boolean {
+        var databaseCheck = false
         try {
-            val myPath = DB_PATH + DB_NAME
-            val dbfile = File(myPath)
-            checkdb = dbfile.exists()
+            val myPath = DATABASE_PATH + DATABASE_NAME
+            val databaseFile = File(myPath)
+            databaseCheck = databaseFile.exists()
         } catch (e: SQLiteException) {
             println("Database doesn't exist")
         }
 
-        return checkdb
+        return databaseCheck
     }
 
     @Throws(IOException::class)
-    private fun copydatabase() {
+    private fun copyDatabase() {
         //Open your local db as the input stream
-        val myinput = mycontext.assets.open("databases/" + DB_NAME)
+        val databaseInput = context.assets.open("databases/$DATABASE_NAME")
 
         //Open the empty db as the output stream
-        val directory = File(DB_PATH)
-        if (!directory.exists()) {
-            directory.mkdirs()
+        val databaseDirectory = File(DATABASE_PATH)
+        if (!databaseDirectory.exists()) {
+            databaseDirectory.mkdirs()
         }
 
-        val file = File(directory, DB_NAME)
-        file.createNewFile()
+        val databaseFile = File(databaseDirectory, DATABASE_NAME)
+        databaseFile.createNewFile()
 
 
-        val myoutput = FileOutputStream(file)
+        val databaseOutput = FileOutputStream(databaseFile)
 
-        // transfer byte to inputfile to outputfile
+        // transfer byte to input file to output file
         val buffer = ByteArray(1024)
         var length: Int
         while (true) {
-            length = myinput.read(buffer)
-            if (length <= 0)
+            length = databaseInput.read(buffer)
+            if (length <= 0) {
                 break
-            myoutput.write(buffer, 0, length)
+            }
+            databaseOutput.write(buffer, 0, length)
         }
 
         //Close the streams
-        myoutput.flush()
-        myoutput.close()
-        myinput.close()
+        databaseOutput.flush()
+        databaseOutput.close()
+        databaseInput.close()
     }
 
     @Throws(SQLException::class)
-    fun opendatabase() {
+    fun openDatabase() {
         //Open the database
-        val mypath = DB_PATH + DB_NAME
-        myDataBase = SQLiteDatabase.openDatabase(mypath, null, SQLiteDatabase.OPEN_READWRITE)
+        val databasePath = DATABASE_PATH + DATABASE_NAME
+        database = SQLiteDatabase.openDatabase(databasePath, null, SQLiteDatabase.OPEN_READWRITE)
     }
 
-    fun getOneSchedule(number: String, character: String): String {
+    fun get(number: String, character: String): String {
         var response = ""
         val selectOneQuery = "SELECT * FROM $TABLE_NAME WHERE $NUMBER = \"$number\" AND $CHARACTER = \"$character\""
 
-        val cursor = myDataBase?.rawQuery(selectOneQuery, null)
+        val cursor = database?.rawQuery(selectOneQuery, null)
         if (cursor != null) {
             if (cursor.moveToFirst()) {
                 val state = cursor.getString(cursor.getColumnIndex(STATE))
@@ -118,11 +116,11 @@ class CarNumberplateDB(val mycontext: Context) {
             }
         }
 
-        if(response.isEmpty()){
+        if (response.isEmpty()) {
             var secondResponse = ""
             val secondSelectOneQuery = "SELECT * FROM $TABLE_NAME WHERE $NUMBER = \"$number\""
 
-            val secondCursor = myDataBase?.rawQuery(secondSelectOneQuery, null)
+            val secondCursor = database?.rawQuery(secondSelectOneQuery, null)
             if (secondCursor != null) {
                 if (secondCursor.moveToFirst()) {
                     val state = secondCursor.getString(secondCursor.getColumnIndex(STATE))
@@ -132,15 +130,15 @@ class CarNumberplateDB(val mycontext: Context) {
                 }
             }
 
-            if(secondResponse.isNotEmpty()) {
+            if (secondResponse.isNotEmpty()) {
                 cursor?.close()
-                myDataBase?.close()
+                database?.close()
                 return secondResponse
             }
         }
 
         cursor?.close()
-        myDataBase?.close()
+        database?.close()
         return response
     }
 

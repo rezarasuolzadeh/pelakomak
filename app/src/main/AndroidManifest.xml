@@ -6,13 +6,14 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/logo"
+        android:icon="@mipmap/pelakomak_logo"
         android:label="پلاکمک"
-        android:roundIcon="@drawable/logo"
+        android:roundIcon="@mipmap/pelakomak_logo_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
+            android:screenOrientation="portrait"
             android:label="پلاکمک">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
