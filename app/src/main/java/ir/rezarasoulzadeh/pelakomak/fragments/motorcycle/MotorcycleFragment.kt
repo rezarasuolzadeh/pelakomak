@@ -83,7 +83,7 @@ class MotorcycleFragment : Fragment() {
             }
         } else {
             // find the state name in below switch case with number range
-            stateName.setTextColor(Color.BLACK)
+            stateName.setTextColor(Color.WHITE)
 
             // parsing the number box's number to Int
             val number = stateNumber.text.toString().toInt()

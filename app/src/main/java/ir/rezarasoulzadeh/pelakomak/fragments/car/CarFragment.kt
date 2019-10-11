@@ -20,11 +20,11 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import ir.rezarasoulzadeh.pelakomak.R
 import ir.rezarasoulzadeh.pelakomak.database.CarNumberplateDB
-import ir.rezarasoulzadeh.pelakomak.toast.ToastMessage
+import ir.rezarasoulzadeh.pelakomak.snackbar.Snackbar
 
 class CarFragment : Fragment() {
 
-    private val toast = ToastMessage()
+    private val snackbar = Snackbar()
 
     private val validCharacters =
         arrayListOf("ب", "ج", "د", "س", "ص", "ط", "ق", "ل", "م", "ن", "و", "ه", "ی")
@@ -52,11 +52,10 @@ class CarFragment : Fragment() {
         carCountyCharacter.setOnFocusChangeListener { v, hasFocus ->
             if (hasFocus) {
                 if (carStateNumber.text.isEmpty()) {
-                    toast.show(
+                    snackbar.show(
                         "ابتدا دو رقم سمت راست را وارد کنید",
-                        "warning",
                         "long",
-                        this.activity!!,
+                        root,
                         inflater
                     )
                     layout.requestFocus()
@@ -151,8 +150,8 @@ class CarFragment : Fragment() {
             stateName.text = responseSections[0]
             countyName.text = responseSections[1]
             countyName.isSelected = true
-            stateName.setTextColor(Color.BLACK)
-            countyName.setTextColor(Color.BLACK)
+            stateName.setTextColor(Color.WHITE)
+            countyName.setTextColor(Color.WHITE)
         }
     }
 
