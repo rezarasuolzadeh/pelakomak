@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/pelakomakDarkBlue"
+        android:layoutDirection="ltr"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/snackbar_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:fontFamily="@font/iran_sans"
+            android:gravity="center"
+            android:padding="3dp"
+            android:text="پیغام شما در این قسمت قرار می گیرد"
+            android:textColor="@color/pelakomakText"
+            android:textSize="13sp"
+            android:textStyle="normal" />
+    </LinearLayout>
+
+</LinearLayout>
