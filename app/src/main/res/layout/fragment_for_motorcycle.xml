@@ -120,6 +120,7 @@
                         android:fontFamily="@font/iran_sans"
                         android:gravity="center"
                         android:hint="پلاک بالا را تکمیل کنید"
+                        android:textColorHint="@color/pelakomakHint"
                         android:padding="12dp"
                         android:textColor="@color/pelakomakText"
                         android:textSize="25sp"

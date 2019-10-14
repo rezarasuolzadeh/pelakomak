@@ -2,10 +2,11 @@
 <resources>
     <color name="colorPrimary">#014E92</color>
     <color name="colorPrimaryDark">#000836</color>
-    <color name="colorAccent">#fff</color>
+    <color name="colorAccent">#000836</color>
     <color name="pelakomakWhite">#fff</color>
     <color name="pelakomakDarkBlue">#000836</color>
     <color name="pelakomakLightBlue">#014E92</color>
     <color name="pelakomakTitle">#8B8B8B</color>
     <color name="pelakomakText">#fff</color>
+    <color name="pelakomakHint">#01315D</color>
 </resources>
