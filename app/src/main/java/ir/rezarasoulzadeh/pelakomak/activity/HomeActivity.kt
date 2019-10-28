@@ -1,4 +1,4 @@
-package ir.rezarasoulzadeh.pelakomak
+package ir.rezarasoulzadeh.pelakomak.activity
 
 import android.os.Bundle
 import android.os.Handler
@@ -8,9 +8,10 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import ir.rezarasoulzadeh.pelakomak.R
 import ir.rezarasoulzadeh.pelakomak.snackbar.Snackbar
 
-class MainActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity() {
 
     private val snackbar = Snackbar()
 
@@ -54,4 +55,3 @@ class MainActivity : AppCompatActivity() {
     }
 
 }
-
