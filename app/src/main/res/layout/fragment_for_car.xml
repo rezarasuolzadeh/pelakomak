@@ -15,7 +15,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:src="@drawable/car" />
+            android:src="@drawable/ic_car" />
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -56,7 +56,7 @@
                             android:fontFamily="@font/iran_sans_number"
                             android:text="۱۲"
                             android:textColor="#000000"
-                            android:textSize="50sp"
+                            android:textSize="50dp"
                             android:textStyle="normal|bold" />
 
                         <EditText
@@ -73,7 +73,7 @@
                             android:inputType="textPersonName"
                             android:maxLength="1"
                             android:textColor="#000011"
-                            android:textSize="40sp"
+                            android:textSize="40dp"
                             android:textStyle="normal|bold" />
 
                         <TextView
@@ -84,7 +84,7 @@
                             android:fontFamily="@font/iran_sans_number"
                             android:text="۳۶۵"
                             android:textColor="#000"
-                            android:textSize="50sp"
+                            android:textSize="50dp"
                             android:textStyle="normal|bold" />
 
                         <LinearLayout
@@ -108,7 +108,7 @@
                                 android:inputType="number"
                                 android:maxLength="2"
                                 android:textColor="#000011"
-                                android:textSize="40sp"
+                                android:textSize="40dp"
                                 android:textStyle="normal|bold" />
                         </LinearLayout>
                     </LinearLayout>
@@ -133,7 +133,7 @@
                         android:padding="5dp"
                         android:text="استان"
                         android:textColor="@color/pelakomakTitle"
-                        android:textSize="20sp"
+                        android:textSize="20dp"
                         android:textStyle="normal|bold" />
 
                     <TextView
@@ -146,7 +146,7 @@
                         android:textColorHint="@color/pelakomakHint"
                         android:padding="12dp"
                         android:textColor="@color/pelakomakText"
-                        android:textSize="25sp"
+                        android:textSize="25dp"
                         android:textStyle="normal|bold" />
                 </LinearLayout>
 
@@ -168,24 +168,24 @@
                         android:padding="5dp"
                         android:text="شهرستان"
                         android:textColor="@color/pelakomakTitle"
-                        android:textSize="20sp"
+                        android:textSize="20dp"
                         android:textStyle="normal|bold" />
 
                     <TextView
                         android:id="@+id/car_county"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:ellipsize="marquee"
                         android:fontFamily="@font/iran_sans"
                         android:gravity="center"
                         android:hint="پلاک بالا را تکمیل کنید"
                         android:textColorHint="@color/pelakomakHint"
-                        android:marqueeRepeatLimit="marquee_forever"
                         android:padding="12dp"
+                        android:marqueeRepeatLimit="marquee_forever"
                         android:scrollHorizontally="true"
+                        android:ellipsize="marquee"
                         android:singleLine="true"
                         android:textColor="@color/pelakomakText"
-                        android:textSize="25sp"
+                        android:textSize="25dp"
                         android:textStyle="normal|bold" />
                 </LinearLayout>
             </LinearLayout>

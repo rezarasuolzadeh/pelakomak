@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.OvershootInterpolator
 import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -37,6 +38,7 @@ class OtherFragment : Fragment() {
             Other("معلولین", R.drawable.maloolin),
             Other("تاکسی", R.drawable.taxi),
             Other("نیروهای مسلّح", R.drawable.nirohayemosallah),
+            Other("گذر موقت", R.drawable.gozarmovaghat),
             Other("پلیس", R.drawable.police),
             Other("عمومی", R.drawable.omoomi),
             Other("تشریفات", R.drawable.tashrifat),

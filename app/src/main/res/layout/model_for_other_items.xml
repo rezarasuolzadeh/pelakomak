@@ -2,6 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
     <LinearLayout
@@ -19,18 +21,19 @@
             android:fontFamily="@font/iran_sans"
             android:gravity="center"
             android:padding="5dp"
-            android:text="تاکسی"
+            tools:text="تاکسی"
             android:textColor="@color/pelakomakText"
-            android:textSize="20sp"
+            android:textSize="20dp"
             android:textStyle="normal|bold" />
 
-        <ImageView
+        <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/other_numberplate"
             android:layout_width="wrap_content"
             android:layout_height="80dp"
             android:layout_gravity="center"
             android:padding="10dp"
-            android:src="@drawable/taxi" />
+            tools:src="@drawable/taxi" />
+
     </LinearLayout>
 
 

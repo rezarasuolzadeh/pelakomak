@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_car">
+    app:startDestination="@+id/navigation_home">
 
     <fragment
         android:id="@+id/navigation_car"
@@ -16,6 +16,12 @@
         android:name="ir.rezarasoulzadeh.pelakomak.fragments.motorcycle.MotorcycleFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_for_motorcycle" />
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="ir.rezarasoulzadeh.pelakomak.fragments.home.HomeFragment"
+        android:label="asli"
+        tools:layout="@layout/fragment_for_home" />
 
     <fragment
         android:id="@+id/navigation_other"

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
@@ -19,19 +20,27 @@
             android:fontFamily="@font/iran_sans"
             android:gravity="center"
             android:padding="5dp"
-            android:text="کیش"
             android:textColor="@color/pelakomakText"
-            android:textSize="20sp"
-            android:textStyle="normal|bold" />
+            android:textSize="20dp"
+            android:textStyle="normal|bold"
+            tools:text="کیش" />
 
-        <ImageView
+        <!--<ImageView
             android:id="@+id/freezone_numberplate"
             android:layout_width="wrap_content"
             android:layout_height="100dp"
             android:layout_gravity="center"
             android:padding="10dp"
-            android:src="@drawable/kish" />
-    </LinearLayout>
+            tools:src="@drawable/kish" />
+-->
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/freezone_numberplate"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            tools:src="@drawable/kish" />
 
+    </LinearLayout>
 
 </LinearLayout>

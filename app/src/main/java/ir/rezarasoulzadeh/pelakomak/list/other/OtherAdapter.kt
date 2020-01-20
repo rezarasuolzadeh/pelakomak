@@ -1,12 +1,12 @@
 package ir.rezarasoulzadeh.pelakomak.list.other
 
-import androidx.recyclerview.widget.RecyclerView
-import ir.rezarasoulzadeh.pelakomak.R
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
+import com.facebook.drawee.view.SimpleDraweeView
+import ir.rezarasoulzadeh.pelakomak.R
 
 class OtherAdapter(private val other: Array<Other>) :
     RecyclerView.Adapter<OtherAdapter.ViewHolder>() {
@@ -33,7 +33,7 @@ class OtherAdapter(private val other: Array<Other>) :
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val name: TextView = itemView.findViewById(R.id.other_name)
-        val numberplate: ImageView = itemView.findViewById(R.id.other_numberplate)
+        val numberplate: SimpleDraweeView = itemView.findViewById(R.id.other_numberplate)
     }
 
 }

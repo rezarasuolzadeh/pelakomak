@@ -22,7 +22,7 @@
             android:padding="3dp"
             android:text="پیغام شما در این قسمت قرار می گیرد"
             android:textColor="@color/pelakomakText"
-            android:textSize="13sp"
+            android:textSize="13dp"
             android:textStyle="normal" />
     </LinearLayout>
 
