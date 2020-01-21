@@ -1,4 +1,4 @@
-package ir.rezarasoulzadeh.pelakomak.list.other
+package ir.rezarasoulzadeh.pelakomak.view.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.facebook.drawee.view.SimpleDraweeView
 import ir.rezarasoulzadeh.pelakomak.R
+import ir.rezarasoulzadeh.pelakomak.model.Other
 
 class OtherAdapter(private val other: Array<Other>) :
     RecyclerView.Adapter<OtherAdapter.ViewHolder>() {
@@ -24,7 +25,9 @@ class OtherAdapter(private val other: Array<Other>) :
         val viewHolder =
             LayoutInflater.from(parent.context)
                 .inflate(R.layout.model_for_other_items, parent, false)
-        return ViewHolder(viewHolder)
+        return ViewHolder(
+            viewHolder
+        )
     }
 
     override fun getItemCount(): Int {

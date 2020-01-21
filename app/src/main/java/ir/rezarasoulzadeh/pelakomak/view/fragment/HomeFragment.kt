@@ -1,4 +1,4 @@
-package ir.rezarasoulzadeh.pelakomak.fragments.home
+package ir.rezarasoulzadeh.pelakomak.view.fragment
 
 import android.annotation.SuppressLint
 import android.os.Bundle

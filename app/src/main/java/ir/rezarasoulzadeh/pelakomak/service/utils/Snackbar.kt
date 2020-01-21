@@ -1,4 +1,4 @@
-package ir.rezarasoulzadeh.pelakomak.snackbar
+package ir.rezarasoulzadeh.pelakomak.service.utils
 
 import android.view.View
 import android.widget.TextView

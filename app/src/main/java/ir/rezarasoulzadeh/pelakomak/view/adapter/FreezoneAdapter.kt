@@ -1,4 +1,4 @@
-package ir.rezarasoulzadeh.pelakomak.list.freezone
+package ir.rezarasoulzadeh.pelakomak.view.adapter
 
 import androidx.recyclerview.widget.RecyclerView
 import ir.rezarasoulzadeh.pelakomak.R
@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.facebook.drawee.view.SimpleDraweeView
+import ir.rezarasoulzadeh.pelakomak.model.Freezone
 
 class FreezoneAdapter(private val freezone: Array<Freezone>) :
     RecyclerView.Adapter<FreezoneAdapter.ViewHolder>() {
@@ -24,7 +25,9 @@ class FreezoneAdapter(private val freezone: Array<Freezone>) :
         val viewHolder =
             LayoutInflater.from(parent.context)
                 .inflate(R.layout.model_for_freezone_items, parent, false)
-        return ViewHolder(viewHolder)
+        return ViewHolder(
+            viewHolder
+        )
     }
 
     override fun getItemCount(): Int {

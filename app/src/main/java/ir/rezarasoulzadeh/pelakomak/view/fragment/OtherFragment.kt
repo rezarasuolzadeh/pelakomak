@@ -1,18 +1,17 @@
-package ir.rezarasoulzadeh.pelakomak.fragments.other
+package ir.rezarasoulzadeh.pelakomak.view.fragment
 
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.OvershootInterpolator
 import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ir.rezarasoulzadeh.pelakomak.R
-import ir.rezarasoulzadeh.pelakomak.list.other.Other
-import ir.rezarasoulzadeh.pelakomak.list.other.OtherAdapter
+import ir.rezarasoulzadeh.pelakomak.model.Other
+import ir.rezarasoulzadeh.pelakomak.view.adapter.OtherAdapter
 
 class OtherFragment : Fragment() {
 
@@ -32,20 +31,42 @@ class OtherFragment : Fragment() {
             Other("سیاسی", R.drawable.siasi),
             Other("سپاه", R.drawable.sepah),
             Other("دولتی", R.drawable.dolati),
-            Other("وزارت دفاع", R.drawable.vezaratdefae),
+            Other(
+                "وزارت دفاع",
+                R.drawable.vezaratdefae
+            ),
             Other("خدمت", R.drawable.khedmat),
-            Other("کشاورزی", R.drawable.keshavarzi),
-            Other("معلولین", R.drawable.maloolin),
+            Other(
+                "کشاورزی",
+                R.drawable.keshavarzi
+            ),
+            Other(
+                "معلولین",
+                R.drawable.maloolin
+            ),
             Other("تاکسی", R.drawable.taxi),
-            Other("نیروهای مسلّح", R.drawable.nirohayemosallah),
-            Other("گذر موقت", R.drawable.gozarmovaghat),
+            Other(
+                "نیروهای مسلّح",
+                R.drawable.nirohayemosallah
+            ),
+            Other(
+                "گذر موقت",
+                R.drawable.gozarmovaghat
+            ),
             Other("پلیس", R.drawable.police),
             Other("عمومی", R.drawable.omoomi),
-            Other("تشریفات", R.drawable.tashrifat),
-            Other("تاریخی", R.drawable.tarikhi)
+            Other(
+                "تشریفات",
+                R.drawable.tashrifat
+            ),
+            Other(
+                "تاریخی",
+                R.drawable.tarikhi
+            )
         )
 
-        val adapter = OtherAdapter(other)
+        val adapter =
+            OtherAdapter(other)
         otherRecyclerView.adapter = adapter
 
         return root

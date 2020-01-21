@@ -1,4 +1,4 @@
-package ir.rezarasoulzadeh.pelakomak.fragments.car
+package ir.rezarasoulzadeh.pelakomak.view.fragment
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -19,8 +19,8 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import ir.rezarasoulzadeh.pelakomak.R
-import ir.rezarasoulzadeh.pelakomak.database.CarNumberplateDB
-import ir.rezarasoulzadeh.pelakomak.snackbar.Snackbar
+import ir.rezarasoulzadeh.pelakomak.service.database.CarNumberplateDB
+import ir.rezarasoulzadeh.pelakomak.service.utils.Snackbar
 
 class CarFragment : Fragment() {
 
@@ -121,7 +121,8 @@ class CarFragment : Fragment() {
         val dbResponse: String
 
         /////////////////////////////////// GIVE DATABASE RESPONSE /////////////////////////////////
-        val carDB = CarNumberplateDB(this.context!!)
+        val carDB =
+            CarNumberplateDB(this.context!!)
         dbResponse = carDB.get(stateNumber.text.toString(), countyCharacter.text.toString())
         ////////////////////////////////////////////////////////////////////////////////////////////
 

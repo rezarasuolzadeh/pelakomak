@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">Pelakomak</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+
+    <string name="navigationCarTitle">اتومبیل</string>
+    <string name="navigationMotorcycleTitle">موتورسیکلت</string>
+    <string name="navigationHomeTitle">پلاکمک</string>
+    <string name="navigationOtherTitle">سایر پلاک ها</string>
+    <string name="navigationFreezoneTitle">مناطق آزاد</string>
+
 </resources>

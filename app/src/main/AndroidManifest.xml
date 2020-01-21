@@ -9,13 +9,13 @@
         android:allowBackup="true"
         android:icon="@mipmap/pelakomak_logo"
         android:label="پلاکمک"
-        android:name=".MyApplication"
+        android:name=".service.config.MyApplication"
         android:roundIcon="@mipmap/pelakomak_logo_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".activity.MainActivity"
+            android:name=".view.activity.MainActivity"
             android:screenOrientation="portrait"
             android:label="پلاکمک">
             <intent-filter>
@@ -25,7 +25,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activity.HomeActivity"/>
+        <activity android:name=".view.activity.HomeActivity"/>
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package ir.rezarasoulzadeh.pelakomak.activity
+package ir.rezarasoulzadeh.pelakomak.view.activity
 
 import android.os.Bundle
 import android.os.Handler
@@ -10,12 +10,12 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import ir.rezarasoulzadeh.pelakomak.R
-import ir.rezarasoulzadeh.pelakomak.fragments.car.CarFragment
-import ir.rezarasoulzadeh.pelakomak.fragments.freezone.FreezoneFragment
-import ir.rezarasoulzadeh.pelakomak.fragments.home.HomeFragment
-import ir.rezarasoulzadeh.pelakomak.fragments.motorcycle.MotorcycleFragment
-import ir.rezarasoulzadeh.pelakomak.fragments.other.OtherFragment
-import ir.rezarasoulzadeh.pelakomak.snackbar.Snackbar
+import ir.rezarasoulzadeh.pelakomak.view.fragment.CarFragment
+import ir.rezarasoulzadeh.pelakomak.view.fragment.FreezoneFragment
+import ir.rezarasoulzadeh.pelakomak.view.fragment.HomeFragment
+import ir.rezarasoulzadeh.pelakomak.view.fragment.MotorcycleFragment
+import ir.rezarasoulzadeh.pelakomak.view.fragment.OtherFragment
+import ir.rezarasoulzadeh.pelakomak.service.utils.Snackbar
 
 class HomeActivity : AppCompatActivity() {
 
@@ -50,7 +50,8 @@ class HomeActivity : AppCompatActivity() {
 
         navigationCar.setOnClickListener {
             val transaction = supportFragmentManager.beginTransaction()
-            val fragment = CarFragment()
+            val fragment =
+                CarFragment()
             transaction.replace(R.id.nav_host_fragment, fragment)
             transaction.addToBackStack(null)
             transaction.commit()
@@ -59,7 +60,8 @@ class HomeActivity : AppCompatActivity() {
 
         navigationMotorcycle.setOnClickListener {
             val transaction = supportFragmentManager.beginTransaction()
-            val fragment = MotorcycleFragment()
+            val fragment =
+                MotorcycleFragment()
             transaction.replace(R.id.nav_host_fragment, fragment)
             transaction.addToBackStack(null)
             transaction.commit()
@@ -68,7 +70,8 @@ class HomeActivity : AppCompatActivity() {
 
         navigationOther.setOnClickListener {
             val transaction = supportFragmentManager.beginTransaction()
-            val fragment = OtherFragment()
+            val fragment =
+                OtherFragment()
             transaction.replace(R.id.nav_host_fragment, fragment)
             transaction.addToBackStack(null)
             transaction.commit()
@@ -77,7 +80,8 @@ class HomeActivity : AppCompatActivity() {
 
         navigationFreezone.setOnClickListener {
             val transaction = supportFragmentManager.beginTransaction()
-            val fragment = FreezoneFragment()
+            val fragment =
+                FreezoneFragment()
             transaction.replace(R.id.nav_host_fragment, fragment)
             transaction.addToBackStack(null)
             transaction.commit()
@@ -86,7 +90,8 @@ class HomeActivity : AppCompatActivity() {
 
         navigationHome.setOnClickListener {
             val transaction = supportFragmentManager.beginTransaction()
-            val fragment = HomeFragment()
+            val fragment =
+                HomeFragment()
             transaction.replace(R.id.nav_host_fragment, fragment)
             transaction.addToBackStack(null)
             transaction.commit()

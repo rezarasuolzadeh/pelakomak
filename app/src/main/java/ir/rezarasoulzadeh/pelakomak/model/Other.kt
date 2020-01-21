@@ -1,3 +1,3 @@
-package ir.rezarasoulzadeh.pelakomak.list.other
+package ir.rezarasoulzadeh.pelakomak.model
 
 data class Other(val name: String, val numberplate: Int)

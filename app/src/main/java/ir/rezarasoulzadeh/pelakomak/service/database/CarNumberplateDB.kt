@@ -1,4 +1,4 @@
-package ir.rezarasoulzadeh.pelakomak.database
+package ir.rezarasoulzadeh.pelakomak.service.database
 
 import android.content.Context
 import android.database.SQLException
@@ -72,7 +72,9 @@ class CarNumberplateDB(private val context: Context) {
             databaseDirectory.mkdirs()
         }
 
-        val databaseFile = File(databaseDirectory, DATABASE_NAME)
+        val databaseFile = File(databaseDirectory,
+            DATABASE_NAME
+        )
         databaseFile.createNewFile()
 
 
@@ -123,8 +125,12 @@ class CarNumberplateDB(private val context: Context) {
             val secondCursor = database?.rawQuery(secondSelectOneQuery, null)
             if (secondCursor != null) {
                 if (secondCursor.moveToFirst()) {
-                    val state = secondCursor.getString(secondCursor.getColumnIndex(STATE))
-                    val county = secondCursor.getString(secondCursor.getColumnIndex(COUNTY))
+                    val state = secondCursor.getString(secondCursor.getColumnIndex(
+                        STATE
+                    ))
+                    val county = secondCursor.getString(secondCursor.getColumnIndex(
+                        COUNTY
+                    ))
 
                     secondResponse = "$state-$county"
                 }

@@ -1,4 +1,4 @@
-package ir.rezarasoulzadeh.pelakomak.fragments.motorcycle
+package ir.rezarasoulzadeh.pelakomak.view.fragment
 
 import android.app.Activity
 import android.content.Context

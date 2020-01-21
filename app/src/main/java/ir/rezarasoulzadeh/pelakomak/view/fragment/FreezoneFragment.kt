@@ -1,4 +1,4 @@
-package ir.rezarasoulzadeh.pelakomak.fragments.freezone
+package ir.rezarasoulzadeh.pelakomak.view.fragment
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -10,8 +10,8 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ir.rezarasoulzadeh.pelakomak.R
-import ir.rezarasoulzadeh.pelakomak.list.freezone.Freezone
-import ir.rezarasoulzadeh.pelakomak.list.freezone.FreezoneAdapter
+import ir.rezarasoulzadeh.pelakomak.model.Freezone
+import ir.rezarasoulzadeh.pelakomak.view.adapter.FreezoneAdapter
 
 class FreezoneFragment : Fragment() {
 
@@ -28,15 +28,28 @@ class FreezoneFragment : Fragment() {
 
         val freezone = arrayOf(
             Freezone("کیش", R.drawable.kish),
-            Freezone("قشم", R.drawable.gheshm),
-            Freezone("چابهار", R.drawable.chabahar),
+            Freezone(
+                "قشم",
+                R.drawable.gheshm
+            ),
+            Freezone(
+                "چابهار",
+                R.drawable.chabahar
+            ),
             Freezone("ارس", R.drawable.aras),
-            Freezone("اروند", R.drawable.arvand),
-            Freezone("انزلی", R.drawable.anzali),
+            Freezone(
+                "اروند",
+                R.drawable.arvand
+            ),
+            Freezone(
+                "انزلی",
+                R.drawable.anzali
+            ),
             Freezone("ماکو", R.drawable.maku)
         )
 
-        val adapter = FreezoneAdapter(freezone)
+        val adapter =
+            FreezoneAdapter(freezone)
         freezoneRecyclerView.adapter = adapter
 
         return root

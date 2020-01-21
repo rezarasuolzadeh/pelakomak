@@ -4,26 +4,26 @@
     <item
         android:id="@+id/navigation_car"
         android:icon="@drawable/ic_car"
-        android:title="اتومبیل" />
+        android:title="@string/navigationCarTitle" />
 
     <item
         android:id="@+id/navigation_motorcycle"
         android:icon="@drawable/ic_motorcycle"
-        android:title="موتورسیکلت" />
+        android:title="@string/navigationMotorcycleTitle" />
 
     <item
         android:id="@+id/navigation_home"
         android:icon="@drawable/ic_home"
-        android:title="خانه" />
+        android:title="@string/navigationMotorcycleTitle" />
 
     <item
         android:id="@+id/navigation_other"
         android:icon="@drawable/ic_other"
-        android:title="سایر پلاک ها" />
+        android:title="@string/navigationHomeTitle" />
 
     <item
         android:id="@+id/navigation_freezone"
         android:icon="@drawable/ic_freezone"
-        android:title="مناطق آزاد" />
+        android:title="@string/navigationFreezoneTitle" />
 
 </menu>

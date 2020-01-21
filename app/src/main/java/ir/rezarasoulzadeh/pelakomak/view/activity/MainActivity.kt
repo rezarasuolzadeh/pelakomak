@@ -1,4 +1,4 @@
-package ir.rezarasoulzadeh.pelakomak.activity
+package ir.rezarasoulzadeh.pelakomak.view.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
