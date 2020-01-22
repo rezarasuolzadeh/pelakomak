@@ -59,4 +59,6 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
     // Fresco
     implementation 'com.facebook.fresco:fresco:1.10.0'
+    // Gson
+    implementation 'com.google.code.gson:gson:2.8.5'
 }

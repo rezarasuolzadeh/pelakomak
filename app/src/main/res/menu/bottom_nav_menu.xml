@@ -14,12 +14,12 @@
     <item
         android:id="@+id/navigation_home"
         android:icon="@drawable/ic_home"
-        android:title="@string/navigationMotorcycleTitle" />
+        android:title="@string/navigationHomeTitle" />
 
     <item
         android:id="@+id/navigation_other"
         android:icon="@drawable/ic_other"
-        android:title="@string/navigationHomeTitle" />
+        android:title="@string/navigationOtherTitle" />
 
     <item
         android:id="@+id/navigation_freezone"

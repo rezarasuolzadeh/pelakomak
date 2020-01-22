@@ -8,30 +8,30 @@
     <fragment
         android:id="@+id/navigation_car"
         android:name="ir.rezarasoulzadeh.pelakomak.view.fragment.CarFragment"
-        android:label="@string/title_home"
+        android:label="@string/fragmentCarLabel"
         tools:layout="@layout/fragment_for_car" />
 
     <fragment
         android:id="@+id/navigation_motorcycle"
         android:name="ir.rezarasoulzadeh.pelakomak.view.fragment.MotorcycleFragment"
-        android:label="@string/title_dashboard"
+        android:label="@string/fragmentMotorcycleLabel"
         tools:layout="@layout/fragment_for_motorcycle" />
 
     <fragment
         android:id="@+id/navigation_home"
         android:name="ir.rezarasoulzadeh.pelakomak.view.fragment.HomeFragment"
-        android:label="asli"
+        android:label="@string/fragmentHomeLabel"
         tools:layout="@layout/fragment_for_home" />
 
     <fragment
         android:id="@+id/navigation_other"
         android:name="ir.rezarasoulzadeh.pelakomak.view.fragment.OtherFragment"
-        android:label="@string/title_notifications"
+        android:label="@string/fragmentOtherLabel"
         tools:layout="@layout/fragment_for_other" />
 
     <fragment
         android:id="@+id/navigation_freezone"
         android:name="ir.rezarasoulzadeh.pelakomak.view.fragment.FreezoneFragment"
-        android:label="menu"
+        android:label="@string/fragmentFreezoneLabel"
         tools:layout="@layout/fragment_for_freezone" />
 </navigation>

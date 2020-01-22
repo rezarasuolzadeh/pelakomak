@@ -7,4 +7,10 @@
     <string name="navigationOtherTitle">سایر پلاک ها</string>
     <string name="navigationFreezoneTitle">مناطق آزاد</string>
 
+    <string name="fragmentCarLabel">اتومبیل</string>
+    <string name="fragmentMotorcycleLabel">موتورسیکلت</string>
+    <string name="fragmentHomeLabel">پلاکمک</string>
+    <string name="fragmentOtherLabel">سایر پلاک ها</string>
+    <string name="fragmentFreezoneLabel">مناطق آزاد</string>
+
 </resources>

@@ -17,6 +17,7 @@
         <activity
             android:name=".view.activity.MainActivity"
             android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"
             android:label="پلاکمک">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
