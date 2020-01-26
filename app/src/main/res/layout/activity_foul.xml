@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/pelakomakDarkBlue"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/background_for_search_bar"
+        android:layoutDirection="rtl"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="8"
+            android:background="#00FFFFFF"
+            android:fontFamily="@font/iran_sans_number"
+            android:hint="کد ۸ رقمی"
+            android:inputType="number"
+            android:maxLength="8"
+            android:padding="10dp"
+            android:textColor="#fff"
+            android:textColorHint="@color/pelakomakWhite"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:layoutDirection="ltr"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/background_for_button"
+            android:clickable="true"
+            android:focusable="true"
+            android:fontFamily="@font/iran_sans"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="تاریخچه"
+            android:textColor="@color/pelakomakWhite"
+            android:textSize="15dp"
+            android:textStyle="normal" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="3"
+            android:background="@drawable/background_for_button"
+            android:clickable="true"
+            android:focusable="true"
+            android:fontFamily="@font/iran_sans"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="دریافت خلافی"
+            android:textColor="@color/pelakomakWhite"
+            android:textSize="15dp"
+            android:textStyle="normal" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/background_for_button"
+            android:clickable="true"
+            android:focusable="true"
+            android:fontFamily="@font/iran_sans"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="کد چیه؟"
+            android:textColor="@color/pelakomakWhite"
+            android:textSize="15dp"
+            android:textStyle="normal" />
+
+
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardCornerRadius="25dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/pelakomakLightBlue"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/foulRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

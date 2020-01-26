@@ -59,6 +59,16 @@
             android:background="@color/pelakomakLightBlue"
             android:orientation="vertical">
 
+            <Button
+                android:id="@+id/foulButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="خلافی خودرو"
+                android:textColor="@color/pelakomakWhite"
+                android:background="@color/pelakomakDarkBlue"
+                android:layout_margin="20dp"
+                android:fontFamily="@font/iran_sans"
+                android:textSize="18dp"/>
 
         </LinearLayout>
 
