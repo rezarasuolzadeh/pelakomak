@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
-    app:cardCornerRadius="21dp">
+    android:background="@drawable/background_for_foul_items"
+    app:cardCornerRadius="21dp"
+    app:cardElevation="5dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -34,17 +36,6 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="۲۳:۰۰:۰۰" />
 
-            <ImageView
-                android:id="@+id/typeImageView"
-                android:layout_width="50dp"
-                android:layout_height="40dp"
-                android:padding="5dp"
-                android:src="@drawable/ic_officer"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
             <TextView
                 android:id="@+id/dateTextView"
                 android:layout_width="wrap_content"
@@ -65,10 +56,14 @@
             android:id="@+id/titleTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/iran_sans"
             android:gravity="center"
             android:padding="5dp"
-            android:fontFamily="@font/iran_sans"
-            android:textColor="@color/pelakomakWhite"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:textColor="#F1E7B2"
             android:textSize="18dp"
             android:textStyle="bold"
             tools:text="تجاوز از سرعت مجاز" />
@@ -77,37 +72,86 @@
             android:id="@+id/priceTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/iran_sans_number"
             android:gravity="center"
             android:padding="5dp"
-            android:fontFamily="@font/iran_sans_number"
-            android:textColor="@color/pelakomakWhite"
+            android:textColor="#F1B2B2"
             android:textSize="20dp"
             android:textStyle="bold"
             tools:text="۶۰,۰۰۰" />
 
-        <TextView
-            android:id="@+id/cityTextView"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layoutDirection="rtl"
             android:gravity="center"
-            android:padding="5dp"
-            android:fontFamily="@font/iran_sans"
-            android:textColor="@color/pelakomakWhite"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            tools:text="تهران" />
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/locationTextView"
+            <TextView
+                android:id="@+id/cityTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/iran_sans"
+                android:gravity="center"
+                android:padding="5dp"
+                android:textColor="@color/pelakomakWhite"
+                android:textSize="12dp"
+                android:textStyle="normal"
+                tools:text="تهران" />
+
+            <TextView
+                android:id="@+id/locationTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/iran_sans_number"
+                android:gravity="center"
+                android:padding="5dp"
+                android:textColor="@color/pelakomakWhite"
+                android:textSize="12dp"
+                android:textStyle="normal"
+                tools:text="خیابان شریعتی" />
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:padding="5dp"
-            android:fontFamily="@font/iran_sans"
-            android:textColor="@color/pelakomakWhite"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            tools:text="خیابان شریعتی" />
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/countTextView"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/background_for_counter"
+                android:fontFamily="@font/iran_sans_number"
+                android:gravity="center"
+                tools:text="۱۲"
+                android:textColor="@color/pelakomakWhite"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent" />
+
+            <TextView
+                android:id="@+id/typeTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_for_type"
+                android:fontFamily="@font/iran_sans"
+                android:gravity="center"
+                android:padding="5dp"
+                android:textColor="@color/pelakomakWhite"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="دوربین" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>
