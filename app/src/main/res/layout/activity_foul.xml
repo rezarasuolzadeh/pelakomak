@@ -55,7 +55,7 @@
             android:fontFamily="@font/iran_sans"
             android:gravity="center"
             android:padding="5dp"
-            android:text="ذخیره"
+            android:text="وضعیت"
             android:textColor="@color/pelakomakWhite"
             android:textSize="15dp"
             android:textStyle="normal" />
@@ -90,7 +90,7 @@
             android:fontFamily="@font/iran_sans"
             android:gravity="center"
             android:padding="5dp"
-            android:text="ترتیب"
+            android:text="راهنما"
             android:textColor="@color/pelakomakWhite"
             android:textSize="15dp"
             android:textStyle="normal" />

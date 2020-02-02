@@ -17,45 +17,25 @@
             android:fontFamily="@font/iran_sans"
             android:gravity="center"
             android:padding="15dp"
-            android:text="ترتیب"
+            android:text="راهنما"
             android:textColor="@color/pelakomakWhite"
             android:textSize="20dp"
             android:textStyle="bold" />
 
-        <RadioGroup
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:src="@drawable/card"/>
+
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/pelakomakDarkBlue"
-            android:layoutDirection="rtl"
-            android:orientation="vertical"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp">
+            android:text="کد ۸ رقمی در واقع همان کد زیر بارکد کارت اتومبیل شما می باشد که با وارد کردن آن در قسمت بالای صفحه و انتخاب گزینه دریافت خلافی، خلافی اتومبیل خود را می توانید صورت کامل مشاهده کنید"
+            android:fontFamily="@font/iran_sans"
+            android:textColor="@color/pelakomakWhite"
+            android:padding="10dp"
+            android:textStyle="normal"
+            android:textSize="15dp"/>
 
-            <RadioButton
-                android:id="@+id/recentFoulRadioButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:buttonTint="@color/pelakomakLightBlue"
-                android:fontFamily="@font/iran_sans"
-                android:text="خلافی های اخیر"
-                android:textColor="@color/pelakomakWhite"
-                android:textSize="13dp"
-                android:textStyle="normal" />
-
-            <RadioButton
-                android:id="@+id/expensiveFoulRadioButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="25dp"
-                android:buttonTint="@color/pelakomakLightBlue"
-                android:fontFamily="@font/iran_sans"
-                android:text="خلافی های پر هزینه"
-                android:textColor="@color/pelakomakWhite"
-                android:textSize="13dp"
-                android:textStyle="normal" />
-
-        </RadioGroup>
     </LinearLayout>
 </androidx.cardview.widget.CardView>
