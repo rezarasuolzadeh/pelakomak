@@ -15,7 +15,7 @@ class FoulViewModel(application: Application) : AndroidViewModel(application) {
 
     fun provideFoul(barcode: String) {
         CoroutineScope(Dispatchers.IO).launch {
-            foulLiveData.postValue(FoulRepository.getInstance().provideSlider(barcode))
+            foulLiveData.postValue(FoulRepository.getInstance().provideFoul(barcode))
         }
     }
 

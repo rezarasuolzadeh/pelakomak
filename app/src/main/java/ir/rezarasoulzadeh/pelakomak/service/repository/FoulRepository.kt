@@ -8,7 +8,7 @@ import retrofit2.Response
 
 class FoulRepository {
 
-    fun provideSlider(barcode: String): List<Foul>? {
+    fun provideFoul(barcode: String): List<Foul>? {
         var response: Response<List<Foul>>? = null
         val hashmap = HashMap<String, String>(1)
         hashmap["barcode"] = barcode

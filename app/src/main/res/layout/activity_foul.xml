@@ -44,7 +44,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/saveButton"
+            android:id="@+id/summaryButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -79,7 +79,7 @@
             android:textStyle="normal" />
 
         <TextView
-            android:id="@+id/sortButton"
+            android:id="@+id/helpButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"

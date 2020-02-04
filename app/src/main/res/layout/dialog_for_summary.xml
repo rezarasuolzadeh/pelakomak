@@ -115,68 +115,39 @@
             android:orientation="horizontal"
             android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="5dp"
-            android:layoutDirection="rtl">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="تعداد خلافی: "
-                android:textColor="@color/pelakomakWhite"
-                android:fontFamily="@font/iran_sans"
-                android:textStyle="normal"
-                android:textSize="16dp"
-                android:padding="5dp"/>
-
-            <TextView
-                android:id="@+id/foulCountTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="۱۲ مورد"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:textColor="@color/pelakomakWhite"
-                android:fontFamily="@font/iran_sans_number"
-                android:textStyle="normal"
-                android:textSize="16dp"
-                android:padding="5dp"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="15dp"
             android:layout_marginBottom="10dp"
             android:layoutDirection="rtl">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/foulCountTextView"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="مجموع خلافی: "
-                android:textColor="@color/pelakomakWhite"
-                android:fontFamily="@font/iran_sans"
+                android:layout_weight="1"
+                android:text="۱۲ مورد خلافی"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:textColor="#F1E7B2"
+                android:fontFamily="@font/iran_sans_number"
                 android:textStyle="normal"
-                android:textSize="16dp"
+                android:textSize="20dp"
                 android:padding="5dp"/>
 
             <TextView
                 android:id="@+id/foulPriceTextView"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:text="۱۲۰۰۰۰ تومان"
                 android:gravity="center"
                 android:layout_gravity="center"
-                android:textColor="@color/pelakomakWhite"
+                android:textColor="#F1B2B2"
                 android:fontFamily="@font/iran_sans_number"
                 android:textStyle="normal"
-                android:textSize="16dp"
+                android:textSize="20dp"
                 android:padding="5dp"/>
 
         </LinearLayout>
+
     </LinearLayout>
 </androidx.cardview.widget.CardView>

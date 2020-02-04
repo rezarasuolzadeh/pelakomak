@@ -10,4 +10,7 @@
     <color name="pelakomakText">#fff</color>
     <color name="pelakomakHint">#01315D</color>
     <color name="rippleColour">#28FFFFFF</color>
+
+    <color name="iconBlue">#2394BC</color>
+
 </resources>
