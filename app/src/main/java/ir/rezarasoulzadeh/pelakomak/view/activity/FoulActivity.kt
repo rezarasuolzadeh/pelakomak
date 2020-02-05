@@ -20,6 +20,7 @@ import ir.rezarasoulzadeh.pelakomak.service.utils.Snackbar
 import ir.rezarasoulzadeh.pelakomak.view.adapter.FoulAdapter
 import ir.rezarasoulzadeh.pelakomak.viewmodel.FoulViewModel
 import kotlinx.android.synthetic.main.activity_foul.*
+import kotlinx.android.synthetic.main.dialog_for_congratulations.view.*
 import kotlinx.android.synthetic.main.dialog_for_network.view.*
 import kotlinx.android.synthetic.main.dialog_for_summary.view.*
 
@@ -41,6 +42,10 @@ class FoulActivity : AppCompatActivity(), NetworkStateReceiver.NetworkStateRecei
     private lateinit var plaqueFourthPart: String
     private lateinit var foulCount: String
     private lateinit var foulPrice: String
+
+    private lateinit var searchView : View
+    private lateinit var searchViewBuilder : AlertDialog.Builder
+    private lateinit var searchAlertDialog : AlertDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -86,20 +91,37 @@ class FoulActivity : AppCompatActivity(), NetworkStateReceiver.NetworkStateRecei
 
         getFoulsButton.setOnClickListener {
             val barcode = barcodeEditText.text.toString()
+
+            searchView = LayoutInflater.from(this).inflate(R.layout.dialog_for_search, null)
+            searchViewBuilder = this.let { it1 -> AlertDialog.Builder(it1).setView(searchView) }
+            searchAlertDialog = searchViewBuilder.show()
+            searchAlertDialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
             foulViewModel.provideFoul(barcode)
             foulViewModel.foulLiveData.observe(this, Observer {
-                val foulRecyclerView = findViewById<RecyclerView>(R.id.foulRecyclerView)
-                val adapter = FoulAdapter(it)
-                foulRecyclerView.adapter = adapter
-                foulRecyclerView.visibility = View.VISIBLE
-                emptyView.visibility = View.GONE
-                val section = format.plaqueSection(it[0].plaque)
-                plaqueFirstPart = section[0]
-                plaqueSecondPart = section[1]
-                plaqueThirdPart = section[2]
-                plaqueFourthPart = section[3]
-                foulCount = format.countFormat(it.size)
-                foulPrice = format.finallPrice(it)
+                if(it.isEmpty()) {
+                    val congratulationsView = LayoutInflater.from(this).inflate(R.layout.dialog_for_congratulations, null)
+                    val congratulationsViewBuilder = this.let { it1 -> AlertDialog.Builder(it1).setView(congratulationsView) }
+                    val congratulationsAlertDialog = congratulationsViewBuilder.show()
+                    congratulationsAlertDialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+                    congratulationsView.congratulationsBackButton.setOnClickListener {
+                        this.finish()
+                    }
+                } else {
+                    val foulRecyclerView = findViewById<RecyclerView>(R.id.foulRecyclerView)
+                    val adapter = FoulAdapter(it)
+                    foulRecyclerView.adapter = adapter
+                    foulRecyclerView.visibility = View.VISIBLE
+                    emptyView.visibility = View.GONE
+                    val section = format.plaqueSection(it[0].plaque)
+                    plaqueFirstPart = section[0]
+                    plaqueSecondPart = section[1]
+                    plaqueThirdPart = section[2]
+                    plaqueFourthPart = section[3]
+                    foulCount = format.countFormat(it.size)
+                    foulPrice = format.finallPrice(it)
+                    searchAlertDialog.dismiss()
+                }
             })
         }
 

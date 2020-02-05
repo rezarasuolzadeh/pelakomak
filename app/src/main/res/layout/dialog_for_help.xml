@@ -25,20 +25,20 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="80dp"
-            android:src="@drawable/ic_barcode"/>
+            android:src="@drawable/ic_barcode" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="کد ۸ رقمی در واقع همان کد زیر بارکد کارت اتومبیل شما می باشد که با وارد کردن آن در قسمت بالای صفحه و انتخاب گزینه دریافت خلافی، خلافی اتومبیل خود را می توانید به صورت کامل مشاهده کنید."
-            android:fontFamily="@font/iran_sans"
-            android:textColor="@color/pelakomakWhite"
-            android:padding="10dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
+            android:fontFamily="@font/iran_sans"
             android:justificationMode="inter_word"
-            android:textStyle="normal"
-            android:textSize="15dp"/>
+            android:padding="10dp"
+            android:text="کد ۸ رقمی در واقع همان کد زیر بارکد کارت اتومبیل شما می باشد که با وارد کردن آن در قسمت بالای صفحه و انتخاب گزینه دریافت خلافی، خلافی اتومبیل خود را می توانید به صورت کامل مشاهده کنید."
+            android:textColor="@color/pelakomakWhite"
+            android:textSize="15dp"
+            android:textStyle="normal" />
 
         <View
             android:layout_width="match_parent"
@@ -51,13 +51,15 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/background_for_dialog_ripple"
+            android:clickable="true"
+            android:focusable="true"
             android:fontFamily="@font/iran_sans"
             android:gravity="center"
             android:padding="20dp"
             android:text="بستن"
             android:textColor="@color/pelakomakWhite"
             android:textSize="17dp"
-            android:background="@drawable/background_for_dialog_ripple"
             android:textStyle="bold" />
 
     </LinearLayout>
