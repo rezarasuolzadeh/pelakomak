@@ -2,25 +2,24 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ir.rezarasoulzadeh.pelakomak">
 
-    <uses-permission android:name="android.permission.VIBRATE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
+        android:name=".service.config.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/pelakomak_logo"
         android:label="پلاکمک"
-        android:name=".service.config.MyApplication"
         android:roundIcon="@mipmap/pelakomak_logo_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
         <activity
             android:name=".view.activity.MainActivity"
+            android:label="پلاکمک"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan"
-            android:label="پلاکمک">
-        </activity>
+            android:windowSoftInputMode="adjustPan"></activity>
 
         <activity android:name=".view.activity.HomeActivity">
             <intent-filter>
@@ -29,7 +28,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".view.activity.FoulActivity"/>
+        <activity android:name=".view.activity.FoulActivity" />
 
     </application>
 

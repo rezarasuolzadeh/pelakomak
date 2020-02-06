@@ -8,19 +8,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingTop="20dp"
         android:background="@color/pelakomakDarkBlue"
         android:orientation="vertical">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/iran_sans"
-            android:gravity="center"
-            android:padding="15dp"
-            android:text="اینترنت"
-            android:textColor="@color/pelakomakWhite"
-            android:textSize="20dp"
-            android:textStyle="bold" />
 
         <ImageView
             android:layout_width="match_parent"
@@ -42,7 +32,7 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+            android:layout_height="0.5dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
@@ -71,7 +61,7 @@
                 android:textStyle="bold" />
 
             <View
-                android:layout_width="1dp"
+                android:layout_width="0.5dp"
                 android:layout_height="match_parent"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"

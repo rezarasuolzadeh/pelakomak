@@ -21,6 +21,7 @@ import ir.rezarasoulzadeh.pelakomak.view.adapter.FoulAdapter
 import ir.rezarasoulzadeh.pelakomak.viewmodel.FoulViewModel
 import kotlinx.android.synthetic.main.activity_foul.*
 import kotlinx.android.synthetic.main.dialog_for_congratulations.view.*
+import kotlinx.android.synthetic.main.dialog_for_help.view.*
 import kotlinx.android.synthetic.main.dialog_for_network.view.*
 import kotlinx.android.synthetic.main.dialog_for_summary.view.*
 
@@ -43,15 +44,36 @@ class FoulActivity : AppCompatActivity(), NetworkStateReceiver.NetworkStateRecei
     private lateinit var foulCount: String
     private lateinit var foulPrice: String
 
-    private lateinit var searchView : View
-    private lateinit var searchViewBuilder : AlertDialog.Builder
-    private lateinit var searchAlertDialog : AlertDialog
+    private lateinit var searchView: View
+    private lateinit var searchViewBuilder: AlertDialog.Builder
+    private lateinit var searchAlertDialog: AlertDialog
+
+    private lateinit var networkView: View
+    private lateinit var networkViewBuilder: AlertDialog.Builder
+    private lateinit var networkAlertDialog: AlertDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_foul)
 
         supportActionBar!!.hide()
+
+        ////////////////// search dialog //////////////////////
+        searchView = LayoutInflater.from(this).inflate(R.layout.dialog_for_search, null)
+        searchViewBuilder =
+            this.let { it1 -> AlertDialog.Builder(it1).setView(searchView) }
+
+        searchAlertDialog = searchViewBuilder.create()
+
+        ////////////////// network dialog //////////////////////
+        networkView = LayoutInflater.from(this).inflate(R.layout.dialog_for_network, null)
+
+        networkViewBuilder =
+            this.let { it1 -> AlertDialog.Builder(it1).setView(networkView) }
+
+        networkAlertDialog = networkViewBuilder.create()
+
+        ///////////////////////////////////////////////////////
 
         setNetworkStateReceiver()
 
@@ -86,53 +108,83 @@ class FoulActivity : AppCompatActivity(), NetworkStateReceiver.NetworkStateRecei
                 saveView.plaqueFourthTextView.text = plaqueFourthPart
                 saveView.foulCountTextView.text = foulCount
                 saveView.foulPriceTextView.text = foulPrice
+
+                saveView.summaryCloseButton.setOnClickListener {
+                    saveAlertDialog.dismiss()
+                }
             }
         }
 
         getFoulsButton.setOnClickListener {
-            val barcode = barcodeEditText.text.toString()
+            if (barcodeEditText.text.toString() == "") {
+                snackbar.show(
+                    "ابتدا کد ۸ رقمی را وارد کنید",
+                    "short",
+                    this.window.decorView,
+                    this.layoutInflater
+                )
+            } else {
+                val barcode = barcodeEditText.text.toString()
+                searchAlertDialog.dismiss()
+                searchAlertDialog.show()
+                searchAlertDialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
-            searchView = LayoutInflater.from(this).inflate(R.layout.dialog_for_search, null)
-            searchViewBuilder = this.let { it1 -> AlertDialog.Builder(it1).setView(searchView) }
-            searchAlertDialog = searchViewBuilder.show()
-            searchAlertDialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-
-            foulViewModel.provideFoul(barcode)
-            foulViewModel.foulLiveData.observe(this, Observer {
-                if(it.isEmpty()) {
-                    val congratulationsView = LayoutInflater.from(this).inflate(R.layout.dialog_for_congratulations, null)
-                    val congratulationsViewBuilder = this.let { it1 -> AlertDialog.Builder(it1).setView(congratulationsView) }
-                    val congratulationsAlertDialog = congratulationsViewBuilder.show()
-                    congratulationsAlertDialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-                    congratulationsView.congratulationsBackButton.setOnClickListener {
-                        this.finish()
+                foulViewModel.provideFoul(barcode)
+                foulViewModel.foulLiveData.observe(this, Observer {
+                    if (it == null) {
+                        snackbar.show(
+                            "عملیات با خطا مواجه شد",
+                            "short",
+                            this.window.decorView,
+                            this.layoutInflater
+                        )
+                    } else if (it.isEmpty()) {
+                        val congratulationsView = LayoutInflater.from(this)
+                            .inflate(R.layout.dialog_for_congratulations, null)
+                        val congratulationsViewBuilder = this.let { it1 ->
+                            AlertDialog.Builder(it1).setView(congratulationsView)
+                        }
+                        val congratulationsAlertDialog = congratulationsViewBuilder.show()
+                        congratulationsAlertDialog.window!!.setBackgroundDrawable(
+                            ColorDrawable(
+                                Color.TRANSPARENT
+                            )
+                        )
+                        congratulationsView.congratulationsBackButton.setOnClickListener {
+                            this.finish()
+                        }
+                    } else {
+                        val foulRecyclerView = findViewById<RecyclerView>(R.id.foulRecyclerView)
+                        val adapter = FoulAdapter(it)
+                        foulRecyclerView.adapter = adapter
+                        foulRecyclerView.visibility = View.VISIBLE
+                        emptyView.visibility = View.GONE
+                        val section = format.plaqueSection(it[0].plaque)
+                        plaqueFirstPart = section[0]
+                        plaqueSecondPart = section[1]
+                        plaqueThirdPart = section[2]
+                        plaqueFourthPart = section[3]
+                        foulCount = format.countFormat(it.size)
+                        foulPrice = format.finallPrice(it)
+                        searchAlertDialog.dismiss()
                     }
-                } else {
-                    val foulRecyclerView = findViewById<RecyclerView>(R.id.foulRecyclerView)
-                    val adapter = FoulAdapter(it)
-                    foulRecyclerView.adapter = adapter
-                    foulRecyclerView.visibility = View.VISIBLE
-                    emptyView.visibility = View.GONE
-                    val section = format.plaqueSection(it[0].plaque)
-                    plaqueFirstPart = section[0]
-                    plaqueSecondPart = section[1]
-                    plaqueThirdPart = section[2]
-                    plaqueFourthPart = section[3]
-                    foulCount = format.countFormat(it.size)
-                    foulPrice = format.finallPrice(it)
-                    searchAlertDialog.dismiss()
-                }
-            })
+                })
+            }
         }
 
         helpButton.setOnClickListener {
-            val sortView = LayoutInflater.from(this).inflate(R.layout.dialog_for_help, null)
+            val helpView = LayoutInflater.from(this).inflate(R.layout.dialog_for_help, null)
 
-            val sortViewBuilder = this.let { it1 -> AlertDialog.Builder(it1).setView(sortView) }
+            val helpViewBuilder = this.let { it1 -> AlertDialog.Builder(it1).setView(helpView) }
 
-            val sortAlertDialog = sortViewBuilder.show()
+            val helpAlertDialog = helpViewBuilder.show()
 
-            sortAlertDialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            helpAlertDialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+            helpView.helpCloseButton.setOnClickListener {
+                helpAlertDialog.dismiss()
+            }
+
         }
 
     }
@@ -151,28 +203,43 @@ class FoulActivity : AppCompatActivity(), NetworkStateReceiver.NetworkStateRecei
     }
 
     override fun onNetworkUnavailable() {
-        network = false
+        try {
+            network = false
 
-        val networkView = LayoutInflater.from(this).inflate(R.layout.dialog_for_network, null)
+            networkAlertDialog.show()
 
-        val networkViewBuilder = this.let { it1 -> AlertDialog.Builder(it1).setView(networkView) }
+            networkAlertDialog.setCanceledOnTouchOutside(false)
 
-        val networkAlertDialog = networkViewBuilder.show()
+            networkAlertDialog.setCancelable(false)
 
-        networkAlertDialog.setCanceledOnTouchOutside(false)
+            networkAlertDialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
-        networkAlertDialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-
-        networkView.networkBackButton.setOnClickListener {
-            this.finish()
-        }
-
-        networkView.networkTryButton.setOnClickListener {
-            if(network){
-                networkAlertDialog.dismiss()
+            networkView.networkBackButton.setOnClickListener {
+                this.finish()
             }
-        }
 
+            networkView.networkTryButton.setOnClickListener {
+                if (network) {
+
+                    networkAlertDialog.dismiss()
+                    searchAlertDialog.dismiss()
+                } else {
+                    snackbar.show(
+                        "اتصال به اینترنت برقرار نیست",
+                        "short",
+                        this.window.decorView,
+                        this.layoutInflater
+                    )
+                }
+            }
+        } catch (e: Exception) {
+            snackbar.show(
+                "عملیات با خطا مواجه شد",
+                "short",
+                this.window.decorView,
+                this.layoutInflater
+            )
+        }
     }
 
 }

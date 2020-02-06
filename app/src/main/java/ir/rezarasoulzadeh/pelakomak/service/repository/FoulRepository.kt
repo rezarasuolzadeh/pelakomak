@@ -9,18 +9,19 @@ import retrofit2.Response
 class FoulRepository {
 
     fun provideFoul(barcode: String): List<Foul>? {
-        var response: Response<List<Foul>>? = null
+        var result: List<Foul>? = null
         val hashmap = HashMap<String, String>(1)
         hashmap["barcode"] = barcode
         runBlocking {
             try {
-                response = FoulRetrofitConfig.retrofit().create(FoulDao::class.java)
+                val response = FoulRetrofitConfig.retrofit().create(FoulDao::class.java)
                     .getFoul(hashmap)
+                result = response.body()
             } catch (e: Exception) {
                 e.printStackTrace()
             }
         }
-        return response!!.body()
+        return result
     }
 
     companion object {

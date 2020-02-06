@@ -6,6 +6,8 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">#A4D1EA</item>
+        <!-- Bottom navigation ripple. -->
+        <item name="colorControlHighlight">@color/rippleColour</item>
     </style>
 
     <style name="Widget.BottomNavigationView"

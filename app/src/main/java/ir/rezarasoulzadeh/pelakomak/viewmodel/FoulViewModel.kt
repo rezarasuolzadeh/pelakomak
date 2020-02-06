@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 
 class FoulViewModel(application: Application) : AndroidViewModel(application) {
 
-    var foulLiveData = MutableLiveData<List<Foul>>()
+    var foulLiveData = MutableLiveData<List<Foul>?>()
 
     fun provideFoul(barcode: String) {
         CoroutineScope(Dispatchers.IO).launch {
