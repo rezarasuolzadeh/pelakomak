@@ -121,8 +121,7 @@ class CarFragment : Fragment() {
         val dbResponse: String
 
         /////////////////////////////////// GIVE DATABASE RESPONSE /////////////////////////////////
-        val carDB =
-            CarNumberplateDB(this.context!!)
+        val carDB = CarNumberplateDB(this.context!!)
         dbResponse = carDB.get(stateNumber.text.toString(), countyCharacter.text.toString())
         ////////////////////////////////////////////////////////////////////////////////////////////
 

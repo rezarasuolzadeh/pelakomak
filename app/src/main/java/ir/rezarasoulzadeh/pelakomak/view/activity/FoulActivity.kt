@@ -128,17 +128,21 @@ class FoulActivity : AppCompatActivity(), NetworkStateReceiver.NetworkStateRecei
                 searchAlertDialog.dismiss()
                 searchAlertDialog.show()
                 searchAlertDialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+                searchAlertDialog.setCanceledOnTouchOutside(false)
+//                searchAlertDialog.setCancelable(false)
 
                 foulViewModel.provideFoul(barcode)
                 foulViewModel.foulLiveData.observe(this, Observer {
                     if (it == null) {
+                        searchAlertDialog.dismiss()
                         snackbar.show(
-                            "عملیات با خطا مواجه شد",
+                            "متاسفانه ارتباط برقرار نشد",
                             "short",
                             this.window.decorView,
                             this.layoutInflater
                         )
                     } else if (it.isEmpty()) {
+                        searchAlertDialog.dismiss()
                         val congratulationsView = LayoutInflater.from(this)
                             .inflate(R.layout.dialog_for_congratulations, null)
                         val congratulationsViewBuilder = this.let { it1 ->
