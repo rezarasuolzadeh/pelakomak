@@ -23,6 +23,8 @@
             app:cardCornerRadius="50dp">
 
             <LinearLayout
+                android:clickable="true"
+                android:focusable="true"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/pelakomakLightBlue"
@@ -46,6 +48,8 @@
                             android:layout_height="match_parent"
                             android:layout_marginLeft="1dp"
                             android:layout_marginTop="4dp"
+                            android:clickable="true"
+                            android:focusable="true"
                             android:layout_marginBottom="4dp"
                             android:src="@drawable/iran" />
 
@@ -53,6 +57,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_gravity="center"
+                            android:clickable="true"
+                            android:focusable="true"
                             android:fontFamily="@font/iran_sans_number"
                             android:text="۱۲"
                             android:textColor="#000000"
@@ -80,6 +86,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_gravity="center"
+                            android:clickable="true"
+                            android:focusable="true"
                             android:layout_marginRight="5dp"
                             android:fontFamily="@font/iran_sans_number"
                             android:text="۳۶۵"
@@ -119,6 +127,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="50dp"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:layout_marginRight="10dp"
                     android:background="@drawable/background_for_model"
                     android:orientation="vertical">
@@ -154,6 +164,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:layout_marginTop="50dp"
                     android:layout_marginRight="10dp"
                     android:background="@drawable/background_for_model"

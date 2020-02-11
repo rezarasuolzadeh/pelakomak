@@ -50,8 +50,7 @@ class HomeActivity : AppCompatActivity() {
 
         navigationCar.setOnClickListener {
             val transaction = supportFragmentManager.beginTransaction()
-            val fragment =
-                CarFragment()
+            val fragment = CarFragment()
             transaction.replace(R.id.nav_host_fragment, fragment)
             transaction.addToBackStack(null)
             transaction.commit()
@@ -60,8 +59,7 @@ class HomeActivity : AppCompatActivity() {
 
         navigationMotorcycle.setOnClickListener {
             val transaction = supportFragmentManager.beginTransaction()
-            val fragment =
-                MotorcycleFragment()
+            val fragment = MotorcycleFragment()
             transaction.replace(R.id.nav_host_fragment, fragment)
             transaction.addToBackStack(null)
             transaction.commit()
@@ -70,8 +68,7 @@ class HomeActivity : AppCompatActivity() {
 
         navigationOther.setOnClickListener {
             val transaction = supportFragmentManager.beginTransaction()
-            val fragment =
-                OtherFragment()
+            val fragment = OtherFragment()
             transaction.replace(R.id.nav_host_fragment, fragment)
             transaction.addToBackStack(null)
             transaction.commit()
@@ -80,8 +77,7 @@ class HomeActivity : AppCompatActivity() {
 
         navigationFreezone.setOnClickListener {
             val transaction = supportFragmentManager.beginTransaction()
-            val fragment =
-                FreezoneFragment()
+            val fragment = FreezoneFragment()
             transaction.replace(R.id.nav_host_fragment, fragment)
             transaction.addToBackStack(null)
             transaction.commit()
@@ -90,8 +86,7 @@ class HomeActivity : AppCompatActivity() {
 
         navigationHome.setOnClickListener {
             val transaction = supportFragmentManager.beginTransaction()
-            val fragment =
-                HomeFragment()
+            val fragment = HomeFragment()
             transaction.replace(R.id.nav_host_fragment, fragment)
             transaction.addToBackStack(null)
             transaction.commit()

@@ -35,10 +35,12 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:id="@+id/foulButton"
+            android:id="@+id/foulButtonLayout"
             android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:clickable="true"
+            android:focusable="true"
             android:layout_marginTop="50dp"
             android:orientation="vertical">
 

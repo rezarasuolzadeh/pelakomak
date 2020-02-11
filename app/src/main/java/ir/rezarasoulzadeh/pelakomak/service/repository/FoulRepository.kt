@@ -4,7 +4,6 @@ import ir.rezarasoulzadeh.pelakomak.inteface.FoulDao
 import ir.rezarasoulzadeh.pelakomak.model.Foul
 import ir.rezarasoulzadeh.pelakomak.service.config.FoulRetrofitConfig
 import kotlinx.coroutines.runBlocking
-import retrofit2.Response
 
 class FoulRepository {
 
