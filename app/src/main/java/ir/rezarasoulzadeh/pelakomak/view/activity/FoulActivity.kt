@@ -123,7 +123,15 @@ class FoulActivity : AppCompatActivity(), NetworkStateReceiver.NetworkStateRecei
                     this.window.decorView,
                     this.layoutInflater
                 )
-            } else {
+            } else if(barcodeEditText.text.length < 8){
+                snackbar.show(
+                    "کد باید دقیقا ۸ رقم باشد",
+                    "short",
+                    this.window.decorView,
+                    this.layoutInflater
+                )
+            }
+            else {
                 val barcode = barcodeEditText.text.toString()
                 searchAlertDialog.dismiss()
                 searchAlertDialog.show()
@@ -141,6 +149,7 @@ class FoulActivity : AppCompatActivity(), NetworkStateReceiver.NetworkStateRecei
                             this.window.decorView,
                             this.layoutInflater
                         )
+
                     } else if (it.isEmpty()) {
                         searchAlertDialog.dismiss()
                         val congratulationsView = LayoutInflater.from(this)
