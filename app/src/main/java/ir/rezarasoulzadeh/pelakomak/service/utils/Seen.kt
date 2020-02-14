@@ -15,12 +15,12 @@ class Seen(context: Context) {
 
     fun setFirstSeen() {
         val editor: SharedPreferences.Editor = seenSharedPreference.edit()
-        editor.putString(seen, "yes")
+        editor.putString(seen, "no")
         editor.apply()
     }
 
     fun isFirstSeen() : String? {
-        return seenSharedPreference.getString(seen, "no")
+        return seenSharedPreference.getString(seen, "yes")
     }
 
 }

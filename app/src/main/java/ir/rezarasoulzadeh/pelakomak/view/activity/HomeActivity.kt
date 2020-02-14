@@ -1,7 +1,11 @@
 package ir.rezarasoulzadeh.pelakomak.view.activity
 
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.os.Handler
+import android.view.LayoutInflater
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -10,12 +14,14 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import ir.rezarasoulzadeh.pelakomak.R
+import ir.rezarasoulzadeh.pelakomak.service.utils.Seen
 import ir.rezarasoulzadeh.pelakomak.view.fragment.CarFragment
 import ir.rezarasoulzadeh.pelakomak.view.fragment.FreezoneFragment
 import ir.rezarasoulzadeh.pelakomak.view.fragment.HomeFragment
 import ir.rezarasoulzadeh.pelakomak.view.fragment.MotorcycleFragment
 import ir.rezarasoulzadeh.pelakomak.view.fragment.OtherFragment
 import ir.rezarasoulzadeh.pelakomak.service.utils.Snackbar
+import kotlinx.android.synthetic.main.dialog_for_news.view.*
 
 class HomeActivity : AppCompatActivity() {
 
@@ -28,6 +34,28 @@ class HomeActivity : AppCompatActivity() {
 
         // hide the action bar
         supportActionBar!!.hide()
+
+        val seen = Seen(this)
+
+        if (seen.isFirstSeen() == "yes") {
+            seen.setFirstSeen()
+
+            Handler().postDelayed({
+                val newsView = LayoutInflater.from(this).inflate(R.layout.dialog_for_news, null)
+
+                val newsViewBuilder = this.let { it1 -> AlertDialog.Builder(it1).setView(newsView) }
+
+                val newsAlertDialog = newsViewBuilder.show()
+
+                newsAlertDialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+                newsAlertDialog.setCanceledOnTouchOutside(false)
+
+                newsView.newsCloseButton.setOnClickListener {
+                    newsAlertDialog.dismiss()
+                }
+            }, 1500)
+        }
 
         val navController = findNavController(R.id.nav_host_fragment)
 
@@ -43,7 +71,8 @@ class HomeActivity : AppCompatActivity() {
         )
 
         val navigationCar = findViewById<BottomNavigationItemView>(R.id.navigation_car)
-        val navigationMotorcycle = findViewById<BottomNavigationItemView>(R.id.navigation_motorcycle)
+        val navigationMotorcycle =
+            findViewById<BottomNavigationItemView>(R.id.navigation_motorcycle)
         val navigationOther = findViewById<BottomNavigationItemView>(R.id.navigation_other)
         val navigationFreezone = findViewById<BottomNavigationItemView>(R.id.navigation_freezone)
         val navigationHome = findViewById<BottomNavigationItemView>(R.id.navigation_home)
