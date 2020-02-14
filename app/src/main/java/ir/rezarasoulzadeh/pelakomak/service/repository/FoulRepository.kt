@@ -7,8 +7,8 @@ import kotlinx.coroutines.runBlocking
 
 class FoulRepository {
 
-    fun provideFoul(barcode: String): List<Foul>? {
-        var result: List<Foul>? = null
+    fun provideFoul(barcode: String): MutableList<Foul>? {
+        var result: MutableList<Foul>? = null
         val hashmap = HashMap<String, String>(1)
         hashmap["barcode"] = barcode
         runBlocking {

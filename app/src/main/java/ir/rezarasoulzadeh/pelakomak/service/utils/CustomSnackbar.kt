@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import ir.rezarasoulzadeh.pelakomak.R
 import com.google.android.material.snackbar.Snackbar
 
-class Snackbar {
+class CustomSnackbar {
 
     fun show(message: String, duration: String, view: View, inflater: LayoutInflater) {
 

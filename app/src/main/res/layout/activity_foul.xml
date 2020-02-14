@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/foulActivityParentLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/pelakomakDarkBlue"
@@ -112,14 +113,6 @@
             android:background="@color/pelakomakLightBlue"
             android:orientation="vertical">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/foulRecyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scrollbars="vertical"
-                android:visibility="gone"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
-
             <TextView
                 android:id="@+id/emptyView"
                 android:layout_width="match_parent"
@@ -131,6 +124,14 @@
                 android:gravity="center"
                 android:textSize="12dp"
                 android:visibility="visible"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/foulRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="vertical"
+                android:visibility="gone"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>

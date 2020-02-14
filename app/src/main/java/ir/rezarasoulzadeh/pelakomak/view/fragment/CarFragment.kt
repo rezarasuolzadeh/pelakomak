@@ -20,11 +20,11 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import ir.rezarasoulzadeh.pelakomak.R
 import ir.rezarasoulzadeh.pelakomak.service.database.CarNumberplateDB
-import ir.rezarasoulzadeh.pelakomak.service.utils.Snackbar
+import ir.rezarasoulzadeh.pelakomak.service.utils.CustomSnackbar
 
 class CarFragment : Fragment() {
 
-    private val snackbar = Snackbar()
+    private val snackbar = CustomSnackbar()
 
     private val validCharacters =
         arrayListOf("ب", "ج", "د", "س", "ص", "ط", "ق", "ل", "م", "ن", "و", "ه", "ی")

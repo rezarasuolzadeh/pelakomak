@@ -14,9 +14,11 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.RecyclerView
 import ir.rezarasoulzadeh.pelakomak.R
+import ir.rezarasoulzadeh.pelakomak.model.Foul
 import ir.rezarasoulzadeh.pelakomak.service.config.NetworkStateReceiver
+import ir.rezarasoulzadeh.pelakomak.service.utils.Enums
 import ir.rezarasoulzadeh.pelakomak.service.utils.Format
-import ir.rezarasoulzadeh.pelakomak.service.utils.Snackbar
+import ir.rezarasoulzadeh.pelakomak.service.utils.CustomSnackbar
 import ir.rezarasoulzadeh.pelakomak.view.adapter.FoulAdapter
 import ir.rezarasoulzadeh.pelakomak.viewmodel.FoulViewModel
 import kotlinx.android.synthetic.main.activity_foul.*
@@ -33,7 +35,11 @@ class FoulActivity : AppCompatActivity(), NetworkStateReceiver.NetworkStateRecei
     private var networkStateReceiver: NetworkStateReceiver? = null
 
     private val format = Format()
-    private val snackbar = Snackbar()
+    private val snackbar = CustomSnackbar()
+
+    private lateinit var foulsList : MutableList<Foul>
+    private lateinit var foulRecyclerView : RecyclerView
+    private lateinit var foulAdapter : FoulAdapter
 
     private lateinit var foulViewModel: FoulViewModel
 
@@ -52,11 +58,15 @@ class FoulActivity : AppCompatActivity(), NetworkStateReceiver.NetworkStateRecei
     private lateinit var networkViewBuilder: AlertDialog.Builder
     private lateinit var networkAlertDialog: AlertDialog
 
+    private lateinit var parentView : View
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_foul)
 
         supportActionBar!!.hide()
+
+        parentView = findViewById<View>(R.id.foulActivityParentLayout)
 
         ////////////////// search dialog //////////////////////
         searchView = LayoutInflater.from(this).inflate(R.layout.dialog_for_search, null)
@@ -81,6 +91,17 @@ class FoulActivity : AppCompatActivity(), NetworkStateReceiver.NetworkStateRecei
 
         foulViewModel = ViewModelProviders.of(this).get(FoulViewModel::class.java)
 
+        foulViewModel.foulState.observe(this, Observer {
+            if(it == Enums.DataState.LOADING) {
+                searchAlertDialog.show()
+                searchAlertDialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+                searchAlertDialog.setCanceledOnTouchOutside(false)
+            }
+            if(it == Enums.DataState.DONE) {
+                searchAlertDialog.dismiss()
+            }
+        })
+
         summaryButton.setOnClickListener {
             val foulRecyclerView = findViewById<RecyclerView>(R.id.foulRecyclerView)
 
@@ -88,7 +109,7 @@ class FoulActivity : AppCompatActivity(), NetworkStateReceiver.NetworkStateRecei
                 snackbar.show(
                     "ابتدا خلافی خود را دریافت کنید",
                     "short",
-                    this.window.decorView,
+                    parentView,
                     this.layoutInflater
                 )
             } else {
@@ -120,37 +141,22 @@ class FoulActivity : AppCompatActivity(), NetworkStateReceiver.NetworkStateRecei
                 snackbar.show(
                     "ابتدا کد ۸ رقمی را وارد کنید",
                     "short",
-                    this.window.decorView,
+                    parentView,
                     this.layoutInflater
                 )
             } else if(barcodeEditText.text.length < 8){
                 snackbar.show(
                     "کد باید دقیقا ۸ رقم باشد",
                     "short",
-                    this.window.decorView,
+                    parentView,
                     this.layoutInflater
                 )
             }
             else {
                 val barcode = barcodeEditText.text.toString()
-                searchAlertDialog.dismiss()
-                searchAlertDialog.show()
-                searchAlertDialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-                searchAlertDialog.setCanceledOnTouchOutside(false)
-//                searchAlertDialog.setCancelable(false)
-
                 foulViewModel.provideFoul(barcode)
                 foulViewModel.foulLiveData.observe(this, Observer {
                     if (it == null) {
-                        searchAlertDialog.dismiss()
-                        snackbar.show(
-                            "متاسفانه ارتباط برقرار نشد",
-                            "short",
-                            this.window.decorView,
-                            this.layoutInflater
-                        )
-
-                    } else if (it.isEmpty()) {
                         searchAlertDialog.dismiss()
                         val congratulationsView = LayoutInflater.from(this)
                             .inflate(R.layout.dialog_for_congratulations, null)
@@ -166,10 +172,12 @@ class FoulActivity : AppCompatActivity(), NetworkStateReceiver.NetworkStateRecei
                         congratulationsView.congratulationsBackButton.setOnClickListener {
                             this.finish()
                         }
+
                     } else {
-                        val foulRecyclerView = findViewById<RecyclerView>(R.id.foulRecyclerView)
-                        val adapter = FoulAdapter(it)
-                        foulRecyclerView.adapter = adapter
+                        foulsList = it
+                        foulRecyclerView = findViewById(R.id.foulRecyclerView)
+                        foulAdapter = FoulAdapter(foulsList)
+                        foulRecyclerView.adapter = foulAdapter
                         foulRecyclerView.visibility = View.VISIBLE
                         emptyView.visibility = View.GONE
                         val section = format.plaqueSection(it[0].plaque)
@@ -240,7 +248,7 @@ class FoulActivity : AppCompatActivity(), NetworkStateReceiver.NetworkStateRecei
                     snackbar.show(
                         "اتصال به اینترنت برقرار نیست",
                         "short",
-                        this.window.decorView,
+                        parentView,
                         this.layoutInflater
                     )
                 }
@@ -249,7 +257,7 @@ class FoulActivity : AppCompatActivity(), NetworkStateReceiver.NetworkStateRecei
             snackbar.show(
                 "عملیات با خطا مواجه شد",
                 "short",
-                this.window.decorView,
+                parentView,
                 this.layoutInflater
             )
         }

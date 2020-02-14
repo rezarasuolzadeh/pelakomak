@@ -12,6 +12,6 @@ interface FoulDao {
         "Content-Type:application/json"
     )
     @POST("Penalties/refreshUserPenalties")
-    suspend fun getFoul(@Body barcode: HashMap<String, String>): Response<List<Foul>>
+    suspend fun getFoul(@Body barcode: HashMap<String, String>): Response<MutableList<Foul>>
 
 }

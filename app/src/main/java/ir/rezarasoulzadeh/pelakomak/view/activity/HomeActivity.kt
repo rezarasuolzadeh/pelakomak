@@ -5,6 +5,7 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.os.Handler
 import android.view.LayoutInflater
+import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -14,30 +15,30 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import ir.rezarasoulzadeh.pelakomak.R
+import ir.rezarasoulzadeh.pelakomak.service.utils.CustomSnackbar
 import ir.rezarasoulzadeh.pelakomak.service.utils.Seen
-import ir.rezarasoulzadeh.pelakomak.view.fragment.CarFragment
-import ir.rezarasoulzadeh.pelakomak.view.fragment.FreezoneFragment
-import ir.rezarasoulzadeh.pelakomak.view.fragment.HomeFragment
-import ir.rezarasoulzadeh.pelakomak.view.fragment.MotorcycleFragment
-import ir.rezarasoulzadeh.pelakomak.view.fragment.OtherFragment
-import ir.rezarasoulzadeh.pelakomak.service.utils.Snackbar
+import ir.rezarasoulzadeh.pelakomak.view.fragment.*
 import kotlinx.android.synthetic.main.dialog_for_news.view.*
 
 class HomeActivity : AppCompatActivity() {
 
-    private val snackbar = Snackbar()
+    private val snackbar = CustomSnackbar()
+
+    private lateinit var parentView : View
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
-        // hide the action bar
         supportActionBar!!.hide()
+
+        parentView = findViewById<View>(R.id.mainActivityParentLayout)
 
         val seen = Seen(this)
 
         if (seen.isFirstSeen() == "yes") {
+
             seen.setFirstSeen()
 
             Handler().postDelayed({
@@ -59,8 +60,6 @@ class HomeActivity : AppCompatActivity() {
 
         val navController = findNavController(R.id.nav_host_fragment)
 
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.navigation_car,
@@ -129,14 +128,13 @@ class HomeActivity : AppCompatActivity() {
     private var doubleBackToExitPressedOnce = false
 
     override fun onBackPressed() {
-        val view = this.window.decorView
         val inflater = this.layoutInflater
 
         if (doubleBackToExitPressedOnce) finishAffinity()
 
         this.doubleBackToExitPressedOnce = true
 
-        snackbar.show("برای خروج دوباره دکمه بازگشت را لمس کنید", "short", view, inflater)
+        snackbar.show("برای خروج دوباره دکمه بازگشت را لمس کنید", "short", parentView, inflater)
 
         Handler().postDelayed({ doubleBackToExitPressedOnce = false }, 2000)
     }
