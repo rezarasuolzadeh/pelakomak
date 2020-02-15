@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.net.ConnectivityManager
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.view.LayoutInflater
 import android.view.View
 import androidx.appcompat.app.AlertDialog
@@ -37,9 +38,9 @@ class FoulActivity : AppCompatActivity(), NetworkStateReceiver.NetworkStateRecei
     private val format = Format()
     private val snackbar = CustomSnackbar()
 
-    private lateinit var foulsList : MutableList<Foul>
-    private lateinit var foulRecyclerView : RecyclerView
-    private lateinit var foulAdapter : FoulAdapter
+    private lateinit var foulsList: MutableList<Foul>
+    private lateinit var foulRecyclerView: RecyclerView
+    private lateinit var foulAdapter: FoulAdapter
 
     private lateinit var foulViewModel: FoulViewModel
 
@@ -58,7 +59,9 @@ class FoulActivity : AppCompatActivity(), NetworkStateReceiver.NetworkStateRecei
     private lateinit var networkViewBuilder: AlertDialog.Builder
     private lateinit var networkAlertDialog: AlertDialog
 
-    private lateinit var parentView : View
+    private lateinit var parentView: View
+
+    private lateinit var foulTimer : CountDownTimer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -92,13 +95,28 @@ class FoulActivity : AppCompatActivity(), NetworkStateReceiver.NetworkStateRecei
         foulViewModel = ViewModelProviders.of(this).get(FoulViewModel::class.java)
 
         foulViewModel.foulState.observe(this, Observer {
-            if(it == Enums.DataState.LOADING) {
+            if (it == Enums.DataState.LOADING) {
                 searchAlertDialog.show()
                 searchAlertDialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
                 searchAlertDialog.setCanceledOnTouchOutside(false)
+                foulTimer = object : CountDownTimer(15000, 1000) {
+                    override fun onTick(millisUntilFinished: Long) {}
+                    override fun onFinish() {
+                        if (it != Enums.DataState.DONE) {
+                            snackbar.show(
+                                "عملیات با خطا مواجه شد",
+                                "short",
+                                parentView,
+                                this@FoulActivity.layoutInflater
+                            )
+                            searchAlertDialog.dismiss()
+                        }
+                    }
+                }.start()
             }
-            if(it == Enums.DataState.DONE) {
+            if (it == Enums.DataState.DONE) {
                 searchAlertDialog.dismiss()
+                foulTimer.cancel()
             }
         })
 
@@ -144,15 +162,14 @@ class FoulActivity : AppCompatActivity(), NetworkStateReceiver.NetworkStateRecei
                     parentView,
                     this.layoutInflater
                 )
-            } else if(barcodeEditText.text.length < 8){
+            } else if (barcodeEditText.text.length < 8) {
                 snackbar.show(
                     "کد باید دقیقا ۸ رقم باشد",
                     "short",
                     parentView,
                     this.layoutInflater
                 )
-            }
-            else {
+            } else {
                 val barcode = barcodeEditText.text.toString()
                 foulViewModel.provideFoul(barcode)
                 foulViewModel.foulLiveData.observe(this, Observer {
@@ -169,8 +186,8 @@ class FoulActivity : AppCompatActivity(), NetworkStateReceiver.NetworkStateRecei
                                 Color.TRANSPARENT
                             )
                         )
-                        congratulationsView.congratulationsBackButton.setOnClickListener {
-                            this.finish()
+                        congratulationsView.congratulationsCloseButton.setOnClickListener {
+                            congratulationsAlertDialog.dismiss()
                         }
 
                     } else {

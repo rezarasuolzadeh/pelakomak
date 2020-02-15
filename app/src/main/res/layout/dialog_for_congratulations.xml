@@ -39,7 +39,7 @@
             android:background="@color/iconBlue" />
 
         <TextView
-            android:id="@+id/congratulationsBackButton"
+            android:id="@+id/congratulationsCloseButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/background_for_dialog_ripple"
@@ -48,7 +48,7 @@
             android:clickable="true"
             android:focusable="true"
             android:padding="20dp"
-            android:text="بازگشت"
+            android:text="بستن"
             android:textColor="@color/pelakomakWhite"
             android:textSize="17dp"
             android:textStyle="bold" />
