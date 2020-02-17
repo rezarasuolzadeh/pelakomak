@@ -38,8 +38,6 @@ class HomeActivity : AppCompatActivity() {
 
         supportActionBar!!.hide()
 
-        fireBaseChannelId()
-
         parentView = findViewById<View>(R.id.mainActivityParentLayout)
 
         val seen = Seen(this)

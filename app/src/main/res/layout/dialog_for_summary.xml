@@ -1,165 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="20dp">
+    android:background="@drawable/background_dark_dilog"
+    android:orientation="vertical"
+    android:paddingTop="40dp">
 
     <LinearLayout
+        android:id="@+id/car_fragment_numberplate"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingTop="40dp"
-        android:background="@color/pelakomakDarkBlue"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:gravity="center">
 
         <LinearLayout
-            android:id="@+id/car_fragment_numberplate"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center">
+            android:background="@drawable/background_for_numberplate"
+            android:layoutDirection="ltr">
+
+            <ImageView
+                android:layout_width="33dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:src="@drawable/iran" />
+
+            <TextView
+                android:id="@+id/plaqueFirstTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:fontFamily="@font/iran_sans_number"
+                android:text="۱۲"
+                android:textColor="#000000"
+                android:textSize="50dp"
+                android:textStyle="normal|bold" />
+
+            <TextView
+                android:id="@+id/plaqueSecondTextView"
+                android:layout_width="65dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:backgroundTint="#fff"
+                android:ems="2"
+                android:focusableInTouchMode="true"
+                android:fontFamily="@font/iran_sans_number"
+                android:gravity="center"
+                android:maxLength="1"
+                android:text="ب"
+                android:textColor="#000011"
+                android:textSize="50dp"
+                android:textStyle="normal|bold" />
+
+            <TextView
+                android:id="@+id/plaqueThirdTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginRight="5dp"
+                android:fontFamily="@font/iran_sans_number"
+                android:text="۳۶۵"
+                android:textColor="#000"
+                android:textSize="50dp"
+                android:textStyle="normal|bold" />
 
             <LinearLayout
+                android:id="@+id/car_fir"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/background_for_numberplate"
-                android:layoutDirection="ltr">
-
-                <ImageView
-                    android:layout_width="33dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginLeft="3dp"
-                    android:layout_marginBottom="4dp"
-                    android:src="@drawable/iran" />
+                android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/plaqueFirstTextView"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/plaqueFourthTextView"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:fontFamily="@font/iran_sans_number"
-                    android:text="۱۲"
-                    android:textColor="#000000"
-                    android:textSize="50dp"
-                    android:textStyle="normal|bold" />
-
-                <TextView
-                    android:id="@+id/plaqueSecondTextView"
-                    android:layout_width="65dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="bottom"
                     android:backgroundTint="#fff"
-                    android:ems="2"
                     android:focusableInTouchMode="true"
                     android:fontFamily="@font/iran_sans_number"
                     android:gravity="center"
-                    android:text="ب"
-                    android:maxLength="1"
+                    android:maxLength="2"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="11"
                     android:textColor="#000011"
                     android:textSize="50dp"
                     android:textStyle="normal|bold" />
-
-                <TextView
-                    android:id="@+id/plaqueThirdTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:layout_marginRight="5dp"
-                    android:fontFamily="@font/iran_sans_number"
-                    android:text="۳۶۵"
-                    android:textColor="#000"
-                    android:textSize="50dp"
-                    android:textStyle="normal|bold" />
-
-                <LinearLayout
-                    android:id="@+id/car_fir"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/background_for_numberplate"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/plaqueFourthTextView"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center"
-                        android:backgroundTint="#fff"
-                        android:focusableInTouchMode="true"
-                        android:fontFamily="@font/iran_sans_number"
-                        android:gravity="center"
-                        android:text="11"
-                        android:paddingRight="10dp"
-                        android:paddingLeft="10dp"
-                        android:maxLength="2"
-                        android:textColor="#000011"
-                        android:textSize="50dp"
-                        android:textStyle="normal|bold" />
-                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
+    </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="10dp"
-            android:layoutDirection="rtl">
-
-            <TextView
-                android:id="@+id/foulCountTextView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="۱۲ مورد خلافی"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:textColor="#F1E7B2"
-                android:fontFamily="@font/iran_sans_number"
-                android:textStyle="normal"
-                android:textSize="20dp"
-                android:padding="5dp"/>
-
-            <TextView
-                android:id="@+id/foulPriceTextView"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:text="۱۲۰۰۰۰ تومان"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:textColor="#F1B2B2"
-                android:fontFamily="@font/iran_sans_number"
-                android:textStyle="normal"
-                android:textSize="20dp"
-                android:padding="5dp"/>
-
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
-            android:background="@color/iconBlue" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:layoutDirection="rtl"
+        android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/summaryCloseButton"
-            android:layout_width="match_parent"
+            android:id="@+id/foulCountTextView"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/background_for_dialog_ripple"
-            android:clickable="true"
-            android:focusable="true"
-            android:fontFamily="@font/iran_sans"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:fontFamily="@font/iran_sans_number"
             android:gravity="center"
-            android:padding="20dp"
-            android:text="بستن"
-            android:textColor="@color/pelakomakWhite"
-            android:textSize="17dp"
-            android:textStyle="bold" />
+            android:padding="5dp"
+            android:text="۱۲ مورد خلافی"
+            android:textColor="#F1E7B2"
+            android:textSize="20dp"
+            android:textStyle="normal" />
+
+        <TextView
+            android:id="@+id/foulPriceTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:fontFamily="@font/iran_sans_number"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="۱۲۰۰۰۰ تومان"
+            android:textColor="#F1B2B2"
+            android:textSize="20dp"
+            android:textStyle="normal" />
 
     </LinearLayout>
-</androidx.cardview.widget.CardView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/iconBlue" />
+
+    <TextView
+        android:id="@+id/summaryCloseButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_for_dialog_ripple"
+        android:clickable="true"
+        android:focusable="true"
+        android:fontFamily="@font/iran_sans"
+        android:gravity="center"
+        android:padding="20dp"
+        android:text="بستن"
+        android:textColor="@color/pelakomakWhite"
+        android:textSize="17dp"
+        android:textStyle="bold" />
+
+</LinearLayout>

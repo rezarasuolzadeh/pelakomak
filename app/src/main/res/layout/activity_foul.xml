@@ -24,15 +24,15 @@
             android:layout_weight="8"
             android:background="#00FFFFFF"
             android:fontFamily="@font/iran_sans_number"
+            android:gravity="center"
             android:hint="کد ۸ رقمی"
             android:inputType="number"
+            android:layoutDirection="rtl"
             android:maxLength="8"
             android:padding="10dp"
-            android:layoutDirection="rtl"
-            android:textDirection="rtl"
-            android:gravity="center"
             android:textColor="#fff"
             android:textColorHint="@color/pelakomakWhite"
+            android:textDirection="rtl"
             android:textSize="20dp"
             android:textStyle="bold" />
 
@@ -102,37 +102,31 @@
 
     </LinearLayout>
 
-    <androidx.cardview.widget.CardView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:cardCornerRadius="25dp">
+        android:background="@drawable/background_dark_activity"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/emptyView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/pelakomakLightBlue"
-            android:orientation="vertical">
+            android:fontFamily="@font/iran_sans"
+            android:gravity="center"
+            android:text="اطلاعاتی موجود نیست"
+            android:textColor="@color/pelakomakWhite"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            android:visibility="visible" />
 
-            <TextView
-                android:id="@+id/emptyView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="اطلاعاتی موجود نیست"
-                android:fontFamily="@font/iran_sans"
-                android:textColor="@color/pelakomakWhite"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:textSize="12dp"
-                android:visibility="visible"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/foulRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"
+            android:visibility="gone"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/foulRecyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scrollbars="vertical"
-                android:visibility="gone"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
-
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+    </LinearLayout>
 </LinearLayout>

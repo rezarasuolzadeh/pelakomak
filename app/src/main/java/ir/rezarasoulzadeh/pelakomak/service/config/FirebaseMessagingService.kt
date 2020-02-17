@@ -5,6 +5,7 @@ import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.media.RingtoneManager
 import android.util.Log
 import androidx.core.app.NotificationCompat
@@ -43,6 +44,12 @@ class FirebaseMessagingService : FirebaseMessagingService() {
 
         val notificationBuilder = NotificationCompat.Builder(this)
             .setSmallIcon(R.mipmap.pelakomak_logo)
+            .setLargeIcon(
+                BitmapFactory.decodeResource(
+                    this.resources,
+                    R.mipmap.pelakomak_logo
+                )
+            )
             .setContentTitle(title)
             .setContentText(body)
             .setAutoCancel(true)
@@ -50,7 +57,8 @@ class FirebaseMessagingService : FirebaseMessagingService() {
             .setContentIntent(pendingIntent)
             .setStyle(NotificationCompat.DecoratedCustomViewStyle())
 
-        val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        val notificationManager =
+            getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         notificationManager.notify(0, notificationBuilder.build())
 
     }
