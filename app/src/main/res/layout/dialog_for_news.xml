@@ -3,7 +3,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/pelakomakDarkBlue"
+    android:background="@color/darkBlue"
     android:orientation="vertical"
     android:paddingTop="20dp">
 
@@ -34,7 +34,7 @@
             android:gravity="right"
             android:padding="10dp"
             android:text="استعلام خلافی اتومبیل در کمترین زمان"
-            android:textColor="@color/pelakomakWhite"
+            android:textColor="@color/white"
             android:textSize="15dp"
             android:textStyle="normal" />
 
@@ -61,7 +61,7 @@
             android:gravity="right"
             android:padding="10dp"
             android:text="ویرایش پلاک ها"
-            android:textColor="@color/pelakomakWhite"
+            android:textColor="@color/white"
             android:textSize="15dp"
             android:textStyle="normal" />
 
@@ -88,7 +88,7 @@
             android:gravity="right"
             android:padding="10dp"
             android:text="ارسال اعلان برای بروزرسانی "
-            android:textColor="@color/pelakomakWhite"
+            android:textColor="@color/white"
             android:textSize="15dp"
             android:textStyle="normal" />
 
@@ -115,7 +115,7 @@
             android:gravity="right"
             android:padding="10dp"
             android:text="تغییرات ظاهری برنامه"
-            android:textColor="@color/pelakomakWhite"
+            android:textColor="@color/white"
             android:textSize="15dp"
             android:textStyle="normal" />
 
@@ -127,7 +127,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
-        android:background="@color/iconBlue" />
+        android:background="@color/highLightBlue" />
 
     <TextView
         android:id="@+id/newsCloseButton"
@@ -140,7 +140,7 @@
         android:gravity="center"
         android:padding="20dp"
         android:text="بستن"
-        android:textColor="@color/pelakomakWhite"
+        android:textColor="@color/white"
         android:textSize="17dp"
         android:textStyle="bold" />
 

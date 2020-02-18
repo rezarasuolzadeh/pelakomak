@@ -139,7 +139,7 @@
                     android:gravity="center"
                     android:padding="5dp"
                     android:text="استان"
-                    android:textColor="@color/pelakomakTitle"
+                    android:textColor="@color/lightGray"
                     android:textSize="20dp"
                     android:textStyle="normal|bold" />
 
@@ -151,8 +151,8 @@
                     android:gravity="center"
                     android:hint="پلاک بالا را تکمیل کنید"
                     android:padding="12dp"
-                    android:textColor="@color/pelakomakText"
-                    android:textColorHint="@color/pelakomakHint"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/mediumBlue"
                     android:textSize="25dp"
                     android:textStyle="normal|bold" />
             </LinearLayout>
@@ -176,7 +176,7 @@
                     android:gravity="center"
                     android:padding="5dp"
                     android:text="شهرستان"
-                    android:textColor="@color/pelakomakTitle"
+                    android:textColor="@color/lightGray"
                     android:textSize="20dp"
                     android:textStyle="normal|bold" />
 
@@ -192,8 +192,8 @@
                     android:padding="12dp"
                     android:scrollHorizontally="true"
                     android:singleLine="true"
-                    android:textColor="@color/pelakomakText"
-                    android:textColorHint="@color/pelakomakHint"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/mediumBlue"
                     android:textSize="25dp"
                     android:textStyle="normal|bold" />
             </LinearLayout>

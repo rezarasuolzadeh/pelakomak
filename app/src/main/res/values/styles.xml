@@ -1,17 +1,17 @@
 <resources>
 
-    <!-- Base application theme. -->
+    <!-- Base Application Theme -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">#A4D1EA</item>
         <!-- Bottom navigation ripple. -->
-        <item name="colorControlHighlight">@color/rippleColour</item>
+        <item name="colorControlHighlight">@color/mediumGray</item>
     </style>
 
-    <style name="Widget.BottomNavigationView"
-        parent="Widget.Design.BottomNavigationView">
+    <!-- Bottom Navigation Theme -->
+    <style name="Widget.BottomNavigationView" parent="Widget.Design.BottomNavigationView">
         <item name="fontFamily">@font/iran_sans</item>
         <item name="android:textSize">10dp</item>
         <item name="android:textStyle">normal|bold</item>

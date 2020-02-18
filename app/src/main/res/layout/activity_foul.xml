@@ -4,7 +4,7 @@
     android:id="@+id/foulActivityParentLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/pelakomakDarkBlue"
+    android:background="@color/darkBlue"
     android:orientation="vertical">
 
     <LinearLayout
@@ -31,7 +31,7 @@
             android:maxLength="8"
             android:padding="10dp"
             android:textColor="#fff"
-            android:textColorHint="@color/pelakomakWhite"
+            android:textColorHint="@color/white"
             android:textDirection="rtl"
             android:textSize="20dp"
             android:textStyle="bold" />
@@ -60,7 +60,7 @@
             android:gravity="center"
             android:padding="5dp"
             android:text="وضعیت"
-            android:textColor="@color/pelakomakWhite"
+            android:textColor="@color/white"
             android:textSize="15dp"
             android:textStyle="normal" />
 
@@ -78,7 +78,7 @@
             android:gravity="center"
             android:padding="5dp"
             android:text="دریافت خلافی"
-            android:textColor="@color/pelakomakWhite"
+            android:textColor="@color/white"
             android:textSize="15dp"
             android:textStyle="normal" />
 
@@ -95,7 +95,7 @@
             android:gravity="center"
             android:padding="5dp"
             android:text="راهنما"
-            android:textColor="@color/pelakomakWhite"
+            android:textColor="@color/white"
             android:textSize="15dp"
             android:textStyle="normal" />
 
@@ -115,7 +115,7 @@
             android:fontFamily="@font/iran_sans"
             android:gravity="center"
             android:text="اطلاعاتی موجود نیست"
-            android:textColor="@color/pelakomakWhite"
+            android:textColor="@color/white"
             android:textSize="12dp"
             android:textStyle="bold"
             android:visibility="visible" />
@@ -123,6 +123,10 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/foulRecyclerView"
             android:layout_width="match_parent"
+            android:paddingLeft="10dp"
+            android:paddingTop="2dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="1dp"
             android:layout_height="match_parent"
             android:scrollbars="vertical"
             android:visibility="gone"

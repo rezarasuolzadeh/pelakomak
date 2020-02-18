@@ -22,7 +22,7 @@
             android:gravity="center"
             android:padding="5dp"
             tools:text="تاکسی"
-            android:textColor="@color/pelakomakText"
+            android:textColor="@color/white"
             android:textSize="20dp"
             android:textStyle="normal|bold" />
 

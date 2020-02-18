@@ -27,7 +27,7 @@
         android:gravity="center"
         android:padding="10dp"
         android:text="لطفا صبر کنید"
-        android:textColor="@color/pelakomakWhite"
+        android:textColor="@color/white"
         android:textSize="15dp"
         android:textStyle="normal" />
 </LinearLayout>

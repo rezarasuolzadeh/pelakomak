@@ -21,7 +21,7 @@
         android:gravity="center"
         android:padding="10dp"
         android:text="برای شما هیچ تخلفی ثبت نشده است"
-        android:textColor="@color/pelakomakWhite"
+        android:textColor="@color/white"
         android:textSize="15dp"
         android:textStyle="normal" />
 
@@ -31,7 +31,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
-        android:background="@color/iconBlue" />
+        android:background="@color/highLightBlue" />
 
     <TextView
         android:id="@+id/congratulationsCloseButton"
@@ -44,7 +44,7 @@
         android:gravity="center"
         android:padding="20dp"
         android:text="بستن"
-        android:textColor="@color/pelakomakWhite"
+        android:textColor="@color/white"
         android:textSize="17dp"
         android:textStyle="bold" />
 

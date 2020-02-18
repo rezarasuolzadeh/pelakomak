@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/pelakomakDarkBlue"
+    android:background="@color/darkBlue"
     android:orientation="vertical">
 
     <TextView
@@ -13,7 +13,7 @@
         android:gravity="center"
         android:padding="15dp"
         android:text="پلاکُمک"
-        android:textColor="@color/pelakomakWhite"
+        android:textColor="@color/white"
         android:textSize="50dp"
         android:textStyle="bold" />
 
@@ -23,7 +23,7 @@
         android:fontFamily="@font/iran_sans"
         android:gravity="center"
         android:text="پلاک یاب حرفه ای برای هر وسیله نقلیه"
-        android:textColor="@color/pelakomakWhite"
+        android:textColor="@color/white"
         android:textSize="17dp"
         android:textStyle="bold" />
 
@@ -31,7 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="50dp"
-        android:background="@color/pelakomakDarkBlue"
+        android:background="@color/darkBlue"
         android:orientation="vertical">
 
         <LinearLayout
@@ -47,19 +47,19 @@
             <ImageView
                 android:layout_width="180dp"
                 android:layout_height="180dp"
-                android:background="@color/pelakomakDarkBlue"
+                android:background="@color/darkBlue"
                 android:padding="10dp"
                 android:src="@drawable/ic_policeman" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/pelakomakDarkBlue"
+                android:background="@color/darkBlue"
                 android:fontFamily="@font/iran_sans"
                 android:gravity="center"
                 android:padding="10dp"
                 android:text="خلافی اتومبیل"
-                android:textColor="@color/pelakomakWhite"
+                android:textColor="@color/white"
                 android:textSize="17dp"
                 android:textStyle="bold" />
         </LinearLayout>

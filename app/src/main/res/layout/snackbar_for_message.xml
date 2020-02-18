@@ -8,7 +8,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@color/pelakomakDarkBlue"
+        android:background="@color/darkBlue"
         android:layoutDirection="ltr"
         android:orientation="horizontal">
 
@@ -21,7 +21,7 @@
             android:gravity="center"
             android:padding="3dp"
             android:text="پیغام شما در این قسمت قرار می گیرد"
-            android:textColor="@color/pelakomakText"
+            android:textColor="@color/white"
             android:textSize="13dp"
             android:textStyle="normal" />
     </LinearLayout>

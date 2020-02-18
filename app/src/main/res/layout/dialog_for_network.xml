@@ -3,7 +3,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/pelakomakDarkBlue"
+    android:background="@drawable/background_dark_dilog"
     android:orientation="vertical"
     android:paddingTop="20dp">
 
@@ -21,7 +21,7 @@
         android:gravity="center"
         android:padding="10dp"
         android:text="اتصال شما به اینترنت قطع شده است"
-        android:textColor="@color/pelakomakWhite"
+        android:textColor="@color/white"
         android:textSize="15dp"
         android:textStyle="normal" />
 
@@ -31,12 +31,13 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
-        android:background="@color/iconBlue" />
+        android:background="@color/highLightBlue" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layoutDirection="rtl"
+        android:background="@null"
         android:orientation="horizontal">
 
         <TextView
@@ -44,14 +45,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/background_for_dialog_ripple"
+            android:background="@drawable/background_for_dialog_ripple_right"
             android:clickable="true"
             android:focusable="true"
             android:fontFamily="@font/iran_sans"
             android:gravity="center"
             android:padding="20dp"
             android:text="تلاش مجدد"
-            android:textColor="@color/pelakomakWhite"
+            android:textColor="@color/white"
             android:textSize="17dp"
             android:textStyle="bold" />
 
@@ -60,21 +61,21 @@
             android:layout_height="match_parent"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
-            android:background="@color/iconBlue" />
+            android:background="@color/highLightBlue" />
 
         <TextView
             android:id="@+id/networkBackButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/background_for_dialog_ripple"
+            android:background="@drawable/background_for_dialog_ripple_left"
             android:clickable="true"
             android:focusable="true"
             android:fontFamily="@font/iran_sans"
             android:gravity="center"
             android:padding="20dp"
             android:text="بازگشت"
-            android:textColor="@color/pelakomakWhite"
+            android:textColor="@color/white"
             android:textSize="17dp"
             android:textStyle="bold" />
 

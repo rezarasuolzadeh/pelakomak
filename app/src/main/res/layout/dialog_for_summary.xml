@@ -7,6 +7,12 @@
     android:orientation="vertical"
     android:paddingTop="40dp">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/ic_profile" />
+
     <LinearLayout
         android:id="@+id/car_fragment_numberplate"
         android:layout_width="match_parent"
@@ -139,7 +145,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
-        android:background="@color/iconBlue" />
+        android:background="@color/highLightBlue" />
 
     <TextView
         android:id="@+id/summaryCloseButton"
@@ -152,7 +158,7 @@
         android:gravity="center"
         android:padding="20dp"
         android:text="بستن"
-        android:textColor="@color/pelakomakWhite"
+        android:textColor="@color/white"
         android:textSize="17dp"
         android:textStyle="bold" />
 
