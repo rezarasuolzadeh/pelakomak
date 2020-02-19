@@ -14,6 +14,33 @@
         android:src="@drawable/ic_profile" />
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layoutDirection="rtl"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:padding="19dp"
+            android:src="@drawable/ic_dot" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/iran_sans"
+            android:gravity="right"
+            android:padding="10dp"
+            android:text="شماره پلاک شما"
+            android:textColor="@color/highLightBlue"
+            android:textSize="15dp"
+            android:textStyle="normal" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/car_fragment_numberplate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -102,42 +129,85 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
         android:layoutDirection="rtl"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/foulCountTextView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:fontFamily="@font/iran_sans_number"
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="۱۲ مورد خلافی"
-            android:textColor="#F1E7B2"
-            android:textSize="20dp"
-            android:textStyle="normal" />
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:padding="19dp"
+            android:src="@drawable/ic_dot" />
 
         <TextView
-            android:id="@+id/foulPriceTextView"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:fontFamily="@font/iran_sans_number"
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="۱۲۰۰۰۰ تومان"
-            android:textColor="#F1B2B2"
-            android:textSize="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/iran_sans"
+            android:gravity="right"
+            android:padding="10dp"
+            android:text="تعداد خلافی های ثبت شده برای شما"
+            android:textColor="@color/highLightBlue"
+            android:textSize="15dp"
             android:textStyle="normal" />
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/foulCountTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/iran_sans_number"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="۱۲ مورد"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="normal" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layoutDirection="rtl"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:padding="19dp"
+            android:src="@drawable/ic_dot" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/iran_sans"
+            android:gravity="right"
+            android:padding="10dp"
+            android:text="هزینه خلافی های ثبت شده برای شما"
+            android:textColor="@color/highLightBlue"
+            android:textSize="15dp"
+            android:textStyle="normal" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/foulPriceTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/iran_sans_number"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="۱۲۰۰۰۰ تومان"
+        android:textColor="@color/white"
+        android:layout_marginBottom="10dp"
+        android:textSize="20dp"
+        android:textStyle="normal" />
 
     <View
         android:layout_width="match_parent"

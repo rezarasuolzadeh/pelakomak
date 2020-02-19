@@ -19,7 +19,7 @@ class Format {
         return count
             .toString()
             .plus(" ")
-            .plus("مورد خلافی")
+            .plus("مورد")
     }
 
     fun plaqueSection(plaque: String): ArrayList<String> {

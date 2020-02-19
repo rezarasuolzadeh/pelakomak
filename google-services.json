@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "45692434972",
+    "firebase_url": "https://pelakomak.firebaseio.com",
+    "project_id": "pelakomak",
+    "storage_bucket": "pelakomak.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:45692434972:android:ac7834abe4cc428e9abdd9",
+        "android_client_info": {
+          "package_name": "ir.rezarasoulzadeh.pelakomak"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "45692434972-3lh5ubb67brak1prb13rg9jed8kq0sig.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ir.rezarasoulzadeh.pelakomak",
+            "certificate_hash": "1f12079e2ab6d0741f90774eea05c008342c1292"
+          }
+        },
+        {
+          "client_id": "45692434972-erilsj6c8duvqicgbjleev06mcnhs2r3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDeyOiRHP_knJUgYcBCqiP-XoIHQzarL8A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "45692434972-erilsj6c8duvqicgbjleev06mcnhs2r3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
