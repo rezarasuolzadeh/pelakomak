@@ -61,7 +61,7 @@ class FoulActivity : AppCompatActivity(), NetworkStateReceiver.NetworkStateRecei
 
     private lateinit var parentView: View
 
-    private lateinit var foulTimer : CountDownTimer
+    private lateinit var foulTimer: CountDownTimer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -189,7 +189,6 @@ class FoulActivity : AppCompatActivity(), NetworkStateReceiver.NetworkStateRecei
                         congratulationsView.congratulationsCloseButton.setOnClickListener {
                             congratulationsAlertDialog.dismiss()
                         }
-
                     } else {
                         foulsList = it
                         foulRecyclerView = findViewById(R.id.foulRecyclerView)

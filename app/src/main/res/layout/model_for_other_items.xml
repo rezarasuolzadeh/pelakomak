@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
@@ -10,21 +9,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
-        android:background="@drawable/background_for_model"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:background="@drawable/background_for_foul_items"
         android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/other_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/background_for_model_text"
-            android:fontFamily="@font/iran_sans"
-            android:gravity="center"
-            android:padding="5dp"
-            tools:text="تاکسی"
-            android:textColor="@color/white"
-            android:textSize="20dp"
-            android:textStyle="normal|bold" />
 
         <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/other_numberplate"
@@ -34,7 +22,17 @@
             android:padding="10dp"
             tools:src="@drawable/taxi" />
 
+        <TextView
+            android:id="@+id/other_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/iran_sans"
+            android:gravity="center"
+            android:padding="5dp"
+            tools:text="تاکسی"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="normal|bold" />
+
     </LinearLayout>
-
-
 </LinearLayout>

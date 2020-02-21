@@ -9,21 +9,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         android:background="@drawable/background_for_model"
         android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/freezone_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/background_for_model_text"
-            android:fontFamily="@font/iran_sans"
-            android:gravity="center"
-            android:padding="5dp"
-            android:textColor="@color/white"
-            android:textSize="20dp"
-            android:textStyle="normal|bold"
-            tools:text="کیش" />
 
         <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/freezone_numberplate"
@@ -32,6 +21,18 @@
             android:layout_gravity="center"
             android:padding="10dp"
             tools:src="@drawable/kish" />
+
+        <TextView
+            android:id="@+id/freezone_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/iran_sans"
+            android:gravity="center"
+            android:padding="5dp"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="normal|bold"
+            tools:text="کیش" />
 
     </LinearLayout>
 

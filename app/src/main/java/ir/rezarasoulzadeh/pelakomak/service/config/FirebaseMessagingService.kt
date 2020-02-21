@@ -18,11 +18,6 @@ import ir.rezarasoulzadeh.pelakomak.view.activity.HomeActivity
 class FirebaseMessagingService : FirebaseMessagingService() {
     private val tag = "FireBaseMessagingService"
 
-
-    override fun onNewToken(p0: String?) {
-        super.onNewToken(p0)
-    }
-
     @SuppressLint("LongLogTag")
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
         Log.d(tag, " dari: ${remoteMessage.from}")

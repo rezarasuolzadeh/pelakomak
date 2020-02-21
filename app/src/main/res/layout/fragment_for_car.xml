@@ -128,13 +128,13 @@
                 android:background="@drawable/background_for_model"
                 android:clickable="true"
                 android:focusable="true"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingTop="5dp">
 
                 <TextView
                     android:id="@+id/other_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/background_for_model_text"
                     android:fontFamily="@font/iran_sans"
                     android:gravity="center"
                     android:padding="5dp"
@@ -166,12 +166,12 @@
                 android:background="@drawable/background_for_model"
                 android:clickable="true"
                 android:focusable="true"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingTop="5dp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/background_for_model_text"
                     android:fontFamily="@font/iran_sans"
                     android:gravity="center"
                     android:padding="5dp"
