@@ -7,6 +7,7 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.media.RingtoneManager
+import android.os.Build
 import android.util.Log
 import androidx.core.app.NotificationCompat
 import com.google.firebase.messaging.FirebaseMessagingService
@@ -38,13 +39,14 @@ class FirebaseMessagingService : FirebaseMessagingService() {
         val soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
 
         val notificationBuilder = NotificationCompat.Builder(this)
-            .setSmallIcon(R.mipmap.pelakomak_logo)
-            .setLargeIcon(
-                BitmapFactory.decodeResource(
-                    this.resources,
-                    R.mipmap.pelakomak_logo
-                )
-            )
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            notificationBuilder.setSmallIcon(R.drawable.ic_notification)
+            notificationBuilder.color = resources.getColor(R.color.lightBlue)
+        } else {
+            notificationBuilder.setSmallIcon(R.drawable.ic_notification)
+        }
+
+        notificationBuilder
             .setContentTitle(title)
             .setContentText(body)
             .setAutoCancel(true)
