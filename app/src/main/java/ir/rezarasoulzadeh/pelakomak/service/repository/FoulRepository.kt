@@ -18,6 +18,7 @@ class FoulRepository {
                 result = response.body()
             } catch (e: Exception) {
                 e.printStackTrace()
+                result = mutableListOf(Foul(-1))
             }
         }
         return result

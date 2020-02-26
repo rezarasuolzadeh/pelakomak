@@ -190,20 +190,29 @@ class FoulActivity : AppCompatActivity(), NetworkStateReceiver.NetworkStateRecei
                             congratulationsAlertDialog.dismiss()
                         }
                     } else {
-                        foulsList = it
-                        foulRecyclerView = findViewById(R.id.foulRecyclerView)
-                        foulAdapter = FoulAdapter(foulsList)
-                        foulRecyclerView.adapter = foulAdapter
-                        foulRecyclerView.visibility = View.VISIBLE
-                        emptyView.visibility = View.GONE
-                        val section = format.plaqueSection(it[0].plaque)
-                        plaqueFirstPart = section[0]
-                        plaqueSecondPart = section[1]
-                        plaqueThirdPart = section[2]
-                        plaqueFourthPart = section[3]
-                        foulCount = format.countFormat(it.size)
-                        foulPrice = format.finallPrice(it)
-                        searchAlertDialog.dismiss()
+                        if(it[0].amount == -1) {
+                            snackbar.show(
+                                "عملیات با خطا مواجه شد",
+                                "short",
+                                parentView,
+                                this.layoutInflater
+                            )
+                        } else {
+                            foulsList = it
+                            foulRecyclerView = findViewById(R.id.foulRecyclerView)
+                            foulAdapter = FoulAdapter(foulsList)
+                            foulRecyclerView.adapter = foulAdapter
+                            foulRecyclerView.visibility = View.VISIBLE
+                            emptyView.visibility = View.GONE
+                            val section = format.plaqueSection(it[0].plaque)
+                            plaqueFirstPart = section[0]
+                            plaqueSecondPart = section[1]
+                            plaqueThirdPart = section[2]
+                            plaqueFourthPart = section[3]
+                            foulCount = format.countFormat(it.size)
+                            foulPrice = format.finallPrice(it)
+                            searchAlertDialog.dismiss()
+                        }
                     }
                 })
             }
