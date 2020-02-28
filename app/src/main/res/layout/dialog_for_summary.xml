@@ -3,6 +3,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/background_dark_dilog"
     android:orientation="vertical"
     android:paddingTop="40dp">
@@ -147,7 +148,7 @@
             android:fontFamily="@font/iran_sans"
             android:gravity="right"
             android:padding="10dp"
-            android:text="تعداد خلافی های ثبت شده برای شما"
+            android:text="تعداد خلافی های شما"
             android:textColor="@color/highLightBlue"
             android:textSize="15dp"
             android:textStyle="normal" />
@@ -162,9 +163,9 @@
         android:fontFamily="@font/iran_sans_number"
         android:gravity="center"
         android:padding="5dp"
-        android:text="۱۲ مورد"
+        tools:text="۱۲ مورد"
         android:textColor="@color/white"
-        android:textSize="20dp"
+        android:textSize="22dp"
         android:textStyle="normal" />
 
     <LinearLayout
@@ -188,7 +189,7 @@
             android:fontFamily="@font/iran_sans"
             android:gravity="right"
             android:padding="10dp"
-            android:text="هزینه خلافی های ثبت شده برای شما"
+            android:text="هزینه خلافی های شما"
             android:textColor="@color/highLightBlue"
             android:textSize="15dp"
             android:textStyle="normal" />
@@ -203,10 +204,10 @@
         android:fontFamily="@font/iran_sans_number"
         android:gravity="center"
         android:padding="5dp"
-        android:text="۱۲۰۰۰۰ تومان"
+        tools:text="۱۲۰۰۰۰ تومان"
         android:textColor="@color/white"
         android:layout_marginBottom="10dp"
-        android:textSize="20dp"
+        android:textSize="22dp"
         android:textStyle="normal" />
 
     <View

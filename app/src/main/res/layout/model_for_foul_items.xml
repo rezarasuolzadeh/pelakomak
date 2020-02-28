@@ -57,7 +57,7 @@
         android:padding="5dp"
         android:scrollHorizontally="true"
         android:singleLine="true"
-        android:textColor="#F1E7B2"
+        android:textColor="@color/lightYellow"
         android:textSize="18dp"
         android:textStyle="bold"
         tools:text="تجاوز از سرعت مجاز" />
@@ -69,7 +69,7 @@
         android:fontFamily="@font/iran_sans_number"
         android:gravity="center"
         android:padding="5dp"
-        android:textColor="#F1B2B2"
+        android:textColor="@color/lightRed"
         android:textSize="20dp"
         android:textStyle="bold"
         tools:text="۶۰,۰۰۰" />

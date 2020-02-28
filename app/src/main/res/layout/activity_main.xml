@@ -12,6 +12,7 @@
         android:layout_height="50dp"
         android:layout_marginStart="0dp"
         android:layout_marginEnd="0dp"
+        android:layoutDirection="ltr"
         android:clickable="true"
         android:focusable="true"
         android:background="@drawable/background_for_pelakomak"

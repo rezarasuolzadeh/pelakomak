@@ -1,5 +1,6 @@
 package ir.rezarasoulzadeh.pelakomak.view.activity
 
+import android.app.Activity
 import android.content.IntentFilter
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -8,6 +9,7 @@ import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.LayoutInflater
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isEmpty
@@ -90,8 +92,6 @@ class FoulActivity : AppCompatActivity(), NetworkStateReceiver.NetworkStateRecei
 
         setNetworkStateReceiver()
 
-        barcodeEditText.setText(R.string.baba)
-
         foulViewModel = ViewModelProviders.of(this).get(FoulViewModel::class.java)
 
         foulViewModel.foulState.observe(this, Observer {
@@ -155,6 +155,7 @@ class FoulActivity : AppCompatActivity(), NetworkStateReceiver.NetworkStateRecei
         }
 
         getFoulsButton.setOnClickListener {
+            hideKeyboard(this)
             if (barcodeEditText.text.toString() == "") {
                 snackbar.show(
                     "ابتدا کد ۸ رقمی را وارد کنید",
@@ -286,6 +287,15 @@ class FoulActivity : AppCompatActivity(), NetworkStateReceiver.NetworkStateRecei
                 this.layoutInflater
             )
         }
+    }
+
+    private fun hideKeyboard(activity: Activity) {
+        val imm = activity.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        var view = activity.currentFocus
+        if (view == null) {
+            view = View(activity)
+        }
+        imm.hideSoftInputFromWindow(view.windowToken, 0)
     }
 
 }

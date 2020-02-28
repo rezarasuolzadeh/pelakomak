@@ -8,7 +8,6 @@
 
     <!-- WHITE -->
     <color name="white">#fff</color>
-    <color name="mediumWhite">#88FFFFFF</color>
 
     <!-- BLUE -->
     <color name="darkBlue">#000836</color>
@@ -19,7 +18,12 @@
     <!-- GRAY -->
     <color name="mediumGray">#28FFFFFF</color>
     <color name="lightGray">#8B8B8B</color>
+    <color name="highLightGray">#88FFFFFF</color>
 
-    <color name="red">#F50000</color>
+    <!-- YELLOW -->
+    <color name="lightYellow">#F1E7B2</color>
+
+    <!-- RED -->
+    <color name="lightRed">#F1B2B2</color>
 
 </resources>
