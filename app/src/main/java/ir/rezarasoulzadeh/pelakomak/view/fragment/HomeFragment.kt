@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import ir.rezarasoulzadeh.pelakomak.R
 import ir.rezarasoulzadeh.pelakomak.view.activity.FoulActivity
+import kotlinx.android.synthetic.main.content_for_home.view.*
 import kotlinx.android.synthetic.main.fragment_for_home.view.*
 
 class HomeFragment : Fragment() {

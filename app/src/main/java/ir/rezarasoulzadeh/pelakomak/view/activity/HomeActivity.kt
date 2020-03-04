@@ -1,6 +1,7 @@
 package ir.rezarasoulzadeh.pelakomak.view.activity
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -11,19 +12,19 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.gms.tasks.OnCompleteListener
-import com.google.android.material.bottomnavigation.BottomNavigationItemView
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationView
 import com.google.firebase.iid.FirebaseInstanceId
 import ir.rezarasoulzadeh.pelakomak.R
 import ir.rezarasoulzadeh.pelakomak.service.utils.CustomSnackbar
 import ir.rezarasoulzadeh.pelakomak.service.utils.Seen
-import ir.rezarasoulzadeh.pelakomak.view.fragment.*
+import kotlinx.android.synthetic.main.content_for_home.*
+import kotlinx.android.synthetic.main.content_for_home.view.*
+import kotlinx.android.synthetic.main.content_for_home.view.menuButton
 import kotlinx.android.synthetic.main.dialog_for_news.view.*
+import kotlinx.android.synthetic.main.fragment_for_home.*
 
 class HomeActivity : AppCompatActivity() {
 
@@ -31,14 +32,21 @@ class HomeActivity : AppCompatActivity() {
 
     private lateinit var parentView : View
 
+    private lateinit var drawerLayout: DrawerLayout
+    private lateinit var navView: NavigationView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        val navView: BottomNavigationView = findViewById(R.id.nav_view)
+        setContentView(R.layout.fragment_for_home)
 
-        supportActionBar!!.hide()
+        drawerLayout = findViewById(R.id.drawer_layout)
+        navView = findViewById(R.id.nav_view)
 
-        parentView = findViewById<View>(R.id.mainActivityParentLayout)
+        menuButton.setOnClickListener {
+            drawerLayout.openDrawer(GravityCompat.END)
+        }
+
+//        parentView = findViewById<View>(R.id.mainActivityParentLayout)
 
         val seen = Seen(this)
 
@@ -63,71 +71,27 @@ class HomeActivity : AppCompatActivity() {
             }, 1500)
         }
 
-        val navController = findNavController(R.id.nav_host_fragment)
+        contentHomeLayout.newsButton.setOnClickListener {
+            val newsView = LayoutInflater.from(this).inflate(R.layout.dialog_for_news, null)
 
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.navigation_car,
-                R.id.navigation_motorcycle,
-                R.id.navigation_other,
-                R.id.navigation_freezone
-            )
-        )
+            val newsViewBuilder = this.let { it1 -> AlertDialog.Builder(it1).setView(newsView) }
 
-        val navigationCar = findViewById<BottomNavigationItemView>(R.id.navigation_car)
-        val navigationMotorcycle =
-            findViewById<BottomNavigationItemView>(R.id.navigation_motorcycle)
-        val navigationOther = findViewById<BottomNavigationItemView>(R.id.navigation_other)
-        val navigationFreezone = findViewById<BottomNavigationItemView>(R.id.navigation_freezone)
-        val navigationHome = findViewById<BottomNavigationItemView>(R.id.navigation_home)
+            val newsAlertDialog = newsViewBuilder.show()
 
-        navigationCar.setOnClickListener {
-            val transaction = supportFragmentManager.beginTransaction()
-            val fragment = CarFragment()
-            transaction.replace(R.id.nav_host_fragment, fragment)
-            transaction.addToBackStack(null)
-            transaction.commit()
-            navView.menu.findItem(R.id.navigation_car).isChecked = true
+            newsAlertDialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+            newsAlertDialog.setCanceledOnTouchOutside(false)
+
+            newsView.newsCloseButton.setOnClickListener {
+                newsAlertDialog.dismiss()
+            }
         }
 
-        navigationMotorcycle.setOnClickListener {
-            val transaction = supportFragmentManager.beginTransaction()
-            val fragment = MotorcycleFragment()
-            transaction.replace(R.id.nav_host_fragment, fragment)
-            transaction.addToBackStack(null)
-            transaction.commit()
-            navView.menu.findItem(R.id.navigation_motorcycle).isChecked = true
+        contentHomeLayout.foulButtonLayout.setOnClickListener {
+            val intent = Intent(this, FoulActivity::class.java)
+            startActivity(intent)
         }
 
-        navigationOther.setOnClickListener {
-            val transaction = supportFragmentManager.beginTransaction()
-            val fragment = OtherFragment()
-            transaction.replace(R.id.nav_host_fragment, fragment)
-            transaction.addToBackStack(null)
-            transaction.commit()
-            navView.menu.findItem(R.id.navigation_other).isChecked = true
-        }
-
-        navigationFreezone.setOnClickListener {
-            val transaction = supportFragmentManager.beginTransaction()
-            val fragment = FreezoneFragment()
-            transaction.replace(R.id.nav_host_fragment, fragment)
-            transaction.addToBackStack(null)
-            transaction.commit()
-            navView.menu.findItem(R.id.navigation_freezone).isChecked = true
-        }
-
-        navigationHome.setOnClickListener {
-            val transaction = supportFragmentManager.beginTransaction()
-            val fragment = HomeFragment()
-            transaction.replace(R.id.nav_host_fragment, fragment)
-            transaction.addToBackStack(null)
-            transaction.commit()
-            navView.menu.findItem(R.id.navigation_home).isChecked = true
-        }
-
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
     }
 
     @SuppressLint("StringFormatInvalid")
@@ -153,16 +117,16 @@ class HomeActivity : AppCompatActivity() {
 
     private var doubleBackToExitPressedOnce = false
 
-    override fun onBackPressed() {
-        val inflater = this.layoutInflater
-
-        if (doubleBackToExitPressedOnce) finishAffinity()
-
-        this.doubleBackToExitPressedOnce = true
-
-        snackbar.show("برای خروج دوباره دکمه بازگشت را لمس کنید", "short", parentView, inflater)
-
-        Handler().postDelayed({ doubleBackToExitPressedOnce = false }, 2000)
-    }
+//    override fun onBackPressed() {
+//        val inflater = this.layoutInflater
+//
+//        if (doubleBackToExitPressedOnce) finishAffinity()
+//
+//        this.doubleBackToExitPressedOnce = true
+//
+//        snackbar.show("برای خروج دوباره دکمه بازگشت را لمس کنید", "short", parentView, inflater)
+//
+//        Handler().postDelayed({ doubleBackToExitPressedOnce = false }, 2000)
+//    }
 
 }
