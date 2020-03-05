@@ -3,17 +3,21 @@
 
     <group>
         <item
-            android:id="@+id/nav_profile"
-            android:icon="@drawable/ic_wifi"
-            android:title="Profile"/>
+            android:id="@+id/menuMailItem"
+            android:icon="@drawable/ic_mail"
+            android:title="@string/mailText"/>
         <item
-            android:id="@+id/nav_messages"
-            android:icon="@drawable/ic_wifi"
-            android:title="Messages"/>
+            android:id="@+id/menuStarItem"
+            android:icon="@drawable/ic_star"
+            android:title="@string/starText"/>
         <item
-            android:id="@+id/nav_friends"
-            android:icon="@drawable/ic_wifi"
-            android:title="Friends"/>
+            android:id="@+id/menuShareItem"
+            android:icon="@drawable/ic_share"
+            android:title="@string/shareText"/>
+        <item
+            android:id="@+id/developerItem"
+            android:icon="@drawable/ic_developer"
+            android:title="@string/developerText"/>
     </group>
 
 </menu>

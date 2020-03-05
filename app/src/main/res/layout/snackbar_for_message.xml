@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:fontFamily="@font/iran_sans"
+            android:fontFamily="@font/iransans"
             android:gravity="center"
             android:padding="3dp"
             android:text="پیغام شما در این قسمت قرار می گیرد"

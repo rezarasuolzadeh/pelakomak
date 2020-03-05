@@ -7,6 +7,43 @@
     android:background="@color/darkBlue"
     android:orientation="vertical">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="خلافی اتومبیل"
+            android:fontFamily="@font/dima_moalem"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="@color/highLightBlue"
+            android:textSize="30dp"
+            />
+
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/background_for_ripple"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="10dp"
+            android:src="@drawable/ic_back"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/highLightBlue"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,7 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="8"
             android:background="#00FFFFFF"
-            android:fontFamily="@font/iran_sans_number"
+            android:fontFamily="@font/iransans_number"
             android:gravity="center"
             android:hint="کد ۸ رقمی"
             android:inputType="number"
@@ -56,7 +93,7 @@
             android:background="@drawable/background_for_button"
             android:clickable="true"
             android:focusable="true"
-            android:fontFamily="@font/iran_sans"
+            android:fontFamily="@font/iransans"
             android:gravity="center"
             android:padding="5dp"
             android:text="وضعیت"
@@ -74,7 +111,7 @@
             android:background="@drawable/background_for_button"
             android:clickable="true"
             android:focusable="true"
-            android:fontFamily="@font/iran_sans"
+            android:fontFamily="@font/iransans"
             android:gravity="center"
             android:padding="5dp"
             android:text="دریافت خلافی"
@@ -91,7 +128,7 @@
             android:background="@drawable/background_for_button"
             android:clickable="true"
             android:focusable="true"
-            android:fontFamily="@font/iran_sans"
+            android:fontFamily="@font/iransans"
             android:gravity="center"
             android:padding="5dp"
             android:text="راهنما"
@@ -112,7 +149,7 @@
             android:id="@+id/emptyView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:fontFamily="@font/iran_sans"
+            android:fontFamily="@font/iransans"
             android:gravity="center"
             android:text="اطلاعاتی موجود نیست"
             android:textColor="@color/white"

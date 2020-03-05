@@ -1,4 +1,4 @@
-package ir.rezarasoulzadeh.pelakomak.view.fragment
+package ir.rezarasoulzadeh.pelakomak.view.activity
 
 import android.app.Activity
 import android.content.Context
@@ -9,28 +9,24 @@ import android.os.VibrationEffect
 import android.os.Vibrator
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
+import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.fragment.app.Fragment
+import androidx.appcompat.app.AppCompatActivity
 import ir.rezarasoulzadeh.pelakomak.R
+import kotlinx.android.synthetic.main.activity_for_motorcycle.*
 
-class MotorcycleFragment : Fragment() {
+class MotorcycleActivity : AppCompatActivity() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val root = inflater.inflate(R.layout.fragment_for_motorcycle, container, false)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_for_motorcycle)
 
-        val motorcycleStateNumber = root.findViewById<EditText>(R.id.motorcycle_state_number)
-        val motorcycleState = root.findViewById<TextView>(R.id.motorcycle_state)
-        val layout = root.findViewById<ConstraintLayout>(R.id.layout)
+        val motorcycleStateNumber = findViewById<EditText>(R.id.motorcycle_state_number)
+        val motorcycleState = findViewById<TextView>(R.id.motorcycle_state)
+        val layout = findViewById<LinearLayout>(R.id.motorcycleActivityParentView)
 
         motorcycleStateNumber.setOnFocusChangeListener { v, hasFocus ->
             if (hasFocus) {
@@ -55,13 +51,16 @@ class MotorcycleFragment : Fragment() {
             }
         })
 
-        return root
+        backButton.setOnClickListener {
+            super.onBackPressed()
+        }
+
     }
 
     private fun search(stateNumber: EditText, stateName: TextView) {
         // easy working (hide key pad)
         if (stateNumber.length() == 3) {
-            hideKeyboard(this.activity!!)
+            hideKeyboard(this)
         }
 
         // if dangerous (0 is not valid)
@@ -70,7 +69,7 @@ class MotorcycleFragment : Fragment() {
             stateName.setTextColor(Color.RED)
 
             // enable the device vibration
-            val vibrator = context?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+            val vibrator = this.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
             if (Build.VERSION.SDK_INT >= 26) {
                 vibrator.vibrate(
                     VibrationEffect.createOneShot(
@@ -124,7 +123,7 @@ class MotorcycleFragment : Fragment() {
                 else -> {
                     stateName.text = "پلاک نامعتبر است"
                     stateName.setTextColor(Color.RED)
-                    val vibrator = context?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+                    val vibrator = this.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
                     if (Build.VERSION.SDK_INT >= 26) {
                         vibrator.vibrate(
                             VibrationEffect.createOneShot(

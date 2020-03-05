@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="10dp"
-        android:fontFamily="@font/iran_sans"
+        android:fontFamily="@font/iransans"
         android:gravity="center"
         android:padding="10dp"
         android:text="لطفا صبر کنید"

@@ -10,7 +10,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:orientation="horizontal">
 
         <ImageView
@@ -24,6 +24,19 @@
             android:src="@drawable/ic_news"
             app:layout_constraintLeft_toLeftOf="parent" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="پلاکُمک"
+            android:fontFamily="@font/dima_moalem"
+            app:layout_constraintLeft_toRightOf="@id/newsButton"
+            app:layout_constraintRight_toLeftOf="@id/menuButton"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="@color/highLightBlue"
+            android:textSize="30dp"
+            />
+
         <ImageView
             android:id="@+id/menuButton"
             android:layout_width="50dp"
@@ -35,240 +48,196 @@
             android:src="@drawable/ic_menu"
             app:layout_constraintRight_toRightOf="parent" />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/highLightBlue"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/darkBlue">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/categoryAppBar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/darkBlue"
-            android:fitsSystemWindows="true"
-            app:elevation="0dp">
-
-            <com.google.android.material.appbar.CollapsingToolbarLayout
-                android:id="@+id/categoryCollapsingLayout"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/darkBlue"
-                android:fitsSystemWindows="true"
-                app:contentScrim="@color/darkBlue"
-                app:layout_scrollFlags="scroll|enterAlways">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:fontFamily="@font/iran_sans"
-                        android:gravity="center"
-                        android:padding="15dp"
-                        android:text="پلاکُمک"
-                        android:textColor="@color/white"
-                        android:textSize="50dp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/iran_sans"
-                        android:gravity="center"
-                        android:text="پلاک یاب حرفه ای برای هر وسیله نقلیه"
-                        android:textColor="@color/white"
-                        android:textSize="17dp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </com.google.android.material.appbar.CollapsingToolbarLayout>
-        </com.google.android.material.appbar.AppBarLayout>
-
-        <androidx.core.widget.NestedScrollView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            android:orientation="vertical">
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="match_parent">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
+                <GridLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="10dp">
+                    android:layout_marginTop="50dp"
+                    android:background="@color/darkBlue"
+                    android:columnCount="2"
+                    android:orientation="vertical"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent">
 
-                    <GridLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="50dp"
-                        android:background="@color/darkBlue"
-                        android:columnCount="2"
-                        android:orientation="vertical"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent">
+                    <LinearLayout
+                        android:id="@+id/carButtonLayout"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:layout_row="0"
+                        android:layout_column="0"
+                        android:layout_gravity="center"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:orientation="vertical">
 
-                        <LinearLayout
+                        <ImageView
                             android:layout_width="180dp"
+                            android:layout_height="180dp"
+                            android:background="@color/darkBlue"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_car" />
+
+                        <TextView
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_row="0"
-                            android:layout_column="0"
-                            android:layout_gravity="center"
-                            android:clickable="true"
-                            android:focusable="true"
-                            android:orientation="vertical">
+                            android:background="@color/darkBlue"
+                            android:fontFamily="@font/iransans"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="پلاک اتومبیل"
+                            android:textColor="@color/white"
+                            android:textSize="17dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
 
-                            <ImageView
-                                android:layout_width="180dp"
-                                android:layout_height="180dp"
-                                android:background="@color/darkBlue"
-                                android:padding="10dp"
-                                android:src="@drawable/ic_car" />
+                    <LinearLayout
+                        android:id="@+id/motorcycleButtonLayout"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:layout_row="0"
+                        android:layout_column="1"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="20dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:orientation="vertical">
 
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@color/darkBlue"
-                                android:fontFamily="@font/iran_sans"
-                                android:gravity="center"
-                                android:padding="10dp"
-                                android:text="پلاک اتومبیل"
-                                android:textColor="@color/white"
-                                android:textSize="17dp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-
-                        <LinearLayout
+                        <ImageView
                             android:layout_width="180dp"
+                            android:layout_height="180dp"
+                            android:background="@color/darkBlue"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_motorcycle" />
+
+                        <TextView
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_row="0"
-                            android:layout_column="1"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="20dp"
-                            android:clickable="true"
-                            android:focusable="true"
-                            android:orientation="vertical">
+                            android:background="@color/darkBlue"
+                            android:fontFamily="@font/iransans"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="پلاک موتورسیکلت"
+                            android:textColor="@color/white"
+                            android:textSize="17dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
 
-                            <ImageView
-                                android:layout_width="180dp"
-                                android:layout_height="180dp"
-                                android:background="@color/darkBlue"
-                                android:padding="10dp"
-                                android:src="@drawable/ic_motorcycle" />
+                    <LinearLayout
+                        android:id="@+id/otherButtonLayout"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:layout_row="1"
+                        android:layout_column="0"
+                        android:layout_gravity="center"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:orientation="vertical">
 
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@color/darkBlue"
-                                android:fontFamily="@font/iran_sans"
-                                android:gravity="center"
-                                android:padding="10dp"
-                                android:text="پلاک موتورسیکلت"
-                                android:textColor="@color/white"
-                                android:textSize="17dp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-
-                        <LinearLayout
+                        <ImageView
                             android:layout_width="180dp"
+                            android:layout_height="180dp"
+                            android:background="@color/darkBlue"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_other" />
+
+                        <TextView
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_row="1"
-                            android:layout_column="0"
-                            android:layout_gravity="center"
-                            android:clickable="true"
-                            android:focusable="true"
-                            android:orientation="vertical">
+                            android:background="@color/darkBlue"
+                            android:fontFamily="@font/iransans"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="سایر پلاک ها"
+                            android:textColor="@color/white"
+                            android:textSize="17dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
 
-                            <ImageView
-                                android:layout_width="180dp"
-                                android:layout_height="180dp"
-                                android:background="@color/darkBlue"
-                                android:padding="10dp"
-                                android:src="@drawable/ic_other" />
+                    <LinearLayout
+                        android:id="@+id/freezoneButtonLayout"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:layout_row="1"
+                        android:layout_column="1"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="20dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:orientation="vertical">
 
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@color/darkBlue"
-                                android:fontFamily="@font/iran_sans"
-                                android:gravity="center"
-                                android:padding="10dp"
-                                android:text="سایر پلاک ها"
-                                android:textColor="@color/white"
-                                android:textSize="17dp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-
-                        <LinearLayout
+                        <ImageView
                             android:layout_width="180dp"
+                            android:layout_height="180dp"
+                            android:background="@color/darkBlue"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_freezone" />
+
+                        <TextView
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_row="1"
-                            android:layout_column="1"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="20dp"
-                            android:clickable="true"
-                            android:focusable="true"
-                            android:orientation="vertical">
+                            android:background="@color/darkBlue"
+                            android:fontFamily="@font/iransans"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="پلاک مناطق آزاد"
+                            android:textColor="@color/white"
+                            android:textSize="17dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
 
-                            <ImageView
-                                android:layout_width="180dp"
-                                android:layout_height="180dp"
-                                android:background="@color/darkBlue"
-                                android:padding="10dp"
-                                android:src="@drawable/ic_freezone" />
+                    <LinearLayout
+                        android:id="@+id/foulButtonLayout"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:layout_row="2"
+                        android:layout_column="0"
+                        android:layout_gravity="center"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:orientation="vertical">
 
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@color/darkBlue"
-                                android:fontFamily="@font/iran_sans"
-                                android:gravity="center"
-                                android:padding="10dp"
-                                android:text="پلاک مناطق آزاد"
-                                android:textColor="@color/white"
-                                android:textSize="17dp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:id="@+id/foulButtonLayout"
+                        <ImageView
                             android:layout_width="180dp"
+                            android:layout_height="180dp"
+                            android:background="@color/darkBlue"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_policeman" />
+
+                        <TextView
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_row="2"
-                            android:layout_column="0"
-                            android:layout_gravity="center"
-                            android:clickable="true"
-                            android:focusable="true"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="180dp"
-                                android:layout_height="180dp"
-                                android:background="@color/darkBlue"
-                                android:padding="10dp"
-                                android:src="@drawable/ic_policeman" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@color/darkBlue"
-                                android:fontFamily="@font/iran_sans"
-                                android:gravity="center"
-                                android:padding="10dp"
-                                android:text="خلافی اتومبیل"
-                                android:textColor="@color/white"
-                                android:textSize="17dp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-                    </GridLayout>
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </LinearLayout>
-        </androidx.core.widget.NestedScrollView>
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+                            android:background="@color/darkBlue"
+                            android:fontFamily="@font/iransans"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="خلافی اتومبیل"
+                            android:textColor="@color/white"
+                            android:textSize="17dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </GridLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 </LinearLayout>

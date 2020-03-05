@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/motorcycleActivityParentView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_for_pelakomak"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="پلاک موتورسیکلت"
+            android:fontFamily="@font/dima_moalem"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="@color/highLightBlue"
+            android:textSize="30dp"
+            />
+
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/background_for_ripple"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="10dp"
+            android:src="@drawable/ic_back"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/highLightBlue"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_for_numberplate"
+            android:layoutDirection="ltr"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layoutDirection="ltr"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="80dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginTop="4dp"
+                    android:src="@drawable/iran" />
+
+                <EditText
+                    android:id="@+id/motorcycle_state_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginLeft="10dp"
+                    android:backgroundTint="#fff"
+                    android:ems="2"
+                    android:focusableInTouchMode="true"
+                    android:fontFamily="@font/iransans_number"
+                    android:gravity="bottom"
+                    android:hint="۱۲۳"
+                    android:inputType="number"
+                    android:lines="1"
+                    android:maxLength="3"
+                    android:textColor="#000000"
+                    android:textSize="60dp"
+                    android:textStyle="normal|bold" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="7dp"
+                android:layout_marginRight="7dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:fontFamily="@font/iransans_number"
+                android:lines="1"
+                android:text="۵۶۷۸۹"
+                android:textColor="#000000"
+                android:textSize="60dp"
+                android:textStyle="normal|bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/background_for_model"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="vertical"
+        android:paddingTop="5dp">
+
+        <TextView
+            android:id="@+id/other_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/iransans"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="استان"
+            android:textColor="@color/lightGray"
+            android:textSize="20dp"
+            android:textStyle="normal|bold" />
+
+        <TextView
+            android:id="@+id/motorcycle_state"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/iransans"
+            android:gravity="center"
+            android:hint="پلاک بالا را تکمیل کنید"
+            android:padding="12dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/mediumBlue"
+            android:textSize="25dp"
+            android:textStyle="normal|bold" />
+    </LinearLayout>
+</LinearLayout>

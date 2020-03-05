@@ -1,30 +1,26 @@
-package ir.rezarasoulzadeh.pelakomak.view.fragment
+package ir.rezarasoulzadeh.pelakomak.view.activity
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.LinearLayout
-import androidx.fragment.app.Fragment
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ir.rezarasoulzadeh.pelakomak.R
 import ir.rezarasoulzadeh.pelakomak.model.Other
 import ir.rezarasoulzadeh.pelakomak.view.adapter.OtherAdapter
+import kotlinx.android.synthetic.main.activity_for_other.*
 
-class OtherFragment : Fragment() {
+class OtherActivity : AppCompatActivity() {
 
     @SuppressLint("WrongConstant")
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val root = inflater.inflate(R.layout.fragment_for_other, container, false)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_for_other)
 
-        val otherRecyclerView = root.findViewById<RecyclerView>(R.id.recycler_view_other)
-        otherRecyclerView.layoutManager = LinearLayoutManager(this.activity, LinearLayout.VERTICAL, false)
+        val otherRecyclerView = findViewById<RecyclerView>(R.id.recycler_view_other)
+
+        otherRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
 
         val other = arrayOf(
             Other("ارتش", R.drawable.artesh),
@@ -69,7 +65,10 @@ class OtherFragment : Fragment() {
             OtherAdapter(other)
         otherRecyclerView.adapter = adapter
 
-        return root
+        backButton.setOnClickListener {
+            super.onBackPressed()
+        }
+
     }
 
 }

@@ -15,5 +15,14 @@
 
     <string name="barcode">89692969</string>
     <string name="msg_token_fmt">message token format</string>
+    <string name="mailText">ارسال پیام</string>
+    <string name="starText">امتیاز دهی</string>
+    <string name="shareText">معرفی به دوستان</string>
+    <string name="developerText">سایر برنامه ها</string>
+
+    <!-- Bazaar -->
+    <string name="bazaarPackage">ir.rezarasoulzadeh.pelakomak</string>
+    <string name="bazaarLink">http://cafebazaar.ir/app/?id=ir.rezarasoulzadeh.pelakomak&amp;ref=share</string>
+    <string name="bazaarId">027094212245</string>
 
 </resources>

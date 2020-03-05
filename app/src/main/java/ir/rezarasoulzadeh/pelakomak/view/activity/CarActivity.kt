@@ -1,4 +1,4 @@
-package ir.rezarasoulzadeh.pelakomak.view.fragment
+package ir.rezarasoulzadeh.pelakomak.view.activity
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -10,38 +10,37 @@ import android.os.VibrationEffect
 import android.os.Vibrator
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
+import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.fragment.app.Fragment
+import androidx.appcompat.app.AppCompatActivity
 import ir.rezarasoulzadeh.pelakomak.R
 import ir.rezarasoulzadeh.pelakomak.service.database.CarNumberplateDB
 import ir.rezarasoulzadeh.pelakomak.service.utils.CustomSnackbar
+import kotlinx.android.synthetic.main.activity_for_car.*
 
-class CarFragment : Fragment() {
+class CarActivity : AppCompatActivity() {
 
     private val snackbar = CustomSnackbar()
+    private lateinit var parentView : View
 
     private val validCharacters =
         arrayListOf("ب", "ج", "د", "س", "ص", "ط", "ق", "ل", "م", "ن", "و", "ه", "ی")
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val root = inflater.inflate(R.layout.fragment_for_car, container, false)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_for_car)
 
-        val carStateNumber = root.findViewById<EditText>(R.id.car_state_number)
-        val carCountyCharacter = root.findViewById<EditText>(R.id.car_county_character)
-        val carState = root.findViewById<TextView>(R.id.car_state)
-        val carCounty = root.findViewById<TextView>(R.id.car_county)
-        val layout = root.findViewById<ConstraintLayout>(R.id.layout)
+        val inflater = this.layoutInflater
 
+        val carStateNumber = findViewById<EditText>(R.id.car_state_number)
+        val carCountyCharacter = findViewById<EditText>(R.id.car_county_character)
+        val carState = findViewById<TextView>(R.id.car_state)
+        val carCounty = findViewById<TextView>(R.id.car_county)
+        val layout = findViewById<LinearLayout>(R.id.carActivityParentView)
+        parentView = findViewById<LinearLayout>(R.id.carActivityParentView)
 
         carStateNumber.setOnFocusChangeListener { v, hasFocus ->
             if (hasFocus) {
@@ -55,7 +54,7 @@ class CarFragment : Fragment() {
                     snackbar.show(
                         "ابتدا دو رقم سمت راست را وارد کنید",
                         "long",
-                        root,
+                        parentView,
                         inflater
                     )
                     layout.requestFocus()
@@ -97,7 +96,10 @@ class CarFragment : Fragment() {
             }
         })
 
-        return root
+        backButton.setOnClickListener {
+            super.onBackPressed()
+        }
+
     }
 
     @SuppressLint("Recycle")
@@ -109,19 +111,19 @@ class CarFragment : Fragment() {
     ) {
         // easy work (hide key board)
         if (stateNumber.length() == 2) {
-            hideKeyboard(this.activity!!)
+            hideKeyboard(this)
         }
 
         // easy work (hide key board)
         if (countyCharacter.length() == 1) {
-            hideKeyboard(this.activity!!)
+            hideKeyboard(this)
         }
 
         // var to save database response
         val dbResponse: String
 
         /////////////////////////////////// GIVE DATABASE RESPONSE /////////////////////////////////
-        val carDB = CarNumberplateDB(this.context!!)
+        val carDB = CarNumberplateDB(this)
         dbResponse = carDB.get(stateNumber.text.toString(), countyCharacter.text.toString())
         ////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -133,7 +135,7 @@ class CarFragment : Fragment() {
             countyName.setTextColor(Color.RED)
 
             // enable the vibration of device
-            val vibrator = context?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+            val vibrator = this.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
             if (Build.VERSION.SDK_INT >= 26) {
                 vibrator.vibrate(
                     VibrationEffect.createOneShot(

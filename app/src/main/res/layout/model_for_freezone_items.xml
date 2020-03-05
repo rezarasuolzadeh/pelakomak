@@ -26,7 +26,7 @@
             android:id="@+id/freezone_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/iran_sans"
+            android:fontFamily="@font/iransans"
             android:gravity="center"
             android:padding="5dp"
             android:textColor="@color/white"

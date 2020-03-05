@@ -1,30 +1,25 @@
-package ir.rezarasoulzadeh.pelakomak.view.fragment
+package ir.rezarasoulzadeh.pelakomak.view.activity
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.LinearLayout
-import androidx.fragment.app.Fragment
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ir.rezarasoulzadeh.pelakomak.R
 import ir.rezarasoulzadeh.pelakomak.model.Freezone
 import ir.rezarasoulzadeh.pelakomak.view.adapter.FreezoneAdapter
+import kotlinx.android.synthetic.main.activity_for_freezone.*
 
-class FreezoneFragment : Fragment() {
+class FreezoneActivity : AppCompatActivity() {
 
     @SuppressLint("WrongConstant")
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val root = inflater.inflate(R.layout.fragment_for_freezone, container, false)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_for_freezone)
 
-        val freezoneRecyclerView = root.findViewById<RecyclerView>(R.id.recycler_view_freezone)
-        freezoneRecyclerView.layoutManager = LinearLayoutManager(this.activity, LinearLayout.VERTICAL, false)
+        val freezoneRecyclerView = findViewById<RecyclerView>(R.id.recycler_view_freezone)
+        freezoneRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
 
         val freezone = arrayOf(
             Freezone("کیش", R.drawable.kish),
@@ -48,10 +43,12 @@ class FreezoneFragment : Fragment() {
             Freezone("ماکو", R.drawable.maku)
         )
 
-        val adapter =
-            FreezoneAdapter(freezone)
+        val adapter = FreezoneAdapter(freezone)
         freezoneRecyclerView.adapter = adapter
 
-        return root
+        backButton.setOnClickListener {
+            super.onBackPressed()
+        }
+
     }
 }

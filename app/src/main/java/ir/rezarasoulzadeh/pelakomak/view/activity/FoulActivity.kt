@@ -69,9 +69,11 @@ class FoulActivity : AppCompatActivity(), NetworkStateReceiver.NetworkStateRecei
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_foul)
 
-        supportActionBar!!.hide()
-
         parentView = findViewById<View>(R.id.foulActivityParentLayout)
+
+        backButton.setOnClickListener {
+            super.onBackPressed()
+        }
 
         ////////////////// search dialog //////////////////////
         searchView = LayoutInflater.from(this).inflate(R.layout.dialog_for_search, null)

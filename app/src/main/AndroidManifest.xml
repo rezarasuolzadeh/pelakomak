@@ -23,6 +23,10 @@
         </activity>
 
         <activity android:name=".view.activity.FoulActivity" />
+        <activity android:name=".view.activity.CarActivity" />
+        <activity android:name=".view.activity.MotorcycleActivity" />
+        <activity android:name=".view.activity.FreezoneActivity" />
+        <activity android:name=".view.activity.OtherActivity" />
 
         <!-- Fire base service -->
         <service android:name=".service.config.FirebaseMessagingService">

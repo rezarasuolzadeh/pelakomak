@@ -10,12 +10,9 @@
         <item name="colorControlHighlight">@color/mediumGray</item>
     </style>
 
-    <!-- Bottom Navigation Theme -->
-    <style name="Widget.BottomNavigationView" parent="Widget.Design.BottomNavigationView">
-        <item name="fontFamily">@font/iran_sans</item>
-        <item name="android:textSize">10dp</item>
-        <item name="android:textStyle">normal|bold</item>
+    <!-- Navigation Drawer Theme -->
+    <style name="MenuTheme" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/iransans</item>
     </style>
-
 
 </resources>
