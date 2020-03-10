@@ -15,6 +15,7 @@
     <color name="mediumBlue">#01315D</color>
     <color name="lightBlue">#014E92</color>
     <color name="highLightBlue">#2394BC</color>
+    <color name="lowBlue">#73CEFF</color>
 
     <!-- GRAY -->
     <color name="mediumGray">#28FFFFFF</color>

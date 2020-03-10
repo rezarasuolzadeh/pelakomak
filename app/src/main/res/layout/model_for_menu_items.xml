@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="20dp"
+    android:layout_marginRight="10dp"
+    android:background="@drawable/background_for_home_items"
+    android:orientation="vertical">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/menuImage"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:padding="20dp" />
+
+    <TextView
+        android:id="@+id/menuTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/background_for_menu_title"
+        android:fontFamily="@font/dima_moalem"
+        android:gravity="center"
+        android:padding="10dp"
+        tools:text="پلاک موتورسیکلت"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+</LinearLayout>

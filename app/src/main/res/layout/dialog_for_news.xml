@@ -30,12 +30,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
-            android:fontFamily="@font/iransans"
+            android:fontFamily="@font/dima_moalem"
             android:gravity="right"
-            android:padding="10dp"
+            android:padding="5dp"
             android:text="استعلام خلافی اتومبیل در کمترین زمان"
             android:textColor="@color/white"
-            android:textSize="15dp"
+            android:textSize="18dp"
             android:textStyle="normal" />
 
     </LinearLayout>
@@ -57,12 +57,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
-            android:fontFamily="@font/iransans"
+            android:fontFamily="@font/dima_moalem"
             android:gravity="right"
-            android:padding="10dp"
+            android:padding="5dp"
             android:text="ویرایش پلاک ها"
             android:textColor="@color/white"
-            android:textSize="15dp"
+            android:textSize="18dp"
             android:textStyle="normal" />
 
     </LinearLayout>
@@ -84,12 +84,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
-            android:fontFamily="@font/iransans"
+            android:fontFamily="@font/dima_moalem"
             android:gravity="right"
-            android:padding="10dp"
+            android:padding="5dp"
             android:text="ارسال اعلان برای بروزرسانی "
             android:textColor="@color/white"
-            android:textSize="15dp"
+            android:textSize="18dp"
             android:textStyle="normal" />
 
     </LinearLayout>
@@ -111,12 +111,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
-            android:fontFamily="@font/iransans"
+            android:fontFamily="@font/dima_moalem"
             android:gravity="right"
-            android:padding="10dp"
+            android:padding="5dp"
             android:text="تغییرات ظاهری برنامه"
             android:textColor="@color/white"
-            android:textSize="15dp"
+            android:textSize="18dp"
             android:textStyle="normal" />
 
     </LinearLayout>
@@ -136,12 +136,12 @@
         android:background="@drawable/background_for_dialog_ripple"
         android:clickable="true"
         android:focusable="true"
-        android:fontFamily="@font/iransans"
+        android:fontFamily="@font/dima_moalem"
         android:gravity="center"
-        android:padding="20dp"
+        android:padding="5dp"
         android:text="بستن"
-        android:textColor="@color/white"
-        android:textSize="17dp"
+        android:textColor="@color/highLightBlue"
+        android:textSize="25dp"
         android:textStyle="bold" />
 
 </LinearLayout>

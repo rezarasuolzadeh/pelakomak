@@ -23,23 +23,11 @@ class FreezoneActivity : AppCompatActivity() {
 
         val freezone = arrayOf(
             Freezone("کیش", R.drawable.kish),
-            Freezone(
-                "قشم",
-                R.drawable.gheshm
-            ),
-            Freezone(
-                "چابهار",
-                R.drawable.chabahar
-            ),
+            Freezone("قشم", R.drawable.gheshm),
+            Freezone("چابهار", R.drawable.chabahar),
             Freezone("ارس", R.drawable.aras),
-            Freezone(
-                "اروند",
-                R.drawable.arvand
-            ),
-            Freezone(
-                "انزلی",
-                R.drawable.anzali
-            ),
+            Freezone("اروند", R.drawable.arvand),
+            Freezone("انزلی", R.drawable.anzali),
             Freezone("ماکو", R.drawable.maku)
         )
 
@@ -49,6 +37,6 @@ class FreezoneActivity : AppCompatActivity() {
         backButton.setOnClickListener {
             super.onBackPressed()
         }
-
     }
+
 }

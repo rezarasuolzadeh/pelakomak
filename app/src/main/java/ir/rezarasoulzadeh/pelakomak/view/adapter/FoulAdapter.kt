@@ -9,8 +9,7 @@ import ir.rezarasoulzadeh.pelakomak.model.Foul
 import ir.rezarasoulzadeh.pelakomak.service.utils.Format
 import kotlinx.android.synthetic.main.model_for_foul_items.view.*
 
-class FoulAdapter(private val fouls: List<Foul>) :
-    RecyclerView.Adapter<FoulAdapter.FoulViewHolder>() {
+class FoulAdapter(private val fouls: List<Foul>) : RecyclerView.Adapter<FoulAdapter.FoulViewHolder>() {
 
     private lateinit var format: Format
 
@@ -43,5 +42,4 @@ class FoulAdapter(private val fouls: List<Foul>) :
             itemView.countTextView.text = (position + 1).toString()
         }
     }
-
 }

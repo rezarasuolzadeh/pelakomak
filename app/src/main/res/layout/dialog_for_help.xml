@@ -40,12 +40,12 @@
         android:background="@drawable/background_for_dialog_ripple"
         android:clickable="true"
         android:focusable="true"
-        android:fontFamily="@font/iransans"
+        android:fontFamily="@font/dima_moalem"
         android:gravity="center"
-        android:padding="20dp"
+        android:padding="5dp"
         android:text="بستن"
-        android:textColor="@color/white"
-        android:textSize="17dp"
+        android:textColor="@color/highLightBlue"
+        android:textSize="25dp"
         android:textStyle="bold" />
 
 </LinearLayout>

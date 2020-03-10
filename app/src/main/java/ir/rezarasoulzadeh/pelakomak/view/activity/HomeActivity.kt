@@ -16,25 +16,30 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.iid.FirebaseInstanceId
 import ir.rezarasoulzadeh.pelakomak.R
+import ir.rezarasoulzadeh.pelakomak.model.Menu
 import ir.rezarasoulzadeh.pelakomak.service.utils.CustomSnackbar
 import ir.rezarasoulzadeh.pelakomak.service.utils.Seen
 import kotlinx.android.synthetic.main.content_for_home.*
 import kotlinx.android.synthetic.main.content_for_home.view.*
 import kotlinx.android.synthetic.main.dialog_for_news.view.*
 import kotlinx.android.synthetic.main.activity_for_home.*
+import java.util.ArrayList
 
 class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private val snackbar = CustomSnackbar()
 
     private lateinit var parentView : View
-
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var navView: NavigationView
+    private lateinit var menuRecyclerView: RecyclerView
+    private lateinit var menuList: ArrayList<Menu>
+    private lateinit var adapter: ir.rezarasoulzadeh.pelakomak.view.adapter.MenuAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +51,19 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         menuButton.setOnClickListener {
             drawerLayout.openDrawer(GravityCompat.END)
         }
+
+        menuRecyclerView = findViewById(R.id.menuRecyclerView)
+        menuList = ArrayList()
+
+        menuList.add(Menu("پلاک اتومبیل", 1, R.drawable.ic_car))
+        menuList.add(Menu("پلاک موتورسیکلت", 2, R.drawable.ic_motorcycle))
+        menuList.add(Menu("سایر پلاک ها", 3, R.drawable.ic_other))
+        menuList.add(Menu("پلاک مناطق آزاد", 4, R.drawable.ic_freezone))
+        menuList.add(Menu("خلافی اتومبیل", 5, R.drawable.ic_policeman))
+
+        adapter = ir.rezarasoulzadeh.pelakomak.view.adapter.MenuAdapter(menuList)
+
+        menuRecyclerView.adapter = adapter
 
         navView.setNavigationItemSelectedListener(this)
 
@@ -88,32 +106,6 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             newsView.newsCloseButton.setOnClickListener {
                 newsAlertDialog.dismiss()
             }
-        }
-
-        contentHomeLayout.foulButtonLayout.setOnClickListener {
-            val intent = Intent(this, FoulActivity::class.java)
-            startActivity(intent)
-        }
-
-        contentHomeLayout.carButtonLayout.setOnClickListener {
-            val intent = Intent(this, CarActivity::class.java)
-            startActivity(intent)
-        }
-
-
-        contentHomeLayout.motorcycleButtonLayout.setOnClickListener {
-            val intent = Intent(this, MotorcycleActivity::class.java)
-            startActivity(intent)
-        }
-
-        contentHomeLayout.otherButtonLayout.setOnClickListener {
-            val intent = Intent(this, OtherActivity::class.java)
-            startActivity(intent)
-        }
-
-        contentHomeLayout.freezoneButtonLayout.setOnClickListener {
-            val intent = Intent(this, FreezoneActivity::class.java)
-            startActivity(intent)
         }
 
     }

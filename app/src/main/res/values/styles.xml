@@ -8,11 +8,15 @@
         <item name="colorAccent">#A4D1EA</item>
         <!-- Bottom navigation ripple. -->
         <item name="colorControlHighlight">@color/mediumGray</item>
+        <!-- Soft key background. -->
+        <item name="android:navigationBarColor">@color/darkBlue</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
     </style>
 
     <!-- Navigation Drawer Theme -->
     <style name="MenuTheme" parent="android:Widget.TextView">
-        <item name="android:fontFamily">@font/iransans</item>
+        <item name="android:fontFamily">@font/dima_moalem</item>
+        <item name="android:textStyle">normal</item>
     </style>
 
 </resources>

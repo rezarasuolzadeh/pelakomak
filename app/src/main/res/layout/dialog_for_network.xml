@@ -17,12 +17,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
-        android:fontFamily="@font/iransans"
+        android:fontFamily="@font/dima_moalem"
         android:gravity="center"
-        android:padding="10dp"
+        android:padding="5dp"
         android:text="اتصال شما به اینترنت قطع شده است"
         android:textColor="@color/white"
-        android:textSize="15dp"
+        android:textSize="18dp"
         android:textStyle="normal" />
 
     <View
@@ -48,12 +48,12 @@
             android:background="@drawable/background_for_dialog_ripple_right"
             android:clickable="true"
             android:focusable="true"
-            android:fontFamily="@font/iransans"
+            android:fontFamily="@font/dima_moalem"
             android:gravity="center"
-            android:padding="20dp"
+            android:padding="5dp"
             android:text="تلاش مجدد"
-            android:textColor="@color/white"
-            android:textSize="17dp"
+            android:textColor="@color/highLightBlue"
+            android:textSize="25dp"
             android:textStyle="bold" />
 
         <View
@@ -71,12 +71,12 @@
             android:background="@drawable/background_for_dialog_ripple_left"
             android:clickable="true"
             android:focusable="true"
-            android:fontFamily="@font/iransans"
+            android:fontFamily="@font/dima_moalem"
             android:gravity="center"
-            android:padding="20dp"
+            android:padding="5dp"
             android:text="بازگشت"
-            android:textColor="@color/white"
-            android:textSize="17dp"
+            android:textColor="@color/highLightBlue"
+            android:textSize="25dp"
             android:textStyle="bold" />
 
     </LinearLayout>
