@@ -4,22 +4,26 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import android.os.Bundle
 import android.os.VibrationEffect
 import android.os.Vibrator
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.LayoutInflater
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.LinearLayout
-import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import ir.rezarasoulzadeh.pelakomak.R
 import ir.rezarasoulzadeh.pelakomak.service.database.CarNumberplateDB
 import ir.rezarasoulzadeh.pelakomak.service.utils.CustomSnackbar
+import ir.rezarasoulzadeh.pelakomak.service.utils.StateMap
 import kotlinx.android.synthetic.main.activity_for_car.*
+import kotlinx.android.synthetic.main.dialog_for_info_car.view.*
 
 class CarActivity : AppCompatActivity() {
 
@@ -37,8 +41,6 @@ class CarActivity : AppCompatActivity() {
 
         val carStateNumber = findViewById<EditText>(R.id.car_state_number)
         val carCountyCharacter = findViewById<EditText>(R.id.car_county_character)
-        val carState = findViewById<TextView>(R.id.car_state)
-        val carCounty = findViewById<TextView>(R.id.car_county)
         val layout = findViewById<LinearLayout>(R.id.carActivityParentView)
         parentView = findViewById<LinearLayout>(R.id.carActivityParentView)
 
@@ -88,7 +90,7 @@ class CarActivity : AppCompatActivity() {
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                 if (carCountyCharacter.text.length == 1) {
                     // call search for find the suitable object in database
-                    search(carStateNumber, carState, carCountyCharacter, carCounty)
+                    search(carStateNumber, carCountyCharacter)
 
                     // change pointer to irrelevant location to prevent from clean the number box
                     layout.requestFocus()
@@ -100,14 +102,28 @@ class CarActivity : AppCompatActivity() {
             super.onBackPressed()
         }
 
+        infoButton.setOnClickListener {
+            val infoView = LayoutInflater.from(this).inflate(R.layout.dialog_for_info_car, null)
+
+            val infoViewBuilder = this.let { it1 -> AlertDialog.Builder(it1).setView(infoView) }
+
+            val infoAlertDialog = infoViewBuilder.show()
+
+            infoAlertDialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+            infoAlertDialog.setCanceledOnTouchOutside(false)
+
+            infoView.infoCloseButton.setOnClickListener {
+                infoAlertDialog.dismiss()
+            }
+        }
+
     }
 
     @SuppressLint("Recycle")
     fun search(
         stateNumber: EditText,
-        stateName: TextView,
-        countyCharacter: EditText,
-        countyName: TextView
+        countyCharacter: EditText
     ) {
         // easy work (hide key board)
         if (stateNumber.length() == 2) {
@@ -129,10 +145,7 @@ class CarActivity : AppCompatActivity() {
 
         // invalid response from database or invalid characters
         if (dbResponse == "" || countyCharacter.text.toString() !in validCharacters) {
-            stateName.text = "پلاک نامعتبر است"
-            countyName.text = "پلاک نامعتبر است"
-            stateName.setTextColor(Color.RED)
-            countyName.setTextColor(Color.RED)
+            carStateImageView.setImageResource(StateMap().getState(" "))
 
             // enable the vibration of device
             val vibrator = this.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
@@ -149,11 +162,7 @@ class CarActivity : AppCompatActivity() {
         } else {
             // split true response
             val responseSections = dbResponse.split("-".toRegex())
-            stateName.text = responseSections[0]
-            countyName.text = responseSections[1]
-            countyName.isSelected = true
-            stateName.setTextColor(Color.WHITE)
-            countyName.setTextColor(Color.WHITE)
+            carStateImageView.setImageResource(StateMap().getState(responseSections[0]))
         }
     }
 

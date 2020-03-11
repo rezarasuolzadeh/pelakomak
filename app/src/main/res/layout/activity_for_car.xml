@@ -36,6 +36,17 @@
             android:src="@drawable/ic_back"
             app:layout_constraintRight_toRightOf="parent" />
 
+        <ImageView
+            android:id="@+id/infoButton"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/background_for_ripple"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="10dp"
+            android:src="@drawable/ic_info"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -47,7 +58,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="50dp"
         android:clickable="true"
         android:focusable="true"
         android:orientation="vertical">
@@ -144,95 +154,12 @@
             </LinearLayout>
         </LinearLayout>
 
-        <FrameLayout
+        <com.github.chrisbanes.photoview.PhotoView
+            android:id="@+id/carStateImageView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/darkBlue"
+            android:src="@drawable/state_null" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="50dp"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/background_for_model"
-                android:clickable="true"
-                android:focusable="true"
-                android:orientation="vertical"
-                android:paddingTop="5dp">
-
-                <TextView
-                    android:id="@+id/other_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/iransans"
-                    android:gravity="center"
-                    android:padding="5dp"
-                    android:text="استان"
-                    android:textColor="@color/lightGray"
-                    android:textSize="20dp"
-                    android:textStyle="normal|bold" />
-
-                <TextView
-                    android:id="@+id/car_state"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/iransans"
-                    android:gravity="center"
-                    android:hint="پلاک بالا را تکمیل کنید"
-                    android:padding="12dp"
-                    android:textColor="@color/white"
-                    android:textColorHint="@color/mediumBlue"
-                    android:textSize="25dp"
-                    android:textStyle="normal|bold" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="50dp"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/background_for_model"
-                android:clickable="true"
-                android:focusable="true"
-                android:orientation="vertical"
-                android:paddingTop="5dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/iransans"
-                    android:gravity="center"
-                    android:padding="5dp"
-                    android:text="شهرستان"
-                    android:textColor="@color/lightGray"
-                    android:textSize="20dp"
-                    android:textStyle="normal|bold" />
-
-                <TextView
-                    android:id="@+id/car_county"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:ellipsize="marquee"
-                    android:fontFamily="@font/iransans"
-                    android:gravity="center"
-                    android:hint="پلاک بالا را تکمیل کنید"
-                    android:marqueeRepeatLimit="marquee_forever"
-                    android:padding="12dp"
-                    android:scrollHorizontally="true"
-                    android:singleLine="true"
-                    android:textColor="@color/white"
-                    android:textColorHint="@color/mediumBlue"
-                    android:textSize="25dp"
-                    android:textStyle="normal|bold" />
-            </LinearLayout>
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/darkBlue"
-                android:src="@drawable/state_semnan" />
-
-        </FrameLayout>
     </LinearLayout>
 </LinearLayout>

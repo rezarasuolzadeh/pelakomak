@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background_dark_dilog"
+    android:orientation="vertical"
+    android:paddingTop="20dp">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/ic_info" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layoutDirection="rtl"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:padding="19dp"
+            android:src="@drawable/ic_dot" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/dima_moalem"
+            android:gravity="right"
+            android:padding="5dp"
+            android:text="ابتدا ۲ رقم سمت راست پلاک را وارد نمایید"
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            android:textStyle="normal" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layoutDirection="rtl"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:padding="19dp"
+            android:src="@drawable/ic_dot" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/dima_moalem"
+            android:gravity="right"
+            android:padding="5dp"
+            android:text="سپس حرف وسط پلاک را وارد کنید"
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            android:textStyle="normal" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layoutDirection="rtl"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:padding="19dp"
+            android:src="@drawable/ic_dot" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/dima_moalem"
+            android:gravity="right"
+            android:padding="5dp"
+            android:text="حالا میتوانید استان آن پلاک را مشاهده کنید"
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            android:textStyle="normal" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layoutDirection="rtl"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:padding="19dp"
+            android:src="@drawable/ic_dot" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/dima_moalem"
+            android:gravity="right"
+            android:padding="5dp"
+            android:text="در صورت واضح نبودن استان ها، زوم کنید"
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            android:textStyle="normal" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/highLightBlue" />
+
+    <TextView
+        android:id="@+id/infoCloseButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_for_dialog_ripple"
+        android:clickable="true"
+        android:focusable="true"
+        android:fontFamily="@font/dima_moalem"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="بستن"
+        android:textColor="@color/highLightBlue"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+</LinearLayout>
