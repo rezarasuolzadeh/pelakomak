@@ -3,8 +3,6 @@
     package="ir.rezarasoulzadeh.pelakomak">
 
     <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:name=".service.config.MyApplication"
@@ -22,7 +20,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".view.activity.FoulActivity" />
         <activity android:name=".view.activity.CarActivity" />
         <activity android:name=".view.activity.MotorcycleActivity" />
         <activity android:name=".view.activity.FreezoneActivity" />
@@ -37,9 +34,9 @@
         </service>
 
         <!-- Declare notification icon -->
-        <meta-data android:name="com.google.firebase.messaging.default_notification_icon"
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
             android:resource="@drawable/ic_notification" />
 
     </application>
-
 </manifest>

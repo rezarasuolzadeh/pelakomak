@@ -14,7 +14,7 @@ class StateMap {
             "ایلام" -> R.drawable.state_ilam
             "بوشهر" -> R.drawable.state_booshehr
             "تهران" -> R.drawable.state_tehran
-            "چهارمهال و بختیاری" -> R.drawable.state_charmahal
+            "چهارمحال و بختیاری" -> R.drawable.state_charmahal
             "خراسان شمالی" -> R.drawable.state_khorasan_shomali
             "خراسان رضوی" -> R.drawable.state_khorasan_razavi
             "خراسان جنوبی" -> R.drawable.state_khorasan_jonoobi

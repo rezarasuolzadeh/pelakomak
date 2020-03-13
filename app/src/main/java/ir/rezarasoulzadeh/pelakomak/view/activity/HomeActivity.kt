@@ -59,7 +59,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         menuList.add(Menu("پلاک موتورسیکلت", 2, R.drawable.ic_motorcycle))
         menuList.add(Menu("سایر پلاک ها", 3, R.drawable.ic_other))
         menuList.add(Menu("پلاک مناطق آزاد", 4, R.drawable.ic_freezone))
-        menuList.add(Menu("خلافی اتومبیل", 5, R.drawable.ic_policeman))
+//        menuList.add(Menu("خلافی اتومبیل", 5, R.drawable.ic_policeman))
 
         adapter = ir.rezarasoulzadeh.pelakomak.view.adapter.MenuAdapter(menuList)
 
