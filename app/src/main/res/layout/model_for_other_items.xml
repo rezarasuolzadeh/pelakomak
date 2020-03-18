@@ -11,7 +11,7 @@
         android:layout_margin="15dp"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
-        android:background="@drawable/background_for_foul_items"
+        android:background="@drawable/background_for_model"
         android:orientation="vertical">
 
         <com.facebook.drawee.view.SimpleDraweeView
@@ -26,13 +26,13 @@
             android:id="@+id/other_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/iransans"
+            android:fontFamily="@font/dima_moalem"
             android:gravity="center"
             android:padding="5dp"
             tools:text="تاکسی"
             android:textColor="@color/white"
-            android:textSize="20dp"
-            android:textStyle="normal|bold" />
+            android:textSize="25dp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 </LinearLayout>

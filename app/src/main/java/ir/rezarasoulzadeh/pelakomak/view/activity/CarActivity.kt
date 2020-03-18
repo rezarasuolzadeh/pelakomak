@@ -147,6 +147,13 @@ class CarActivity : AppCompatActivity() {
         if (dbResponse == "" || countyCharacter.text.toString() !in validCharacters) {
             carStateImageView.setImageResource(StateMap().getState(" "))
 
+            snackbar.show(
+                "پلاک نامعتبر می باشد",
+                "long",
+                parentView,
+                this.layoutInflater
+            )
+
             // enable the vibration of device
             val vibrator = this.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
             if (Build.VERSION.SDK_INT >= 26) {
