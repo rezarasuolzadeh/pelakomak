@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/motorcycleActivityParentView"
@@ -100,24 +101,26 @@
                     android:lines="1"
                     android:maxLength="3"
                     android:textColor="#000000"
-                    android:textSize="60dp"
+                    android:textSize="50dp"
                     android:textStyle="normal|bold" />
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/textView2"
+            <EditText
+                android:id="@+id/motorcycle_other_number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="7dp"
-                android:layout_marginRight="7dp"
+                android:background="#00FFFFFF"
                 android:clickable="true"
                 android:focusable="true"
                 android:fontFamily="@font/iransans_number"
+                android:hint="۴۵۶۷۸"
+                android:inputType="number"
                 android:lines="1"
-                android:text="۵۶۷۸۹"
+                android:maxLength="5"
                 android:textColor="#000000"
-                android:textSize="60dp"
+                android:textSize="50dp"
                 android:textStyle="normal|bold" />
         </LinearLayout>
     </LinearLayout>

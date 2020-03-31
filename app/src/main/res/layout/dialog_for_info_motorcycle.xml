@@ -33,7 +33,7 @@
             android:fontFamily="@font/dima_moalem"
             android:gravity="right"
             android:padding="5dp"
-            android:text="ابتدا ۳ رقم بالای پلاک را وارد نمایید"
+            android:text="ابتدا پلاک را از بالا کامل کنید"
             android:textColor="@color/white"
             android:textSize="18dp"
             android:textStyle="normal" />

@@ -18,12 +18,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:fontFamily="@font/iransans"
+            android:fontFamily="@font/dima_moalem"
             android:gravity="center"
             android:padding="3dp"
             android:text="پیغام شما در این قسمت قرار می گیرد"
             android:textColor="@color/white"
-            android:textSize="13dp"
+            android:textSize="15dp"
             android:textStyle="normal" />
     </LinearLayout>
 

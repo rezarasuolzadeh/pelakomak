@@ -85,16 +85,20 @@
                     android:focusable="true"
                     android:src="@drawable/iran" />
 
-                <TextView
+                <EditText
+                    android:id="@+id/car_first_character"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_gravity="center"
                     android:clickable="true"
                     android:focusable="true"
+                    android:layout_gravity="bottom"
+                    android:backgroundTint="#fff"
+                    android:maxLength="2"
+                    android:inputType="number"
                     android:fontFamily="@font/iransans_number"
-                    android:text="۱۲"
+                    android:hint="۱۲"
                     android:textColor="#000000"
-                    android:textSize="50dp"
+                    android:textSize="40dp"
                     android:textStyle="normal|bold" />
 
                 <EditText
@@ -114,17 +118,21 @@
                     android:textSize="40dp"
                     android:textStyle="normal|bold" />
 
-                <TextView
+                <EditText
+                    android:id="@+id/car_third_character"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_gravity="center"
+                    android:layout_gravity="bottom"
+                    android:backgroundTint="#fff"
                     android:layout_marginRight="5dp"
                     android:clickable="true"
                     android:focusable="true"
+                    android:maxLength="3"
                     android:fontFamily="@font/iransans_number"
-                    android:text="۳۶۵"
+                    android:hint="۳۴۵"
+                    android:inputType="number"
                     android:textColor="#000"
-                    android:textSize="50dp"
+                    android:textSize="40dp"
                     android:textStyle="normal|bold" />
 
                 <LinearLayout

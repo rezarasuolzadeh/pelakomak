@@ -28,7 +28,7 @@ import kotlinx.android.synthetic.main.dialog_for_info_car.view.*
 class CarActivity : AppCompatActivity() {
 
     private val snackbar = CustomSnackbar()
-    private lateinit var parentView : View
+    private lateinit var parentView: View
 
     private val validCharacters =
         arrayListOf("ب", "ج", "د", "س", "ص", "ط", "ق", "ل", "م", "ن", "و", "ه", "ی")
@@ -41,6 +41,8 @@ class CarActivity : AppCompatActivity() {
 
         val carStateNumber = findViewById<EditText>(R.id.car_state_number)
         val carCountyCharacter = findViewById<EditText>(R.id.car_county_character)
+        val carFirstCharacter = findViewById<EditText>(R.id.car_first_character)
+        val carThirdCharacter = findViewById<EditText>(R.id.car_third_character)
         val layout = findViewById<LinearLayout>(R.id.carActivityParentView)
         parentView = findViewById<LinearLayout>(R.id.carActivityParentView)
 
@@ -52,21 +54,48 @@ class CarActivity : AppCompatActivity() {
 
         carCountyCharacter.setOnFocusChangeListener { v, hasFocus ->
             if (hasFocus) {
-                if (carStateNumber.text.isEmpty()) {
-                    snackbar.show(
-                        "ابتدا دو رقم سمت راست را وارد کنید",
-                        "long",
-                        parentView,
-                        inflater
-                    )
-                    layout.requestFocus()
-                } else {
-                    carCountyCharacter.text.clear()
-                }
+                carCountyCharacter.text.clear()
             }
         }
 
-        // auto cross pointer to character box when two digit number has been entered
+        carFirstCharacter.setOnFocusChangeListener { v, hasFocus ->
+            if (hasFocus) {
+                carFirstCharacter.text.clear()
+            }
+        }
+
+        carThirdCharacter.setOnFocusChangeListener { v, hasFocus ->
+            if (hasFocus) {
+                carThirdCharacter.text.clear()
+            }
+        }
+
+        carFirstCharacter.addTextChangedListener(object : TextWatcher {
+
+            override fun afterTextChanged(s: Editable) {}
+
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                if (carFirstCharacter.text.length == 2) {
+                    carCountyCharacter.requestFocus()
+                }
+            }
+        })
+
+        carThirdCharacter.addTextChangedListener(object : TextWatcher {
+
+            override fun afterTextChanged(s: Editable) {}
+
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                if (carThirdCharacter.text.length == 3) {
+                    carStateNumber.requestFocus()
+                }
+            }
+        })
+
         carStateNumber.addTextChangedListener(object : TextWatcher {
 
             override fun afterTextChanged(s: Editable) {}
@@ -75,12 +104,12 @@ class CarActivity : AppCompatActivity() {
 
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                 if (carStateNumber.text.length == 2) {
-                    carCountyCharacter.requestFocus()
+                    search(carStateNumber, carCountyCharacter)
+                    layout.requestFocus()
                 }
             }
         })
 
-        // auto search when the one character has been entered
         carCountyCharacter.addTextChangedListener(object : TextWatcher {
 
             override fun afterTextChanged(s: Editable) {}
@@ -89,11 +118,7 @@ class CarActivity : AppCompatActivity() {
 
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                 if (carCountyCharacter.text.length == 1) {
-                    // call search for find the suitable object in database
-                    search(carStateNumber, carCountyCharacter)
-
-                    // change pointer to irrelevant location to prevent from clean the number box
-                    layout.requestFocus()
+                    carThirdCharacter.requestFocus()
                 }
             }
         })

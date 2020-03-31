@@ -18,6 +18,7 @@ import android.widget.LinearLayout
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import ir.rezarasoulzadeh.pelakomak.R
+import ir.rezarasoulzadeh.pelakomak.service.utils.CustomSnackbar
 import ir.rezarasoulzadeh.pelakomak.service.utils.StateMap
 import kotlinx.android.synthetic.main.activity_for_motorcycle.*
 import kotlinx.android.synthetic.main.dialog_for_info_car.view.*
@@ -25,17 +26,27 @@ import kotlinx.android.synthetic.main.dialog_for_info_car.view.*
 class MotorcycleActivity : AppCompatActivity() {
 
     lateinit var stateName: String
+    private lateinit var parentView: View
+    private val snackbar = CustomSnackbar()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_for_motorcycle)
 
         val motorcycleStateNumber = findViewById<EditText>(R.id.motorcycle_state_number)
+        val motorcycleOtherNumber = findViewById<EditText>(R.id.motorcycle_other_number)
         val layout = findViewById<LinearLayout>(R.id.motorcycleActivityParentView)
+        parentView = findViewById<LinearLayout>(R.id.motorcycleActivityParentView)
 
         motorcycleStateNumber.setOnFocusChangeListener { v, hasFocus ->
             if (hasFocus) {
                 motorcycleStateNumber.text.clear()
+            }
+        }
+
+        motorcycleOtherNumber.setOnFocusChangeListener { v, hasFocus ->
+            if (hasFocus) {
+                motorcycleOtherNumber.text.clear()
             }
         }
 
@@ -48,8 +59,21 @@ class MotorcycleActivity : AppCompatActivity() {
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                 // when the number box has be completed
                 if (motorcycleStateNumber.text.length == 3) {
-                    search(motorcycleStateNumber)
+                    motorcycleOtherNumber.requestFocus()
+                }
+            }
+        })
 
+        motorcycleOtherNumber.addTextChangedListener(object : TextWatcher {
+
+            override fun afterTextChanged(s: Editable) {}
+
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                // when the number box has be completed
+                if (motorcycleOtherNumber.text.length == 5) {
+                    search(motorcycleStateNumber)
                     // point to the irrelevant location to prevent from clear it
                     layout.requestFocus()
                 }
@@ -61,7 +85,8 @@ class MotorcycleActivity : AppCompatActivity() {
         }
 
         infoButton.setOnClickListener {
-            val infoView = LayoutInflater.from(this).inflate(R.layout.dialog_for_info_motorcycle, null)
+            val infoView =
+                LayoutInflater.from(this).inflate(R.layout.dialog_for_info_motorcycle, null)
 
             val infoViewBuilder = this.let { it1 -> AlertDialog.Builder(it1).setView(infoView) }
 
@@ -79,13 +104,17 @@ class MotorcycleActivity : AppCompatActivity() {
     }
 
     private fun search(stateNumber: EditText) {
-        // easy working (hide key pad)
-        if (stateNumber.length() == 3) {
-            hideKeyboard(this)
-        }
+        hideKeyboard(this)
 
         // if dangerous (0 is not valid)
         if (stateNumber.text.toString().contains("0")) {
+
+            snackbar.show(
+                "پلاک نامعتبر می باشد",
+                "long",
+                parentView,
+                this.layoutInflater
+            )
 
             // enable the device vibration
             val vibrator = this.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
@@ -139,7 +168,16 @@ class MotorcycleActivity : AppCompatActivity() {
                 511 -> stateName = "همدان"
                 in 637..642 -> stateName = "یزد"
                 else -> {
+
+                    snackbar.show(
+                        "پلاک نامعتبر می باشد",
+                        "long",
+                        parentView,
+                        this.layoutInflater
+                    )
+
                     stateName = "پلاک نامعتبر است"
+
                     val vibrator = this.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
                     if (Build.VERSION.SDK_INT >= 26) {
                         vibrator.vibrate(
