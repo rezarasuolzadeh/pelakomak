@@ -8,6 +8,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
@@ -28,13 +29,14 @@ import kotlinx.android.synthetic.main.content_for_home.*
 import kotlinx.android.synthetic.main.content_for_home.view.*
 import kotlinx.android.synthetic.main.dialog_for_news.view.*
 import kotlinx.android.synthetic.main.activity_for_home.*
+import java.lang.Exception
 import java.util.ArrayList
 
 class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private val snackbar = CustomSnackbar()
 
-    private lateinit var parentView : View
+    private lateinit var parentView: View
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var navView: NavigationView
     private lateinit var menuRecyclerView: RecyclerView
@@ -49,7 +51,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         navView = findViewById(R.id.nav_view)
 
         menuButton.setOnClickListener {
-            drawerLayout.openDrawer(GravityCompat.END)
+            drawerLayout.openDrawer(Gravity.RIGHT)
         }
 
         menuRecyclerView = findViewById(R.id.menuRecyclerView)
@@ -111,7 +113,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     @SuppressLint("StringFormatInvalid")
-    private fun fireBaseChannelId(){
+    private fun fireBaseChannelId() {
         // find the token of notification chanel id
         FirebaseInstanceId.getInstance().instanceId
             .addOnCompleteListener(OnCompleteListener { task ->
@@ -132,6 +134,8 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        val inflater = this.layoutInflater
+
         when (item.itemId) {
             R.id.menuMailItem -> {
                 val intent = Intent(Intent.ACTION_SENDTO)
@@ -140,30 +144,54 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 intent.putExtra(Intent.EXTRA_EMAIL, arrayOf("reza.rassoulzadeh@gmail.com"))
                 intent.putExtra(Intent.EXTRA_SUBJECT, "پلاکمک")
                 startActivity(Intent.createChooser(intent, "ارسال پیام از طریق:"))
-                drawerLayout.closeDrawer(GravityCompat.END)
+                drawerLayout.closeDrawer(Gravity.RIGHT)
             }
             R.id.menuStarItem -> {
-                val intent = Intent(Intent.ACTION_EDIT)
-                intent.data = Uri.parse("bazaar://details?id=" + this.resources.getString(R.string.bazaarPackage))
-                intent.setPackage("com.farsitel.bazaar")
-                startActivity(intent)
-                drawerLayout.closeDrawer(GravityCompat.END)
+                try {
+                    val intent = Intent(Intent.ACTION_EDIT)
+                    intent.data =
+                        Uri.parse("bazaar://details?id=" + this.resources.getString(R.string.bazaarPackage))
+                    intent.setPackage("com.farsitel.bazaar")
+                    startActivity(intent)
+                    drawerLayout.closeDrawer(Gravity.RIGHT)
+                } catch (e: Exception) {
+                    drawerLayout.closeDrawer(Gravity.RIGHT)
+                    snackbar.show("ابتدا برنامه بازار رو نصب کنید", "short", parentView, inflater)
+                }
+
             }
             R.id.menuShareItem -> {
-                val productShareBody = "پلاکمک\nپلاک یاب حرفه ای برای هر وسیله نقلیه\nلینک نصب:\n" + this.resources.getString(R.string.bazaarLink)
-                val productShareIntent = Intent(Intent.ACTION_SEND)
-                productShareIntent.type = "text/plain"
-                productShareIntent.putExtra(Intent.EXTRA_SUBJECT, "پلاکمک")
-                productShareIntent.putExtra(Intent.EXTRA_TEXT, productShareBody)
-                startActivity(Intent.createChooser(productShareIntent, "معرفی به دوستان"))
-                drawerLayout.closeDrawer(GravityCompat.END)
+                try {
+                    val productShareBody =
+                        "پلاکمک\nپلاک یاب حرفه ای برای هر وسیله نقلیه\nلینک نصب:\n" + this.resources.getString(
+                            R.string.bazaarLink
+                        )
+                    val productShareIntent = Intent(Intent.ACTION_SEND)
+                    productShareIntent.type = "text/plain"
+                    productShareIntent.putExtra(Intent.EXTRA_SUBJECT, "پلاکمک")
+                    productShareIntent.putExtra(Intent.EXTRA_TEXT, productShareBody)
+                    startActivity(Intent.createChooser(productShareIntent, "معرفی به دوستان"))
+                    drawerLayout.closeDrawer(Gravity.RIGHT)
+                } catch (e: Exception) {
+                    drawerLayout.closeDrawer(Gravity.RIGHT)
+                }
             }
             R.id.developerItem -> {
-                val intent = Intent(Intent.ACTION_VIEW)
-                intent.data = Uri.parse("bazaar://collection?slug=by_author&aid=" + this.resources.getString(R.string.bazaarId))
-                intent.setPackage("com.farsitel.bazaar")
-                startActivity(intent)
-                drawerLayout.closeDrawer(GravityCompat.END)
+                try {
+                    val intent = Intent(Intent.ACTION_VIEW)
+                    intent.data =
+                        Uri.parse(
+                            "bazaar://collection?slug=by_author&aid=" + this.resources.getString(
+                                R.string.bazaarId
+                            )
+                        )
+                    intent.setPackage("com.farsitel.bazaar")
+                    startActivity(intent)
+                    drawerLayout.closeDrawer(Gravity.RIGHT)
+                } catch (e: Exception) {
+                    drawerLayout.closeDrawer(Gravity.RIGHT)
+                    snackbar.show("ابتدا برنامه بازار رو نصب کنید", "short", parentView, inflater)
+                }
             }
         }
         return true
