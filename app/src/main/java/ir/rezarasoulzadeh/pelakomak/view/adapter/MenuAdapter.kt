@@ -38,6 +38,8 @@ class MenuAdapter(private val menuList: List<Menu>) :
                     2 -> Intent(itemView.context, MotorcycleActivity::class.java)
                     3 -> Intent(itemView.context, OtherActivity::class.java)
                     4 -> Intent(itemView.context, FreezoneActivity::class.java)
+                    5 -> Intent(itemView.context, CarCityActivity::class.java)
+                    6 -> Intent(itemView.context, MotorcycleCityActivity::class.java)
                     else -> Intent(itemView.context, HomeActivity::class.java)
                 }
                 itemView.context.startActivity(intent)

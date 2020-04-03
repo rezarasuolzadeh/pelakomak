@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_for_pelakomak"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/searchButton"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/background_for_ripple"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="10dp"
+            android:src="@drawable/ic_search"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <AutoCompleteTextView
+            android:id="@+id/cityEditText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:background="@color/darkBlue"
+            android:fontFamily="@font/dima_moalem"
+            android:gravity="center"
+            android:hint="شهر اتومبیل"
+            android:inputType="text"
+            android:maxLength="20"
+            android:textColor="@color/highLightBlue"
+            android:textColorHint="@color/highLightBlue"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/background_for_ripple"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="10dp"
+            android:src="@drawable/ic_back"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/highLightBlue"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/carCityRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layoutAnimation="@anim/layout_animation"
+        android:paddingLeft="7dp"
+        android:paddingTop="1dp"
+        android:paddingRight="7dp"
+        android:paddingBottom="1dp" />
+
+</LinearLayout>

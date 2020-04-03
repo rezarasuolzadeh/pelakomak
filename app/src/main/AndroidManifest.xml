@@ -25,6 +25,8 @@
         <activity android:name=".view.activity.MotorcycleActivity" />
         <activity android:name=".view.activity.FreezoneActivity" />
         <activity android:name=".view.activity.OtherActivity" />
+        <activity android:name=".view.activity.MotorcycleCityActivity" />
+        <activity android:name=".view.activity.CarCityActivity" />
 
         <!-- Fire base service -->
         <service android:name=".service.config.FirebaseMessagingService">
