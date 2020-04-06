@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:background="@drawable/background_for_model"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/car_fragment_numberplate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_for_numberplate"
+            android:layoutDirection="ltr">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/iran" />
+
+            <TextView
+                android:id="@+id/car_first_character"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:layout_gravity="bottom"
+                android:backgroundTint="#fff"
+                android:maxLength="2"
+                android:fontFamily="@font/iransans_number"
+                android:text="۱۲"
+                android:textColor="#000000"
+                android:textSize="40dp"
+                android:textStyle="normal|bold" />
+
+            <TextView
+                android:id="@+id/carCityCharacter"
+                android:layout_width="65dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:backgroundTint="#fff"
+                android:ems="2"
+                android:focusableInTouchMode="true"
+                android:fontFamily="@font/iransans_number"
+                android:gravity="center"
+                tools:text="ب"
+                android:maxLength="1"
+                android:textColor="#000011"
+                android:textSize="40dp"
+                android:textStyle="normal|bold" />
+
+            <TextView
+                android:id="@+id/car_third_character"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:backgroundTint="#fff"
+                android:layout_marginRight="5dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:maxLength="3"
+                android:fontFamily="@font/iransans_number"
+                android:text="۳۴۵"
+                android:inputType="number"
+                android:textColor="#000"
+                android:textSize="40dp"
+                android:textStyle="normal|bold" />
+
+            <LinearLayout
+                android:id="@+id/car_fir"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_for_numberplate"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/carCityNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:backgroundTint="#fff"
+                    android:ems="2"
+                    android:focusableInTouchMode="true"
+                    android:fontFamily="@font/iransans_number"
+                    android:gravity="center"
+                    tools:text="۱۱"
+                    android:textColor="#000011"
+                    android:textSize="40dp"
+                    android:textStyle="normal|bold" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layoutDirection="rtl"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:padding="19dp"
+            android:src="@drawable/ic_dot" />
+
+        <TextView
+            android:id="@+id/carCityCounty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/dima_moalem"
+            android:gravity="right"
+            android:padding="5dp"
+            android:text="ابتدا پلاک را از سمت چپ کامل کنید"
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            android:textStyle="normal" />
+
+    </LinearLayout>
+</LinearLayout>
