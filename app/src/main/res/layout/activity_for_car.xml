@@ -90,14 +90,14 @@
                     android:id="@+id/car_first_character"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:clickable="true"
-                    android:focusable="true"
                     android:layout_gravity="bottom"
                     android:backgroundTint="#fff"
-                    android:maxLength="2"
-                    android:inputType="number"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:fontFamily="@font/vazir"
                     android:hint="۱۲"
+                    android:inputType="number"
+                    android:maxLength="2"
                     android:textColor="#000000"
                     android:textSize="40dp"
                     android:textStyle="normal|bold" />
@@ -124,14 +124,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_gravity="bottom"
-                    android:backgroundTint="#fff"
                     android:layout_marginRight="5dp"
+                    android:backgroundTint="#fff"
                     android:clickable="true"
                     android:focusable="true"
-                    android:maxLength="3"
                     android:fontFamily="@font/vazir"
                     android:hint="۳۴۵"
                     android:inputType="number"
+                    android:maxLength="3"
                     android:textColor="#000"
                     android:textSize="40dp"
                     android:textStyle="normal|bold" />
@@ -162,6 +162,20 @@
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/carCounty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/dima_moalem"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            android:textStyle="normal" />
 
         <com.github.chrisbanes.photoview.PhotoView
             android:id="@+id/carStateImageView"

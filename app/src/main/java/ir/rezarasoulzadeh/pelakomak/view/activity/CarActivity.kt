@@ -25,6 +25,7 @@ import ir.rezarasoulzadeh.pelakomak.service.utils.StateMap
 import kotlinx.android.synthetic.main.activity_for_car.*
 import kotlinx.android.synthetic.main.dialog_for_info_car.view.*
 
+
 class CarActivity : AppCompatActivity() {
 
     private val snackbar = CustomSnackbar()
@@ -150,17 +151,14 @@ class CarActivity : AppCompatActivity() {
         stateNumber: EditText,
         countyCharacter: EditText
     ) {
-        // easy work (hide key board)
         if (stateNumber.length() == 2) {
             hideKeyboard(this)
         }
 
-        // easy work (hide key board)
         if (countyCharacter.length() == 1) {
             hideKeyboard(this)
         }
 
-        // var to save database response
         val dbResponse: String
 
         /////////////////////////////////// GIVE DATABASE RESPONSE /////////////////////////////////
@@ -168,18 +166,11 @@ class CarActivity : AppCompatActivity() {
         dbResponse = carDB.get(stateNumber.text.toString(), countyCharacter.text.toString())
         ////////////////////////////////////////////////////////////////////////////////////////////
 
-        // invalid response from database or invalid characters
         if (dbResponse == "" || countyCharacter.text.toString() !in validCharacters) {
             carStateImageView.setImageResource(StateMap().getState(" "))
 
-            snackbar.show(
-                "پلاک نامعتبر می باشد",
-                "long",
-                parentView,
-                this.layoutInflater
-            )
+            snackbar.show("پلاک نامعتبر می باشد", "long", parentView, this.layoutInflater)
 
-            // enable the vibration of device
             val vibrator = this.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
             if (Build.VERSION.SDK_INT >= 26) {
                 vibrator.vibrate(
@@ -192,13 +183,13 @@ class CarActivity : AppCompatActivity() {
                 vibrator.vibrate(50)
             }
         } else {
-            // split true response
             val responseSections = dbResponse.split("-".toRegex())
             carStateImageView.setImageResource(StateMap().getState(responseSections[0]))
+            carCounty.text = responseSections[1]
         }
     }
 
-    fun hideKeyboard(activity: Activity) {
+    private fun hideKeyboard(activity: Activity) {
         val imm = activity.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
         var view = activity.currentFocus
         if (view == null) {
