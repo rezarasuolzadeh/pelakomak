@@ -49,7 +49,6 @@
                     android:focusableInTouchMode="true"
                     android:fontFamily="@font/iransans_number"
                     android:gravity="bottom"
-                    android:inputType="number"
                     android:lines="1"
                     android:maxLength="3"
                     android:textColor="#000000"
@@ -64,17 +63,43 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:background="#00FFFFFF"
-                android:clickable="true"
-                android:focusable="true"
                 android:fontFamily="@font/iransans_number"
                 android:gravity="center"
-                android:inputType="number"
                 android:lines="1"
                 android:maxLength="5"
                 android:text="12345"
-                android:textColor="#000000"
+                android:textColor="@color/lightGray"
                 android:textSize="50dp"
                 android:textStyle="normal|bold" />
         </LinearLayout>
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layoutDirection="rtl"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:padding="19dp"
+            android:src="@drawable/ic_dot" />
+
+        <TextView
+            android:id="@+id/motorcycleCityCounty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/dima_moalem"
+            android:gravity="right"
+            android:padding="5dp"
+            android:text="تهران"
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            android:textStyle="normal" />
+
+    </LinearLayout>
+
 </LinearLayout>

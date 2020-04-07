@@ -24,6 +24,7 @@
             <ImageView
                 android:layout_width="25dp"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="3dp"
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="4dp"
                 android:clickable="true"
@@ -34,16 +35,16 @@
                 android:id="@+id/car_first_character"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:clickable="true"
-                android:focusable="true"
-                android:gravity="center"
                 android:layout_gravity="bottom"
                 android:backgroundTint="#fff"
-                android:maxLength="2"
+                android:clickable="true"
+                android:focusable="true"
                 android:fontFamily="@font/iransans_number"
+                android:gravity="center"
+                android:maxLength="2"
                 android:text="۱۲"
-                android:textColor="#000000"
-                android:textSize="40dp"
+                android:textColor="@color/lightGray"
+                android:textSize="38dp"
                 android:textStyle="normal|bold" />
 
             <TextView
@@ -56,28 +57,28 @@
                 android:focusableInTouchMode="true"
                 android:fontFamily="@font/iransans_number"
                 android:gravity="center"
-                tools:text="ب"
-                android:maxLength="1"
+                android:maxLength="3"
                 android:textColor="#000011"
-                android:textSize="40dp"
-                android:textStyle="normal|bold" />
+                android:textSize="38dp"
+                android:textStyle="normal|bold"
+                tools:text="ب" />
 
             <TextView
                 android:id="@+id/car_third_character"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="bottom"
-                android:backgroundTint="#fff"
                 android:layout_marginRight="5dp"
+                android:backgroundTint="#fff"
                 android:clickable="true"
                 android:focusable="true"
-                android:gravity="center"
-                android:maxLength="3"
                 android:fontFamily="@font/iransans_number"
-                android:text="۳۴۵"
+                android:gravity="center"
                 android:inputType="number"
-                android:textColor="#000"
-                android:textSize="40dp"
+                android:maxLength="3"
+                android:text="۳۴۵"
+                android:textColor="@color/lightGray"
+                android:textSize="38dp"
                 android:textStyle="normal|bold" />
 
             <LinearLayout
@@ -97,10 +98,10 @@
                     android:focusableInTouchMode="true"
                     android:fontFamily="@font/iransans_number"
                     android:gravity="center"
-                    tools:text="۱۱"
                     android:textColor="#000011"
-                    android:textSize="40dp"
-                    android:textStyle="normal|bold" />
+                    android:textSize="38dp"
+                    android:textStyle="normal|bold"
+                    tools:text="۱۱" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

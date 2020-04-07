@@ -3,7 +3,10 @@ package ir.rezarasoulzadeh.pelakomak.view.activity
 import android.app.Activity
 import android.os.Bundle
 import android.view.View
+import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
+import android.widget.TextView
+import android.widget.TextView.OnEditorActionListener
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
@@ -18,6 +21,7 @@ class CarCityActivity : AppCompatActivity() {
 
     private lateinit var carDatabase: CarNumberplateDB
     private lateinit var carRecyclerView: RecyclerView
+    private lateinit var carEmptyView: TextView
     private lateinit var adapter: CarAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,6 +35,7 @@ class CarCityActivity : AppCompatActivity() {
         carDatabase = CarNumberplateDB(this)
 
         carRecyclerView = findViewById(R.id.carCityRecyclerView)
+        carEmptyView = findViewById(R.id.carCityEmptyView)
 
         var response: ArrayList<Car>
 
@@ -50,8 +55,29 @@ class CarCityActivity : AppCompatActivity() {
                 cityEditText.clearFocus()
                 carRecyclerView.adapter = adapter
                 adapter.notifyDataSetChanged()
+                carRecyclerView.visibility = View.VISIBLE
+                carEmptyView.visibility = View.GONE
             }
         }
+
+        cityEditText.setOnEditorActionListener(OnEditorActionListener { v, actionId, event ->
+            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                response = carDatabase.getCity(cityEditText.text.toString())
+                if (response.isEmpty()) {
+                    Toast.makeText(this, "نتیجه ای یافت نشد", Toast.LENGTH_LONG).show()
+                } else {
+                    hideKeyboard(this)
+                    adapter = CarAdapter(response)
+                    cityEditText.clearFocus()
+                    carRecyclerView.adapter = adapter
+                    adapter.notifyDataSetChanged()
+                    carRecyclerView.visibility = View.VISIBLE
+                    carEmptyView.visibility = View.GONE
+                }
+                return@OnEditorActionListener true
+            }
+            false
+        })
 
     }
 

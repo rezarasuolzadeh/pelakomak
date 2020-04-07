@@ -26,6 +26,7 @@ class MotorcycleAdapter(private val motorcycleList: List<Motorcycle>) : Recycler
     inner class FarmViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(motorcycle: Motorcycle) {
             itemView.motorcycleCityNumber.text = motorcycle.number
+            itemView.motorcycleCityCounty.text = motorcycle.state
         }
     }
 

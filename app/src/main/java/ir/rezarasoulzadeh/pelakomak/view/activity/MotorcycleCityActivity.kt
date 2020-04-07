@@ -3,7 +3,9 @@ package ir.rezarasoulzadeh.pelakomak.view.activity
 import android.app.Activity
 import android.os.Bundle
 import android.view.View
+import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
@@ -18,6 +20,7 @@ class MotorcycleCityActivity : AppCompatActivity() {
 
     private lateinit var motorcycleDatabase: MotorcycleDatabase
     private lateinit var motorcycleRecyclerView: RecyclerView
+    private lateinit var motorcycleEmptyView: TextView
     private lateinit var adapter: MotorcycleAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,6 +34,7 @@ class MotorcycleCityActivity : AppCompatActivity() {
         motorcycleDatabase = MotorcycleDatabase(this)
 
         motorcycleRecyclerView = findViewById(R.id.motorcycleCityRecyclerView)
+        motorcycleEmptyView = findViewById(R.id.motorcycleCityEmptyView)
 
         var response: ArrayList<Motorcycle>
 
@@ -42,7 +46,7 @@ class MotorcycleCityActivity : AppCompatActivity() {
 
         searchButton.setOnClickListener {
             response = motorcycleDatabase.getCity(cityEditText.text.toString())
-            if(response.isEmpty()){
+            if (response.isEmpty()) {
                 Toast.makeText(this, "نتیجه ای یافت نشد", Toast.LENGTH_LONG).show()
             } else {
                 hideKeyboard(this)
@@ -50,8 +54,29 @@ class MotorcycleCityActivity : AppCompatActivity() {
                 cityEditText.clearFocus()
                 motorcycleRecyclerView.adapter = adapter
                 adapter.notifyDataSetChanged()
+                motorcycleRecyclerView.visibility = View.VISIBLE
+                motorcycleEmptyView.visibility = View.GONE
             }
         }
+
+        cityEditText.setOnEditorActionListener(TextView.OnEditorActionListener { v, actionId, event ->
+            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                response = motorcycleDatabase.getCity(cityEditText.text.toString())
+                if (response.isEmpty()) {
+                    Toast.makeText(this, "نتیجه ای یافت نشد", Toast.LENGTH_LONG).show()
+                } else {
+                    hideKeyboard(this)
+                    adapter = MotorcycleAdapter(response)
+                    cityEditText.clearFocus()
+                    motorcycleRecyclerView.adapter = adapter
+                    adapter.notifyDataSetChanged()
+                    motorcycleRecyclerView.visibility = View.VISIBLE
+                    motorcycleEmptyView.visibility = View.GONE
+                }
+                return@OnEditorActionListener true
+            }
+            false
+        })
     }
 
     private fun hideKeyboard(activity: Activity) {

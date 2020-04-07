@@ -29,10 +29,11 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
+            android:imeOptions="actionSearch"
             android:background="@color/darkBlue"
             android:fontFamily="@font/dima_moalem"
             android:gravity="center"
-            android:hint="شهر اتومبیل"
+            android:text="شهر اتومبیل"
             android:inputType="text"
             android:maxLength="20"
             android:textColor="@color/highLightBlue"
@@ -61,16 +62,34 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/carCityRecyclerView"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="vertical"
-        android:layoutAnimation="@anim/layout_animation"
-        android:paddingLeft="7dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        android:paddingTop="1dp"
-        android:paddingRight="7dp"
-        android:paddingBottom="1dp" />
+        android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/carCityEmptyView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:fontFamily="@font/dima_moalem"
+            android:textColor="@color/highLightBlue"
+            android:textSize="18dp"
+            android:visibility="visible"
+            android:textStyle="normal"
+            android:text="ابتدا شهر اتومبیل را وارد کنید"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/carCityRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"
+            android:layoutAnimation="@anim/layout_animation"
+            android:paddingLeft="7dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:paddingTop="1dp"
+            android:paddingRight="7dp"
+            android:paddingBottom="1dp" />
+
+    </LinearLayout>
 </LinearLayout>
