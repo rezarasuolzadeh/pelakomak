@@ -89,7 +89,7 @@
             android:paddingTop="1dp"
             android:paddingRight="7dp"
             android:paddingBottom="1dp"
-            android:scrollbars="vertical"
+            android:scrollbars="none"
             android:visibility="gone"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
