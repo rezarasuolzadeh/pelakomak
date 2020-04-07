@@ -33,7 +33,7 @@
             android:fontFamily="@font/dima_moalem"
             android:gravity="right"
             android:padding="5dp"
-            android:text="رفع ایرادات جزئی برنامه"
+            android:text="اضافه شدن جستجوی استان ها"
             android:textColor="@color/white"
             android:textSize="18dp"
             android:textStyle="normal" />
@@ -60,34 +60,7 @@
             android:fontFamily="@font/dima_moalem"
             android:gravity="right"
             android:padding="5dp"
-            android:text="اضافه شدن نقشه برای پلاک ها"
-            android:textColor="@color/white"
-            android:textSize="18dp"
-            android:textStyle="normal" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layoutDirection="rtl"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:padding="19dp"
-            android:src="@drawable/ic_dot" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:fontFamily="@font/dima_moalem"
-            android:gravity="right"
-            android:padding="5dp"
-            android:text="ویرایش پلاک ها"
+            android:text="اضافه شدن شهرستان برای پلاک اتومبیل"
             android:textColor="@color/white"
             android:textSize="18dp"
             android:textStyle="normal" />
