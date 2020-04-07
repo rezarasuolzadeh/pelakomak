@@ -10,22 +10,20 @@ import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import android.widget.TextView.OnEditorActionListener
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import ir.rezarasoulzadeh.pelakomak.R
 import ir.rezarasoulzadeh.pelakomak.model.Car
-import ir.rezarasoulzadeh.pelakomak.service.database.CarNumberplateDB
+import ir.rezarasoulzadeh.pelakomak.service.database.CarDatabase
 import ir.rezarasoulzadeh.pelakomak.view.adapter.CarAdapter
 import kotlinx.android.synthetic.main.activity_for_car_city.*
-import kotlinx.android.synthetic.main.dialog_for_news.view.*
 import kotlinx.android.synthetic.main.dialog_for_no_location.view.*
 
 
 class CarCityActivity : AppCompatActivity() {
 
-    private lateinit var carDatabase: CarNumberplateDB
+    private lateinit var carDatabase: CarDatabase
     private lateinit var carRecyclerView: RecyclerView
     private lateinit var carEmptyView: TextView
     private lateinit var adapter: CarAdapter
@@ -38,7 +36,7 @@ class CarCityActivity : AppCompatActivity() {
             super.onBackPressed()
         }
 
-        carDatabase = CarNumberplateDB(this)
+        carDatabase = CarDatabase(this)
 
         carRecyclerView = findViewById(R.id.carCityRecyclerView)
         carEmptyView = findViewById(R.id.carCityEmptyView)

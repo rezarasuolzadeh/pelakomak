@@ -1,28 +1,18 @@
 <resources>
-    <string name="app_name">Pelakomak</string>
 
-    <string name="navigationCarTitle">اتومبیل</string>
-    <string name="navigationMotorcycleTitle">موتورسیکلت</string>
-    <string name="navigationHomeTitle">پلاکمک</string>
-    <string name="navigationOtherTitle">سایر پلاک ها</string>
-    <string name="navigationFreezoneTitle">مناطق آزاد</string>
-
-    <string name="fragmentCarLabel">اتومبیل</string>
-    <string name="fragmentMotorcycleLabel">موتورسیکلت</string>
-    <string name="fragmentHomeLabel">پلاکمک</string>
-    <string name="fragmentOtherLabel">سایر پلاک ها</string>
-    <string name="fragmentFreezoneLabel">مناطق آزاد</string>
-
-    <string name="barcode">89692969</string>
-    <string name="msg_token_fmt">message token format</string>
+    <!-- Menu -->
     <string name="mailText">ارسال پیام</string>
     <string name="starText">امتیاز دهی</string>
     <string name="shareText">معرفی به دوستان</string>
     <string name="developerText">سایر برنامه ها</string>
 
+    <!-- Tokens -->
+    <string name="messageTokenFormat">message token format</string>
+
     <!-- Bazaar -->
-    <string name="bazaarPackage">ir.rezarasoulzadeh.pelakomak</string>
-    <string name="bazaarLink">http://cafebazaar.ir/app/?id=ir.rezarasoulzadeh.pelakomak&amp;ref=share</string>
-    <string name="bazaarId">027094212245</string>
+    <string name="bazaarStarLink">bazaar://details?id=ir.rezarasoulzadeh.pelakomak</string>
+    <string name="bazaarDeveloperLink">bazaar://collection?slug=by_author&amp;aid=027094212245</string>
+    <string name="bazaarShareLink">http://cafebazaar.ir/app/?id=ir.rezarasoulzadeh.pelakomak&amp;ref=shar</string>
+    <string name="bazaarPackage">com.farsitel.bazaar</string>
 
 </resources>

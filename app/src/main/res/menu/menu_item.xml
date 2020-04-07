@@ -1,23 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
     <group>
         <item
-            android:id="@+id/menuMailItem"
-            android:icon="@drawable/ic_mail"
-            android:title="@string/mailText"/>
-        <item
             android:id="@+id/menuStarItem"
-            android:icon="@drawable/ic_star"
+            android:icon="@drawable/ic_dot"
             android:title="@string/starText"/>
         <item
+            android:id="@+id/developerItem"
+            android:icon="@drawable/ic_dot"
+            android:title="@string/developerText"/>
+        <item
             android:id="@+id/menuShareItem"
-            android:icon="@drawable/ic_share"
+            android:icon="@drawable/ic_dot"
             android:title="@string/shareText"/>
         <item
-            android:id="@+id/developerItem"
-            android:icon="@drawable/ic_developer"
-            android:title="@string/developerText"/>
+            android:id="@+id/menuMailItem"
+            android:icon="@drawable/ic_dot"
+            android:title="@string/mailText"/>
     </group>
-
 </menu>

@@ -33,7 +33,7 @@
             android:background="@color/darkBlue"
             android:fontFamily="@font/dima_moalem"
             android:gravity="center"
-            android:text="شهر اتومبیل"
+            android:text="استان اتومبیل"
             android:inputType="text"
             android:maxLength="20"
             android:textColor="@color/highLightBlue"
@@ -77,7 +77,7 @@
             android:textSize="18dp"
             android:visibility="visible"
             android:textStyle="normal"
-            android:text="ابتدا شهر اتومبیل را در کادر بالا وارد کنید"/>
+            android:text="ابتدا استان اتومبیل را در کادر بالا وارد کنید"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/carCityRecyclerView"

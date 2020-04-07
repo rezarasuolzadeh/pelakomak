@@ -19,7 +19,7 @@ import android.widget.LinearLayout
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import ir.rezarasoulzadeh.pelakomak.R
-import ir.rezarasoulzadeh.pelakomak.service.database.CarNumberplateDB
+import ir.rezarasoulzadeh.pelakomak.service.database.CarDatabase
 import ir.rezarasoulzadeh.pelakomak.service.utils.CustomSnackbar
 import ir.rezarasoulzadeh.pelakomak.service.utils.StateMap
 import kotlinx.android.synthetic.main.activity_for_car.*
@@ -37,8 +37,6 @@ class CarActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_for_car)
-
-        val inflater = this.layoutInflater
 
         val carStateNumber = findViewById<EditText>(R.id.car_state_number)
         val carCountyCharacter = findViewById<EditText>(R.id.car_county_character)
@@ -162,12 +160,13 @@ class CarActivity : AppCompatActivity() {
         val dbResponse: String
 
         /////////////////////////////////// GIVE DATABASE RESPONSE /////////////////////////////////
-        val carDB = CarNumberplateDB(this)
+        val carDB = CarDatabase(this)
         dbResponse = carDB.get(stateNumber.text.toString(), countyCharacter.text.toString())
         ////////////////////////////////////////////////////////////////////////////////////////////
 
         if (dbResponse == "" || countyCharacter.text.toString() !in validCharacters) {
             carStateImageView.setImageResource(StateMap().getState(" "))
+            carCountyTextView.text = ""
 
             snackbar.show("پلاک نامعتبر می باشد", "long", parentView, this.layoutInflater)
 
@@ -185,7 +184,7 @@ class CarActivity : AppCompatActivity() {
         } else {
             val responseSections = dbResponse.split("-".toRegex())
             carStateImageView.setImageResource(StateMap().getState(responseSections[0]))
-            carCounty.text = responseSections[1]
+            carCountyTextView.text = responseSections[1]
         }
     }
 

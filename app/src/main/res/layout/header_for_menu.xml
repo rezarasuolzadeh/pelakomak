@@ -16,11 +16,11 @@
         android:layout_marginBottom="20dp"
         android:src="@drawable/ic_logo" />
 
-    <View
+    <!--<View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:background="@color/highLightBlue" />
+        android:background="@color/highLightBlue" />-->
 
 </LinearLayout>

@@ -9,9 +9,10 @@ import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
 
-class CarNumberplateDB(private val context: Context) {
+class CarDatabase(private val context: Context) {
 
-    private val DATABASE_PATH = ("/data/data/" + context.applicationContext.packageName + "/databases/")
+    private val DATABASE_PATH =
+        ("/data/data/" + context.applicationContext.packageName + "/databases/")
     private var database: SQLiteDatabase? = null
 
     companion object {
@@ -38,14 +39,12 @@ class CarNumberplateDB(private val context: Context) {
     fun createDatabase() {
         val databaseIsExist = checkDatabase()
         if (databaseIsExist) {
-            // database is exist :)
         } else {
             try {
                 copyDatabase()
             } catch (e: IOException) {
                 throw Error("Error copying database")
             }
-
         }
     }
 
@@ -64,24 +63,21 @@ class CarNumberplateDB(private val context: Context) {
 
     @Throws(IOException::class)
     private fun copyDatabase() {
-        //Open your local db as the input stream
         val databaseInput = context.assets.open("databases/$DATABASE_NAME")
 
-        //Open the empty db as the output stream
         val databaseDirectory = File(DATABASE_PATH)
         if (!databaseDirectory.exists()) {
             databaseDirectory.mkdirs()
         }
 
-        val databaseFile = File(databaseDirectory,
+        val databaseFile = File(
+            databaseDirectory,
             DATABASE_NAME
         )
         databaseFile.createNewFile()
 
-
         val databaseOutput = FileOutputStream(databaseFile)
 
-        // transfer byte to input file to output file
         val buffer = ByteArray(1024)
         var length: Int
         while (true) {
@@ -92,7 +88,6 @@ class CarNumberplateDB(private val context: Context) {
             databaseOutput.write(buffer, 0, length)
         }
 
-        //Close the streams
         databaseOutput.flush()
         databaseOutput.close()
         databaseInput.close()
@@ -100,14 +95,14 @@ class CarNumberplateDB(private val context: Context) {
 
     @Throws(SQLException::class)
     fun openDatabase() {
-        //Open the database
         val databasePath = DATABASE_PATH + DATABASE_NAME
         database = SQLiteDatabase.openDatabase(databasePath, null, SQLiteDatabase.OPEN_READWRITE)
     }
 
     fun get(number: String, character: String): String {
         var response = ""
-        val selectOneQuery = "SELECT * FROM $TABLE_NAME WHERE $NUMBER = \"$number\" AND $CHARACTER = \"$character\""
+        val selectOneQuery =
+            "SELECT * FROM $TABLE_NAME WHERE $NUMBER = \"$number\" AND $CHARACTER = \"$character\""
 
         val cursor = database?.rawQuery(selectOneQuery, null)
         if (cursor != null) {
@@ -126,12 +121,16 @@ class CarNumberplateDB(private val context: Context) {
             val secondCursor = database?.rawQuery(secondSelectOneQuery, null)
             if (secondCursor != null) {
                 if (secondCursor.moveToFirst()) {
-                    val state = secondCursor.getString(secondCursor.getColumnIndex(
-                        STATE
-                    ))
-                    val county = secondCursor.getString(secondCursor.getColumnIndex(
-                        COUNTY
-                    ))
+                    val state = secondCursor.getString(
+                        secondCursor.getColumnIndex(
+                            STATE
+                        )
+                    )
+                    val county = secondCursor.getString(
+                        secondCursor.getColumnIndex(
+                            COUNTY
+                        )
+                    )
 
                     secondResponse = "$state-$county"
                 }

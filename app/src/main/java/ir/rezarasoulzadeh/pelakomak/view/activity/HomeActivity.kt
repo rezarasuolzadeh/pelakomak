@@ -60,8 +60,8 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         menuList.add(Menu("پلاک موتورسیکلت", 2, R.drawable.ic_motorcycle))
         menuList.add(Menu("سایر پلاک ها", 3, R.drawable.ic_other))
         menuList.add(Menu("پلاک مناطق آزاد", 4, R.drawable.ic_freezone))
-        menuList.add(Menu("شهر اتومبیل", 5, R.drawable.ic_map))
-        menuList.add(Menu("شهر موتورسیکلت", 6, R.drawable.ic_map))
+        menuList.add(Menu("استان اتومبیل", 5, R.drawable.ic_map))
+        menuList.add(Menu("استان موتورسیکلت", 6, R.drawable.ic_map))
 
         adapter = ir.rezarasoulzadeh.pelakomak.view.adapter.MenuAdapter(menuList)
 
@@ -114,7 +114,6 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     @SuppressLint("StringFormatInvalid")
     private fun fireBaseChannelId() {
-        // find the token of notification chanel id
         FirebaseInstanceId.getInstance().instanceId
             .addOnCompleteListener(OnCompleteListener { task ->
                 if (!task.isSuccessful) {
@@ -122,11 +121,9 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     return@OnCompleteListener
                 }
 
-                // Get new Instance ID token
                 val token = task.result?.token
 
-                // Log and toast
-                val msg = getString(R.string.msg_token_fmt, token)
+                val msg = getString(R.string.messageTokenFormat, token)
                 Log.d("tag", msg)
                 Toast.makeText(baseContext, token, Toast.LENGTH_SHORT).show()
 
@@ -143,14 +140,13 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 intent.data = Uri.parse("mailto:")
                 intent.putExtra(Intent.EXTRA_EMAIL, arrayOf("reza.rassoulzadeh@gmail.com"))
                 intent.putExtra(Intent.EXTRA_SUBJECT, "پلاکمک")
-                startActivity(Intent.createChooser(intent, "ارسال پیام از طریق:"))
+                startActivity(Intent.createChooser(intent, null))
                 drawerLayout.closeDrawer(Gravity.RIGHT)
             }
             R.id.menuStarItem -> {
                 try {
                     val intent = Intent(Intent.ACTION_EDIT)
-                    intent.data =
-                        Uri.parse("bazaar://details?id=" + this.resources.getString(R.string.bazaarPackage))
+                    intent.data = Uri.parse(this.resources.getString(R.string.bazaarStarLink))
                     intent.setPackage("com.farsitel.bazaar")
                     startActivity(intent)
                     drawerLayout.closeDrawer(Gravity.RIGHT)
@@ -162,10 +158,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
             R.id.menuShareItem -> {
                 try {
-                    val productShareBody =
-                        "پلاکمک\nپلاک یاب حرفه ای برای هر وسیله نقلیه\nلینک نصب:\n" + this.resources.getString(
-                            R.string.bazaarLink
-                        )
+                    val productShareBody = "پلاکمک\nپلاک یاب حرفه ای برای هر وسیله نقلیه\nلینک نصب:\n" + this.resources.getString(R.string.bazaarShareLink)
                     val productShareIntent = Intent(Intent.ACTION_SEND)
                     productShareIntent.type = "text/plain"
                     productShareIntent.putExtra(Intent.EXTRA_SUBJECT, "پلاکمک")
@@ -179,13 +172,8 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.developerItem -> {
                 try {
                     val intent = Intent(Intent.ACTION_VIEW)
-                    intent.data =
-                        Uri.parse(
-                            "bazaar://collection?slug=by_author&aid=" + this.resources.getString(
-                                R.string.bazaarId
-                            )
-                        )
-                    intent.setPackage("com.farsitel.bazaar")
+                    intent.data = Uri.parse(this.resources.getString(R.string.bazaarDeveloperLink))
+                    intent.setPackage(this.resources.getString(R.string.bazaarPackage))
                     startActivity(intent)
                     drawerLayout.closeDrawer(Gravity.RIGHT)
                 } catch (e: Exception) {
