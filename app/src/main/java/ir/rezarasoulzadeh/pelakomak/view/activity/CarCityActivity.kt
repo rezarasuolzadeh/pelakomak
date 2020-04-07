@@ -1,13 +1,17 @@
 package ir.rezarasoulzadeh.pelakomak.view.activity
 
 import android.app.Activity
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import android.widget.TextView.OnEditorActionListener
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import ir.rezarasoulzadeh.pelakomak.R
@@ -15,6 +19,8 @@ import ir.rezarasoulzadeh.pelakomak.model.Car
 import ir.rezarasoulzadeh.pelakomak.service.database.CarNumberplateDB
 import ir.rezarasoulzadeh.pelakomak.view.adapter.CarAdapter
 import kotlinx.android.synthetic.main.activity_for_car_city.*
+import kotlinx.android.synthetic.main.dialog_for_news.view.*
+import kotlinx.android.synthetic.main.dialog_for_no_location.view.*
 
 
 class CarCityActivity : AppCompatActivity() {
@@ -48,7 +54,21 @@ class CarCityActivity : AppCompatActivity() {
         searchButton.setOnClickListener {
             response = carDatabase.getCity(cityEditText.text.toString())
             if (response.isEmpty()) {
-                Toast.makeText(this, "نتیجه ای یافت نشد", Toast.LENGTH_LONG).show()
+                hideKeyboard(this)
+
+                val noLocationView = LayoutInflater.from(this).inflate(R.layout.dialog_for_no_location, null)
+
+                val noLocationViewBuilder = this.let { it1 -> AlertDialog.Builder(it1).setView(noLocationView) }
+
+                val noLocationAlertDialog = noLocationViewBuilder.show()
+
+                noLocationAlertDialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+                noLocationAlertDialog.setCanceledOnTouchOutside(false)
+
+                noLocationView.noLocationCloseButton.setOnClickListener {
+                    noLocationAlertDialog.dismiss()
+                }
             } else {
                 hideKeyboard(this)
                 adapter = CarAdapter(response)
@@ -64,7 +84,21 @@ class CarCityActivity : AppCompatActivity() {
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
                 response = carDatabase.getCity(cityEditText.text.toString())
                 if (response.isEmpty()) {
-                    Toast.makeText(this, "نتیجه ای یافت نشد", Toast.LENGTH_LONG).show()
+                    hideKeyboard(this)
+
+                    val noLocationView = LayoutInflater.from(this).inflate(R.layout.dialog_for_no_location, null)
+
+                    val noLocationViewBuilder = this.let { it1 -> AlertDialog.Builder(it1).setView(noLocationView) }
+
+                    val noLocationAlertDialog = noLocationViewBuilder.show()
+
+                    noLocationAlertDialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+                    noLocationAlertDialog.setCanceledOnTouchOutside(false)
+
+                    noLocationView.noLocationCloseButton.setOnClickListener {
+                        noLocationAlertDialog.dismiss()
+                    }
                 } else {
                     hideKeyboard(this)
                     adapter = CarAdapter(response)

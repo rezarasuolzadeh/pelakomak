@@ -74,7 +74,7 @@
             android:layout_height="match_parent"
             android:fontFamily="@font/dima_moalem"
             android:gravity="center"
-            android:text="ابتدا شهر موتورسیکلت را وارد کنید"
+            android:text="ابتدا شهر موتورسیکلت را در کادر بالا وارد کنید"
             android:textColor="@color/highLightBlue"
             android:textSize="18dp"
             android:textStyle="normal"
