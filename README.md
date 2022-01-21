@@ -10,8 +10,7 @@ This application gives useful information about to you about Iran's vehicles num
 
 ### shots
 <p float="left">
-    <img alt="Zekraneh" src="https://www.linkpicture.com/q/pelakomak_1.png"  width="200" height="370">
-    <img alt="Zekraneh" src="https://www.linkpicture.com/q/pelakomak_2.png"  width="200" height="370">
-    <img alt="Zekraneh" src="https://www.linkpicture.com/q/pelakomak_3.png"  width="200" height="370">
-    <img alt="Zekraneh" src="https://www.linkpicture.com/q/pelakomak_4.png"  width="200" height="370">
+    <img alt="Pelakomak" src="/shots/shot_1.png"  width="180" height="380"> 
+    <img alt="Pelakomak" src="/shots/shot_2.png"  width="180" height="380">
+    <img alt="Pelakomak" src="/shots/shot_3.png"  width="180" height="380"> 
 </p>
